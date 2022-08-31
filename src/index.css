@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #141415 !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header-logo{
+  max-width: 200px !important;
+}
+
+.gamecard-container{
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+.cuberun-game-container{
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+  width: 100%;
+  max-height: 400px;
+}
+.cuberun-from-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch;
+  font-family: 'Commando', Inconsolata, monospace;
+  color: #fe2079;
+  padding: 0 5%;
+  margin-top: 1rem;
+}
+
+.cuberun-from-container h1{
+font-size: 1.5rem;
+}
+.cuberun-from-container  .game-form-control{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+.cuberun-from-container input{
+width: 100%;
+padding: 3px 1rem;
+border: none;
+font-size: 1rem;
+border-radius: 5px;
+}
+.cuberun-from-container label{
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+.cuberun-from-container button{
+width: 100%;
+border-radius: 5px;
+padding: 5px 1rem;
+border: none;
+font-size: 1rem;
+background-color: #fe2079;
+color: white;
+}
+.cuberun-from-container button:hover{
+  cursor: pointer;
+}
+
+.leaderboard-container{
+  width: 100%;
+  height:100%;
+  max-height: 400px;
+  color: black;
+  overflow-y: auto;
+  background-color: #141415;
+} 
+.leaderboard-container table{
+  width: 100%;
+  color: white;
+}
+.leaderboard-container table tr{
+border-bottom: 1px solid silver;
+}
+.leaderboard-container table tr:nth-child(1){
+  border-bottom: 2px solid silver;
+  color: #6c02d7 !important;
+}
+
+
+th,td{
+  text-align: center;
+}
+.leaderboard-container .score-row .wallet-address{
+overflow: hidden;
+white-space: nowrap;
+max-width: 4rem;
+width: 4rem;
+text-overflow: ellipsis;
+}
+.submit-info{
+  color: #fe2079;
+  font-weight: 500;
+  font-size: 3rem;
+  font-family: 'Commando', Inconsolata, monospace;
+}
+
+.custom-alert-container{
+  position: fixed;  
+  top: 1rem;
+  right: 2%;
+  z-index: 100000;
+color: black;
+}

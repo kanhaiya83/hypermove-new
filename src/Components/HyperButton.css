@@ -1,0 +1,26 @@
+.purple-btn {
+    background: #6c02d7 !important;
+    border-radius: 30px !important;
+    font-weight: 300 !important;
+    gap: 10px;
+    padding: 10px 40px !important;
+    transition: .8s !important;
+    /* font-family: 'Nevan' !important; */
+}
+
+.purple-btn:hover {
+    background: #6c02d7 !important;
+    box-shadow: 0 0 20px rgb(196 1 215 / 60%) !important;
+    transition: .6s !important;
+}
+
+.dark-btn, .dark-btn:hover {
+    border: none !important;
+    border-radius: 30px !important;
+    gap: 10px !important;
+    padding: 5px 30px !important;
+}
+.dark-btn {
+    background: #000 !important;
+    color: #6c02d7 !important;
+}

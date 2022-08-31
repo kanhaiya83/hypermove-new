@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Nevan';
+    src: local('Neavm'),
+         url('../public/assets/fonts/Nevan.ttf') format('truetype'),
+         url('../public/assets/fonts/Nevan.otf') format('otf');         
+            
+         
+}
+
+
+::-moz-selection { /* Code for Firefox */
+    color: #6c02d7;
+    /* background: rgb(247, 0, 255); */
+    background: white;
+  }
+  
+  ::selection {
+    color: #6c02d7;
+    /* background: rgb(247, 0, 255); */
+    background: white;
+    
+  }
+
+body{
+    color: #fff !important;
+    overflow-x: hidden;
+    font-size: 1.2rem !important;
+    font-weight: 300 !important;
+}
+
+.section-heading{
+    font-size: 3rem;
+}
+
+.purple-text {
+    color: #6c02d7 !important;
+    padding: 1px;
+}
+
+.nevan{
+    font-family: 'Nevan' !important;
+}
+
+.pstart{
+    font-family: PrStart;
+}
+
+
+.glow-purple{
+    filter: drop-shadow(0px 0px 10px rgba(143, 0, 255, 0.65));
+}

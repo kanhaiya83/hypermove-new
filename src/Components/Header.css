@@ -1,0 +1,17 @@
+nav.main-menu {
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
+    background-color: rgba(0,0,0,.4) !important;
+}
+
+.nav-link{
+    color: #fff !important;
+}
+
+.mobile-toggle-btn{
+    color:#fff;
+    background-color: #2a2a2a !important;
+}
+
+
+
