@@ -85,7 +85,7 @@ const PartnersLogosContainer=({filter})=>{
         },
         {
             image:"./assets/images/partners/WINGSTEP.png",
-            tags:["all","wallet"]
+            tags:["all","wallet","defi"]
         },
     ]
     const filteredLogos=partnersLogos.filter(logo=>{
