@@ -199,6 +199,7 @@ max-height: 80px !important;
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-gap: 4rem 5%;
+    justify-content: center;
 }
 .logos-container .logo-img {
     display: flex;
