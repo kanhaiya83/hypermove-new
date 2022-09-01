@@ -48,7 +48,6 @@ const [lat, setLat] = useState(40.72);
 const [zoom, setZoom] = useState(15);
 
 useEffect(() => {
-  return;
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
     container: mapContainer.current,
