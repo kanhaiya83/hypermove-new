@@ -57,10 +57,11 @@ const Header = (props) => {
             <Navbar.Toggle aria-controls="navbarScroll" className="mobile-toggle-btn"/>
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0">
-            <NavMenuLinks href="#" text="Play-to-Earn"/>
-            <NavMenuLinks href="#" text="Move-to-Earn"/>
-            <NavMenuLinks href="#" text="NFT Marketplace"/>
-            <NavMenuLinks href="#" text="METAVERSE"/> 
+            
+          <NavMenuLinks href="/play-to-earn" text="Play-to-Earn"/>
+                <NavMenuLinks href="/move-to-earn" text="Move-to-Earn"/>
+                <NavMenuLinks href="/nft-marketplace" text="NFT Marketplace"/>
+                <NavMenuLinks href="/metaverse" text="METAVERSE"/>   
           </Nav>
           
         </Navbar.Collapse>
