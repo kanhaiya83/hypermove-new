@@ -191,6 +191,7 @@ max-height: 80px !important;
     text-transform: uppercase;
     padding: 0.3rem 2rem;
     margin: 0.5rem 0.5rem;
+    border: none;
     border-radius: 8px;
 }
 
@@ -380,13 +381,16 @@ transform: translateX(-50%);
         grid-template-columns: repeat(3,1fr);
     
     }
+    .logos-container{
+        grid-template-columns: repeat(5,1fr);
+    }
 }
 @media only screen and (max-width: 1000px){
     .team-list{
         grid-template-columns: repeat(4,1fr);
     }
     .logos-container{
-        grid-template-columns: repeat(5,1fr);
+        grid-template-columns: repeat(4,1fr);
     }
     
 }
@@ -395,6 +399,9 @@ transform: translateX(-50%);
         grid-template-columns: repeat(3,1fr);
     }
     
+    .logos-container{
+        grid-template-columns: repeat(3,1fr);
+    }
     .roadmap-section-row{
         grid-template-columns: repeat(2,1fr);
     
@@ -409,7 +416,7 @@ transform: translateX(-50%);
     }
     
     .logos-container{
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(2,1fr);
         grid-gap: 1.5rem 5%;
     }
     
