@@ -418,7 +418,7 @@ useEffect(() => {
 <h2 className="nevan section-heading py-2 py-md-3">SNEAKER NFTs</h2>
 
 <Col xs={12} md={6}>
-<div className="row row-cols-2">
+<div className="row row-cols-1 row-cols-md-2 ">
 <div>
 <iframe id="shoe01" src="https://app.vectary.com/p/1aElzxjuWZNe1OSFrJDq6J" frameborder="0" width="100%" height="480"></iframe>
 
