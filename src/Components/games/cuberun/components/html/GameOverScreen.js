@@ -129,7 +129,7 @@ catch(e){
             <div className="game-form-control">
               
             <label htmlFor="game-wallet-address">Wallet Address</label>
-            <input type="text" name="game-wallet-address"/>
+            <input type="text" name="game-wallet-address" minLength="16" maxLength="16"/>
             </div>
             <button role="submit">{showLoader?"Loading..":"Submit"}</button>
           </form>
