@@ -11,6 +11,7 @@
     width: fit-content;
     margin: 35vh auto 50vh;
     position: relative;
+    text-align:center ;
 }
 .coming-soon-msg h1{
     font-size: 3rem;

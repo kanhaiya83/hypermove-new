@@ -48,6 +48,7 @@ const [lat, setLat] = useState(40.72);
 const [zoom, setZoom] = useState(15);
 
 useEffect(() => {
+  return;
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
     container: mapContainer.current,
@@ -447,11 +448,13 @@ useEffect(() => {
 
 </Row>
 
+</Container>
 
-<Row className="py-5 roadmap-section text-center align-items-center overflow-hidden position-relative">
+<div className="py-5 roadmap-section text-center align-items-center overflow-hidden position-relative">
 <RoadmapSection/>
 
-</Row>
+</div>
+<Container>
 
 <Row className="py-5 partners-section text-center align-items-center">
 <PartnersSection/>

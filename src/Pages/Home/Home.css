@@ -209,11 +209,19 @@ max-height: 80px !important;
 .logos-container .logo-img img{
     width: 100% ;
 }
-.roadmap-section-row-1{
-    display: flex;
+.roadmap-section-row{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
     align-items: center;
+    grid-gap: 1.5rem;
     margin-bottom: 2rem;
-    position: relative;
+}
+.roadmap-section-row .item-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 .roadmap-section-row-1::before{
     width: 95%;
@@ -234,6 +242,9 @@ max-height: 80px !important;
     width: 100%;
     opacity: 0.75 ;
     z-index :-1;
+}
+.waves-image-wrapper img{
+    width: 100%;
 }
 .circular-title-wrapper{
     width: 100%;
@@ -286,21 +297,18 @@ transform: translateX(-50%);
 }
 
 
-.roadmap-section-row-2{
-    display: flex;
-    align-items: center;
-margin-top: 1rem!important;
-}
-.roadmap-section-row-2 .text-list{
+.roadmap-section-row .text-list{
     width: 100%;
     background-color: black;
     border-radius: 15px;
     color: white;
-    padding: 1rem 3%;
-    margin: 0 1rem;
+    padding: 1rem 10%;
+    margin: 3rem  1rem 0;
+
 }
 
-.roadmap-section-row-2 .text-list li{
+
+.roadmap-section-row .text-list li{
     width: fit-content;
 }
 
@@ -363,4 +371,51 @@ margin-top: 1rem!important;
     }
     
 
+}
+@media only screen and (max-width: 1200px){
+    .team-list{
+        grid-template-columns: repeat(5,1fr);
+    }
+    .roadmap-section-row{
+        grid-template-columns: repeat(3,1fr);
+    
+    }
+}
+@media only screen and (max-width: 1000px){
+    .team-list{
+        grid-template-columns: repeat(4,1fr);
+    }
+    .logos-container{
+        grid-template-columns: repeat(5,1fr);
+    }
+    
+}
+@media only screen and (max-width: 800px){
+    .team-list{
+        grid-template-columns: repeat(3,1fr);
+    }
+    
+    .roadmap-section-row{
+        grid-template-columns: repeat(2,1fr);
+    
+    }
+    .overlay-1,.overlay-2,.overlay-3,.overlay-4{
+        display: none;
+    }
+}
+@media only screen and (max-width: 600px){
+    .team-list{
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+    .logos-container{
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: 1.5rem 5%;
+    }
+    
+    .roadmap-section-row{
+        grid-template-columns: repeat(1,1fr);
+    
+    }
+    
 }
