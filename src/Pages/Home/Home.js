@@ -67,50 +67,50 @@ useEffect(() => {
 
     return(
         <React.Fragment>
-<Container fluid className="home-content">
-<Row className="hero-section text-center align-items-center">
-<div>
-<h1>BLOCKCHAIN's FINEST GAMING PLATFORM!</h1>
-<h3>Onboard HyperMove, Convert your daily activities into real-world cash and Maintain a healthier life-style.</h3>
-<div className="d-grid d-sm-flex p-3 mt-5 gap-3 text-center justify-content-center">
-<HyperButton variant="dark" className="purple-btn nevan" text="MOVE TO EARN"></HyperButton>
-<HyperButton variant="dark" className="purple-btn nevan" text="PLAY TO EARN"></HyperButton>
-<HyperButton variant="dark" className="purple-btn nevan" text="METAVERSE"></HyperButton>
-</div>
+  <Container fluid className="home-content">
+  <Row className="hero-section text-center align-items-center">
+  <div>
+  <h1>BLOCKCHAIN's FINEST GAMING PLATFORM!</h1>
+  <h3>Onboard HyperMove, Convert your daily activities into real-world cash and Maintain a healthier life-style.</h3>
+  <div className="d-grid d-sm-flex p-3 mt-5 gap-3 text-center justify-content-center">
+  <HyperButton variant="dark" className="purple-btn nevan" text="MOVE TO EARN"></HyperButton>
+  <HyperButton variant="dark" className="purple-btn nevan" text="PLAY TO EARN"></HyperButton>
+  <HyperButton variant="dark" className="purple-btn nevan" text="METAVERSE"></HyperButton>
+  </div>
 
-<div className="d-sm-flex p-3 gap-2 text-center justify-content-center">
-<HyperButton variant="dark" className="dark-btn me-2 mb-2 m-md-0" text="Whitepaper" icon={<RiFilePaper2Line/>}></HyperButton>
-<HyperButton variant="dark" className="dark-btn mb-2 m-md-0" text="Twitter" icon={<BsTwitter/>}></HyperButton>
-<HyperButton variant="dark" className="dark-btn me-2 mb-2 m-md-0" text="Discord" icon={<FaDiscord/>}></HyperButton>
-<HyperButton variant="dark" className="dark-btn mb-2 m-md-0" text="Telegram" icon={<FaTelegramPlane/>}></HyperButton>
-<HyperButton variant="dark" className="dark-btn" text="Medium" icon={<BsMedium/>}></HyperButton>
-</div>
+  <div className="d-sm-flex p-3 gap-2 text-center justify-content-center">
+  <HyperButton variant="dark" className="dark-btn me-2 mb-2 m-md-0" text="Whitepaper" icon={<RiFilePaper2Line/>}></HyperButton>
+  <HyperButton variant="dark" className="dark-btn mb-2 m-md-0" text="Twitter" icon={<BsTwitter/>}></HyperButton>
+  <HyperButton variant="dark" className="dark-btn me-2 mb-2 m-md-0" text="Discord" icon={<FaDiscord/>}></HyperButton>
+  <HyperButton variant="dark" className="dark-btn mb-2 m-md-0" text="Telegram" icon={<FaTelegramPlane/>}></HyperButton>
+  <HyperButton variant="dark" className="dark-btn" text="Medium" icon={<BsMedium/>}></HyperButton>
+  </div>
 
-</div>
-</Row>
+  </div>
+  </Row>
 
-<Row className="marquee-content py-5">
-<Marquee className='brand-marquee nevan marquee-0' speed={300} gradient={false}>
-    <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
-    <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
-    <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div>
-    <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
-</Marquee>
-<Marquee className='brand-marquee nevan marquee-1' speed={200} gradient={false}>
-    <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
-    <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
-    <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div>
-    <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
-</Marquee>
-
-  <Marquee className='brand-marquee nevan marquee-2' speed={400} gradient={false}>
-    <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
-    <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
-    <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div>
-    <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
+  <Row className="marquee-content py-5">
+  <Marquee className='brand-marquee nevan marquee-0' speed={300} gradient={false}>
+      <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
+      <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
+      <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div>
+      <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
   </Marquee>
-</Row>
-</Container>
+  <Marquee className='brand-marquee nevan marquee-1' speed={200} gradient={false}>
+      <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
+      <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
+      <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div>
+      <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
+  </Marquee>
+
+    <Marquee className='brand-marquee nevan marquee-2' speed={400} gradient={false}>
+      <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
+      <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
+      <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div>
+      <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
+    </Marquee>
+  </Row>
+  </Container>
 
 <Container>
 
@@ -420,17 +420,17 @@ useEffect(() => {
 <Col xs={12} md={6}>
 <div className="row row-cols-2">
 <div>
-<iframe id="shoe01" src="https://app.vectary.com/p/5KsQddKRfN7jHvvEmXeOQo" frameborder="0" width="100%" height="480"></iframe>
+<iframe id="shoe01" src="https://app.vectary.com/p/1aElzxjuWZNe1OSFrJDq6J" frameborder="0" width="100%" height="480"></iframe>
 
-</div>
-<div>
-<iframe id="shoe02" src="https://app.vectary.com/p/3sfj38k8KWX1Xo04wgtqvA" frameborder="0" width="100%" height="480"></iframe>
-</div>
-<div>
-<iframe id="shoe03" src="https://app.vectary.com/p/3sfj38k8KWX1Xo04wgtqvA" frameborder="0" width="100%" height="480"></iframe>
-</div>
-<div>
-<iframe id="shoe04" src="https://app.vectary.com/p/3sfj38k8KWX1Xo04wgtqvA" frameborder="0" width="100%" height="480"></iframe>
+
+
+<iframe id="shoe02" src="https://app.vectary.com/p/33UdpimCRuQZuQQL66B21p" frameborder="0" width="100%" height="480"></iframe>
+
+
+<iframe id="shoe03" src="https://app.vectary.com/p/3wy3jxchbGO4w9CgyBINyS" frameborder="0" width="100%" height="480"></iframe>
+
+
+<iframe id="shoe04" src="https://app.vectary.com/p/2Ms4zNoKquPRSNNyeubI0l" frameborder="0" width="100%" height="480"></iframe>
 </div>
 
 
