@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Col, Image } from "react-bootstrap";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -23,18 +24,20 @@ const Header = (props) => {
           <Container>
           <Row className="flex-fill align-items-center d-none d-sm-flex">
           <Col xs={12} md={2} className="text-center">
-            <Navbar.Brand href="#home" className="">
+            <Navbar.Brand className="">
+              <Link to="/">
             <Image src="./assets/images/HM_NewLogo.png" fluid className="header-logo "/>
+            </Link>
             </Navbar.Brand>
           </Col>
           <Col xs={12} md={10}>
          <div className="d-flex">
               <Nav className="flex-fill justify-content-center" >
                 
-                <NavMenuLinks href="#" text="Play-to-Earn"/>
-                <NavMenuLinks href="#" text="Move-to-Earn"/>
-                <NavMenuLinks href="#" text="NFT Marketplace"/>
-                <NavMenuLinks href="#" text="METAVERSE"/>           
+                <NavMenuLinks href="/play-to-earn" text="Play-to-Earn"/>
+                <NavMenuLinks href="/move-to-earn" text="Move-to-Earn"/>
+                <NavMenuLinks href="/nft-marketplace" text="NFT Marketplace"/>
+                <NavMenuLinks href="/metaverse" text="METAVERSE"/>           
 
 
 

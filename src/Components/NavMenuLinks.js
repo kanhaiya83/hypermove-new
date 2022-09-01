@@ -1,7 +1,6 @@
 import React from "react";
-
+import { Link } from "react-router-dom"
 import Nav from 'react-bootstrap/Nav';
-
 
 
 import './NavMenuLinks.css';
@@ -13,7 +12,7 @@ const NavMenuLinks = (props) => {
 
           
         <Nav.Item>
-              <Nav.Link href={props.href}>{props.text}</Nav.Link>
+              <Link className="nav-link" to={props.href}>{props.text}</Link>
               </Nav.Item>    
               
            

@@ -12,7 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.nav-link{
+  text-decoration: none;
+  color: inherit;
+}
 .header-logo{
   max-width: 200px !important;
 }

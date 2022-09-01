@@ -9,17 +9,20 @@ import HyperMove from './HyperMove';
 
 import ScoresProvider from "./context/leaderBoard"
 import AlertProvider from "./context/alert"
-import AlertComponent from './Components/Alert';
 
-
+import {
+  BrowserRouter,
+} from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
         <ScoresProvider>
 <AlertProvider>
     <HyperMove/>
     </AlertProvider>
     </ScoresProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

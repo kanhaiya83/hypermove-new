@@ -28,6 +28,9 @@ import 'swiper/css/navigation';
   import 'swiper/css/effect-cards';
   import 'mapbox-gl/dist/mapbox-gl.css';
 import './Home.css';
+import TeamSection from "./TeamSection";
+import PartnersSection from "./PartnersSection";
+import RoadmapSection from "./RoadmapSection";
 
 
 // import 'https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css';
@@ -437,98 +440,21 @@ useEffect(() => {
 </Col>
 </Row>
 
-<Row className="py-5 team-section text-center align-items-center">
-<h2 className="nevan section-heading py-2 py-md-3">THE TEAM</h2>
 
-<div className="row row-cols-2 row-cols-md-6 g-2 g-md-5 justify-content-center">
-    <div className="d-felx">
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div className="d-felx">
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div className="d-felx">
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-    <div>
-    <Image src="./assets/images/team/team01.png" fluid/>
-    <h4 className="team-mem-name">ALFRED</h4>
-    <h6 className="designation">CEO</h6>
-    </div>
-</div>
+
+<Row className="py-5 team-section text-center align-items-center">
+<TeamSection/>
+
 </Row>
 
 
+<Row className="py-5 roadmap-section text-center align-items-center overflow-hidden position-relative">
+<RoadmapSection/>
+
+</Row>
+
 <Row className="py-5 partners-section text-center align-items-center">
-<h2 className="nevan section-heading py-2 py-md-3">PARTNERS</h2>
-
-
+<PartnersSection/>
 </Row>
 
 

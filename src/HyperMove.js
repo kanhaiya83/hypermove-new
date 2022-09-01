@@ -1,10 +1,15 @@
 import React from "react";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-
+import {
+    Routes,
+    Route,
+  } from "react-router-dom";
 import './HyperMove.css';
 import HomePage from "./Pages/Home/Home";
 import AlertComponent from "./Components/Alert";
+import ComingSoon from "./Pages/ComingSoon";
+
 const HyperMove = (props) => {
 
     return(
@@ -12,7 +17,13 @@ const HyperMove = (props) => {
   <AlertComponent/>
 
 <Header/>
-<HomePage/>
+<Routes>
+<Route path="/" element={<HomePage/>}/>
+<Route path="/play-to-earn" element={<ComingSoon/>}/>
+<Route path="/move-to-earn" element={<ComingSoon/>}/>
+<Route path="/nft-marketplace" element={<ComingSoon/>}/>
+<Route path="/metaverse" element={<ComingSoon/>}/>
+</Routes>
 <Footer/>
 </React.Fragment>
     );
