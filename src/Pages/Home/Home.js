@@ -48,6 +48,7 @@ const [lat, setLat] = useState(40.72);
 const [zoom, setZoom] = useState(15);
 
 useEffect(() => {
+  return;
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
     container: mapContainer.current,
@@ -421,12 +422,18 @@ useEffect(() => {
 <div>
 <iframe id="shoe01" src="https://app.vectary.com/p/1aElzxjuWZNe1OSFrJDq6J" frameborder="0" width="100%" height="480"></iframe>
 
+</div>
+<div>
 
 
 <iframe id="shoe02" src="https://app.vectary.com/p/33UdpimCRuQZuQQL66B21p" frameborder="0" width="100%" height="480"></iframe>
+</div>
+<div>
 
 
 <iframe id="shoe03" src="https://app.vectary.com/p/3wy3jxchbGO4w9CgyBINyS" frameborder="0" width="100%" height="480"></iframe>
+</div>
+<div>
 
 
 <iframe id="shoe04" src="https://app.vectary.com/p/2Ms4zNoKquPRSNNyeubI0l" frameborder="0" width="100%" height="480"></iframe>
