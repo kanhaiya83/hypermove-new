@@ -32,7 +32,7 @@ const RoadmapSection=()=>{
         <div className="item-wrapper">
     <div className="circular-title-wrapper">
     <div className="circular-title">
-        <h2>Q2</h2>
+        <h2>Q3</h2>
         <h4>2022</h4>
     </div>
     </div>
@@ -47,7 +47,7 @@ const RoadmapSection=()=>{
         <div className="item-wrapper">
     <div className="circular-title-wrapper">
     <div className="circular-title">
-        <h2>Q2</h2>
+        <h2>Q4</h2>
         <h4>2022</h4>
     </div>
     </div>
@@ -62,8 +62,8 @@ const RoadmapSection=()=>{
         <div className="item-wrapper">
     <div className="circular-title-wrapper">
     <div className="circular-title">
-        <h2>Q2</h2>
-        <h4>2022</h4>
+        <h2>Q1</h2>
+        <h4>2023</h4>
     </div>
     </div>
     <ul className="text-list">
