@@ -67,7 +67,7 @@ useEffect(() => {
 
     return(
         <React.Fragment>
-  {/* <Container fluid className="home-content">
+  <Container fluid className="home-content">
   <Row className="hero-section text-center align-items-center">
   <div>
   <h1>BLOCKCHAIN's FINEST GAMING PLATFORM!</h1>
@@ -110,7 +110,7 @@ useEffect(() => {
       <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
     </Marquee>
   </Row>
-  </Container> */}
+  </Container>
 
 <Container>
 
@@ -134,7 +134,7 @@ useEffect(() => {
     </Col>
 
 </Row>
-{/* 
+
 <Row className="create-avatar-section py-5 align-items-center">
 <Col xs={12} md={6}>
 <h2 className="nevan section-heading py-2 py-md-3">INTO THE METAVERSE</h2>
@@ -461,7 +461,7 @@ useEffect(() => {
 
 <Row className="py-5 partners-section text-center align-items-center">
 <PartnersSection/>
-</Row> */}
+</Row>
 
 
 </Container>
