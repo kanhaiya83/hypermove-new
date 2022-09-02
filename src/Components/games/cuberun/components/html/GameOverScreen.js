@@ -111,6 +111,7 @@ catch(e){
   setShowLoader(false)
 }
 }
+
   return shown ? (
     <div className="game__container" style={{ opacity: shown ? 1 : 0, background: opaque ? '#141622FF' : '#141622CC' }}>
       <div className="game__menu">
@@ -126,7 +127,10 @@ catch(e){
       <>
         <h3 className="submit-info">Successfully Submitted</h3>
         <button className="game__menu-button" onClick={handleRestart}>Restart</button></>
-      :  <div className="cuberun-from-container">
+      : <>
+        <button className="game__menu-button restart-btn" onClick={handleRestart}>Restart</button>
+       <div className="cuberun-from-container">
+
           <h1>Fill to Participate:</h1>
           <form onSubmit={handleSubmit}>
             <div className="game-form-control">
@@ -141,8 +145,8 @@ catch(e){
             </div>
             <button role="submit">{showLoader?"Loading..":"Submit"}</button>
           </form>
-        </div>}
-        {/* <button onClick={handleRestart} className="game__menu-button">RESTART</button> */}
+        </div>
+        </>}
       </div>
     </div>
   ) : null

@@ -64,10 +64,9 @@
 .game__score-gameover {
   color: #fe2079;
   font-family: 'Commando', Inconsolata, monospace;
-  font-size: 2.2rem;
+  font-size: 2rem;
   text-shadow: 0 0 10px #fe2079;
   margin: 0;
-  margin-bottom: 0.5rem;
 }
 
 .game__score-title {
@@ -84,14 +83,13 @@
 .game__score {
   color: #eee;
   font-family: 'Commando', Inconsolata, monospace;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 500;
   text-align: center;
   text-shadow: 0 0 20px #fe2079;
   margin: 0;
 
 }
-
 .game__scorecontainer {
   display: flex;
   flex-direction: row;
@@ -136,6 +134,10 @@
   font-size: 3rem;
   color: #fe2079;
   text-shadow: 0 0 40px #fe2079;
+}
+
+.restart-btn{
+  font-size: 2rem!important;
 }
 
 .game__menu-button-music {
