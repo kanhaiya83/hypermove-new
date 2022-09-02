@@ -23,6 +23,9 @@
   transition: background-color 1000ms ease;
   z-index: 1000;
   }
+  .game__menu{
+    overflow-y: auto;
+  }
 
 .game__subcontainer {
   margin: 0rem;
