@@ -32,6 +32,7 @@ import TeamSection from "./TeamSection";
 import PartnersSection from "./PartnersSection";
 import RoadmapSection from "./RoadmapSection";
 import CuberunGameContainer from "../../Components/CuberunGameContainer";
+import { Link } from "react-router-dom";
 
 
 // import 'https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css';
@@ -77,9 +78,9 @@ useEffect(() => {
   <h1>BLOCKCHAIN's FINEST GAMING PLATFORM!</h1>
   <h3>Onboard HyperMove, Convert your daily activities into real-world cash and Maintain a healthier life-style.</h3>
   <div className="d-grid d-sm-flex p-3 mt-5 gap-3 text-center justify-content-center">
-  <HyperButton href="/move-to-earn" variant="dark" className="purple-btn nevan" text="MOVE TO EARN"></HyperButton>
-  <HyperButton href="/play-to-earn" variant="dark" className="purple-btn nevan" text="PLAY TO EARN"></HyperButton>
-  <HyperButton href="/metaverse" variant="dark" className="purple-btn nevan" text="METAVERSE"></HyperButton>
+  <Link to="/move-to-earn">  <HyperButton href="/move-to-earn" variant="dark" className="purple-btn nevan" text="MOVE TO EARN"></HyperButton></Link>
+  <Link to="/play-to-earn"><HyperButton href="/play-to-earn" variant="dark" className="purple-btn nevan" text="PLAY TO EARN"></HyperButton></Link>
+  <Link to="/metaverse"><HyperButton href="/metaverse" variant="dark" className="purple-btn nevan" text="METAVERSE"></HyperButton></Link>
   </div>
 
   <div className="d-sm-flex p-3 gap-2 text-center justify-content-center">
