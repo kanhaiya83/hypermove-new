@@ -7,66 +7,18 @@ return (<div className="d-flex flex-column align-items-start team-member-card">
 }
 const TeamSection= ()=>{
     const TeamData=[
+        
         {
-            image:"./assets/images/team/Alfred.png",
-            name:"Alfred",
-            role:"CEO"
+            image:"./assets/images/team/Alok_mishra.png",
+            name:"Alok Mishra",
+            role:"Co-Founder"
         },
         {
-            image:"./assets/images/team/John.png",
-            name:"John",
-            role:"CTO"
+            image:"./assets/images/team/Abhi_kishore.png",
+            name:"Abhi Kishore",
+            role:"Co-Founder"
         },
-        {
-            image:"./assets/images/team/Alina.png",
-            name:"Alina",
-            role:"CFO"
-        },
-        {
-            image:"./assets/images/team/Kim.png",
-            name:"Kim",
-            role:"Analyst"
-        },
-        {
-            image:"./assets/images/team/Ronn.png",
-            name:"Ronn",
-            role:"Blockchain Dev"
-        },
-        {
-            image:"./assets/images/team/Alfred.png",
-            name:"Alfred",
-            role:"CEO"
-        },
-        {
-            image:"./assets/images/team/Sebestian.png",
-            name:"Sebestian",
-            role:"CMO"
-        },
-        {
-            image:"./assets/images/team/Tina.png",
-            name:"Tina",
-            role:"Web Dev"
-        },
-        {
-            image:"./assets/images/team/Denny.png",
-            name:"Denny",
-            role:"Marketing"
-        },
-        {
-            image:"./assets/images/team/Selly.png",
-            name:"Selly",
-            role:"Investor"
-        },
-        {
-            image:"./assets/images/team/Jake.png",
-            name:"Jake",
-            role:"Investor"
-        },
-        {
-            image:"./assets/images/team/Laura.png",
-            name:"Laura",
-            role:"Influencer"
-        },
+        
     ]
     const _TeamData=[
         {

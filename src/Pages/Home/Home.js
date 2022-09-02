@@ -53,12 +53,16 @@ useEffect(() => {
     map.current = new mapboxgl.Map({
     container: mapContainer.current,
     // style: 'mapbox://styles/mapbox/streets-v11',
-    style: 'mapbox://styles/pankaj9695/cl7bkf91q001i15nsbznuyrz0',
+    style: 'mapbox://styles/pankaj9695/cl7bkf91q001i15nsbznuyrz0?optimize=true',
     center: [lng, lat],
     zoom: zoom,
+    minzoom: 3,
+    maxzoom: 15,
     pitch:80,
     bearing: 80,
+    scrollZoom: false,
     });
+    
     });
 
 
@@ -73,17 +77,17 @@ useEffect(() => {
   <h1>BLOCKCHAIN's FINEST GAMING PLATFORM!</h1>
   <h3>Onboard HyperMove, Convert your daily activities into real-world cash and Maintain a healthier life-style.</h3>
   <div className="d-grid d-sm-flex p-3 mt-5 gap-3 text-center justify-content-center">
-  <HyperButton variant="dark" className="purple-btn nevan" text="MOVE TO EARN"></HyperButton>
-  <HyperButton variant="dark" className="purple-btn nevan" text="PLAY TO EARN"></HyperButton>
-  <HyperButton variant="dark" className="purple-btn nevan" text="METAVERSE"></HyperButton>
+  <HyperButton href="/move-to-earn" variant="dark" className="purple-btn nevan" text="MOVE TO EARN"></HyperButton>
+  <HyperButton href="/play-to-earn" variant="dark" className="purple-btn nevan" text="PLAY TO EARN"></HyperButton>
+  <HyperButton href="/metaverse" variant="dark" className="purple-btn nevan" text="METAVERSE"></HyperButton>
   </div>
 
   <div className="d-sm-flex p-3 gap-2 text-center justify-content-center">
-  <HyperButton variant="dark" className="dark-btn me-2 mb-2 m-md-0" text="Whitepaper" icon={<RiFilePaper2Line/>}></HyperButton>
-  <HyperButton variant="dark" className="dark-btn mb-2 m-md-0" text="Twitter" icon={<BsTwitter/>}></HyperButton>
+  <HyperButton href="https://hypermoveio.gitbook.io/welcome-to-gitbook-1" target="_blank" variant="dark" className="dark-btn me-2 mb-2 m-md-0" text="Whitepaper" icon={<RiFilePaper2Line/>}></HyperButton>
+  <HyperButton href="https://twitter.com/hypermove_io" target="_blank" variant="dark" className="dark-btn mb-2 m-md-0" text="Twitter" icon={<BsTwitter/>}></HyperButton>
   <HyperButton variant="dark" className="dark-btn me-2 mb-2 m-md-0" text="Discord" icon={<FaDiscord/>}></HyperButton>
-  <HyperButton variant="dark" className="dark-btn mb-2 m-md-0" text="Telegram" icon={<FaTelegramPlane/>}></HyperButton>
-  <HyperButton variant="dark" className="dark-btn" text="Medium" icon={<BsMedium/>}></HyperButton>
+  <HyperButton href="https://t.me/Hypermove_io" target="_blank" variant="dark" className="dark-btn mb-2 m-md-0" text="Telegram" icon={<FaTelegramPlane/>}></HyperButton>
+  <HyperButton href="https://medium.com/@hypermove" target="_blank" variant="dark" className="dark-btn" text="Medium" icon={<BsMedium/>}></HyperButton>
   </div>
 
   </div>
@@ -116,7 +120,7 @@ useEffect(() => {
 
 <Row className="game-section py-5 text-center g-5">
     <Col xs={12} md={4}>
-    <HyperButton variant="dark" className="dark-btn nevan mb-5" text="FINE ON MAP"/>
+    <HyperButton variant="dark" className="dark-btn nevan mb-5" text="TRACK YOUR MOVES"/>
     <div ref={mapContainer} className="map-container rounded-3" />
     </Col>
 
@@ -148,8 +152,8 @@ useEffect(() => {
 </div>
 
 </Col>
-<Col  className="text-center mobile-screen">
-<video playsinline autoplay="automplay" muted="muted" loop="loop">
+<Col  className="text-center mobile-screen p-3">
+<video playsinline autoplay="autoplay" muted="muted" loop="loop" className="mobile-video">
   
   <source src="../assets/movs/app2.webm" type="video/webm"/>
   <source src="../assets/movs/app2.mp4" type="video/mp4"/>
@@ -169,8 +173,8 @@ useEffect(() => {
 
 <Col xs={12} md={6}>
 <h2 className="nevan section-heading py-2 py-md-3">Create your avatar with one tap</h2>
-<p>We don't want to set these clouds on fire. I'm gonna start with a little Alizarin crimson and a touch of Prussian blue This is probably the greatest thing that's ever happened in my life. I'm going to mix up a little color. We'll use Van Dyke Brown, Permanent Red, and a little bit of Prussian Blue.</p>
-<HyperButton variant="dark" className="dark-btn nevan mb-5" text="CREATE AVATAR" href="https://hypermove.readyplayer.me/avatar" target="_blank"/>
+<p>HyperMove App is equipped with an hassle-free method to create and own an Avatar. Easy as it sounds, Create mesmerising avatars that best represents you with just a tap.</p>
+<HyperButton variant="dark" className="purple-btn nevan mb-5" text="CREATE AVATAR" href="https://hypermove.readyplayer.me/avatar" target="_blank"/>
 </Col>
 </Row>
 
@@ -190,7 +194,7 @@ useEffect(() => {
 </Col>
 
 <Col  className="text-center mobile-screen">
-<Image src="../assets/images/about.png" fluid className="app-scree"/>
+<Image src="../assets/images/about.png" fluid className="app-scree w-75"/>
 <Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
 </Col>
 </Row>
@@ -274,6 +278,14 @@ useEffect(() => {
     <SwiperSlide><Image src='./assets/images/app-screens/app6.png' className='img-fluid'/></SwiperSlide>
     <SwiperSlide><Image src='./assets/images/app-screens/app7.png' className='img-fluid'/></SwiperSlide>
     <SwiperSlide><Image src='./assets/images/app-screens/app8.png' className='img-fluid'/></SwiperSlide>
+    <SwiperSlide><Image src='./assets/images/app-screens/app9.png' className='img-fluid'/></SwiperSlide>
+    <SwiperSlide><Image src='./assets/images/app-screens/app10.png' className='img-fluid'/></SwiperSlide>
+    <SwiperSlide><Image src='./assets/images/app-screens/app11.png' className='img-fluid'/></SwiperSlide>
+    <SwiperSlide><Image src='./assets/images/app-screens/app12.png' className='img-fluid'/></SwiperSlide>
+    <SwiperSlide><Image src='./assets/images/app-screens/app13.png' className='img-fluid'/></SwiperSlide>
+    <SwiperSlide><Image src='./assets/images/app-screens/app14.png' className='img-fluid'/></SwiperSlide>
+    <SwiperSlide><Image src='./assets/images/app-screens/app15.png' className='img-fluid'/></SwiperSlide>
+    
   </Swiper>
 </Row>
 
@@ -321,8 +333,8 @@ useEffect(() => {
         <HyperButton className="like-btn" icon={<FaRegHeart />}/>
         </div>
         <div className="d-flex align-items-center justify-content-between py-2">
-        <span><AiOutlineLike/> 75%</span>
-        <span><RiUserHeartLine/> 45321</span>
+        <span>Coming Soon...</span>
+        
         </div>
         </Card.Body>
     </Card>  
@@ -336,8 +348,7 @@ useEffect(() => {
       <HyperButton className="like-btn" icon={<FaRegHeart />}/>
       </div>
       <div className="d-flex align-items-center justify-content-between py-2">
-      <span><AiOutlineLike/> 75%</span>
-      <span><RiUserHeartLine/> 45321</span>
+      <span>Coming Soon...</span>
       </div>
       </Card.Body>
   </Card>  
@@ -351,8 +362,7 @@ useEffect(() => {
     <HyperButton className="like-btn" icon={<FaRegHeart />}/>
     </div>
     <div className="d-flex align-items-center justify-content-between py-2">
-    <span><AiOutlineLike/> 75%</span>
-    <span><RiUserHeartLine/> 45321</span>
+    <span>Coming Soon...</span>
     </div>
     </Card.Body>
 </Card>  
@@ -366,8 +376,7 @@ useEffect(() => {
     <HyperButton className="like-btn" icon={<FaRegHeart />}/>
     </div>
     <div className="d-flex align-items-center justify-content-between py-2">
-    <span><AiOutlineLike/> 75%</span>
-    <span><RiUserHeartLine/> 45321</span>
+    <span>Coming Soon...</span>
     </div>
     </Card.Body>
 </Card>  
@@ -381,8 +390,7 @@ useEffect(() => {
     <HyperButton className="like-btn" icon={<FaRegHeart />}/>
     </div>
     <div className="d-flex align-items-center justify-content-between py-2">
-    <span><AiOutlineLike/> 75%</span>
-    <span><RiUserHeartLine/> 45321</span>
+    <span>Coming Soon...</span>
     </div>
     </Card.Body>
 </Card>  
@@ -396,8 +404,7 @@ useEffect(() => {
     <HyperButton className="like-btn" icon={<FaRegHeart />}/>
     </div>
     <div className="d-flex align-items-center justify-content-between py-2">
-    <span><AiOutlineLike/> 75%</span>
-    <span><RiUserHeartLine/> 45321</span>
+    <span>Coming Soon...</span>
     </div>
     </Card.Body>
 </Card>  
@@ -446,6 +453,151 @@ useEffect(() => {
 
 
 
+</Container>
+<Container fluid>
+<Row className="latest-nft text-center py-5">
+
+<h2 className="nevan section-heading py-2 py-md-5">LATEST NFTs</h2>
+<Swiper
+    modules={[Navigation, Pagination, Scrollbar, A11y, EffectCards, Autoplay  ]}
+    spaceBetween={250}
+    centeredSlides={true}
+    slidesPerView={2}
+    breakpoints={{
+        320: {
+        spaceBetween:10,
+        slidesPerView: 1
+        },
+        480:{
+            spaceBetween:20,
+            slidesPerView: 1 
+        },
+        640:{
+            spaceBetween:20,
+            slidesPerView: 6
+        },
+
+}}
+    speed={400}
+    loop={true}
+    grabCursor={true}
+    touchRatio={1.5}    
+    navigation={true}    
+    
+    autoplay={true}
+      
+    className="hyperSwiper"
+  >
+  <SwiperSlide>
+    <Card className="p-1 p-md-2 game-card text-white text-start">
+        <Card.Img variant="top" src="./assets/images/rangers/1.png" />
+        <Card.Body className="p-2">
+        <div className="d-flex align-items-center justify-content-between">
+        <Card.Title className="me-2 game-title">Walker</Card.Title>
+        <HyperButton className="like-btn" text="1-8 Km/Hr"/>
+        </div>
+        
+        </Card.Body>
+    </Card>  
+  </SwiperSlide>
+  <SwiperSlide>
+    <Card className="p-1 p-md-2 game-card text-white text-start">
+        <Card.Img variant="top" src="./assets/images/rangers/2.png" />
+        <Card.Body className="p-2">
+        <div className="d-flex align-items-center justify-content-between">
+        <Card.Title className="me-2 game-title">Walker</Card.Title>
+        <HyperButton className="like-btn" text="1-8 Km/Hr"/>
+        </div>
+        
+        </Card.Body>
+    </Card>  
+  </SwiperSlide>
+  <SwiperSlide>
+    <Card className="p-1 p-md-2 game-card text-white text-start">
+        <Card.Img variant="top" src="./assets/images/rangers/3.png" />
+        <Card.Body className="p-2">
+        <div className="d-flex align-items-center justify-content-between">
+        <Card.Title className="me-2 game-title">Jogger</Card.Title>
+        <HyperButton className="like-btn" text="8-12 Km/Hr"/>
+        </div>
+        
+        </Card.Body>
+    </Card>  
+  </SwiperSlide>
+  <SwiperSlide>
+    <Card className="p-1 p-md-2 game-card text-white text-start">
+        <Card.Img variant="top" src="./assets/images/rangers/4.png" />
+        <Card.Body className="p-2">
+        <div className="d-flex align-items-center justify-content-between">
+        <Card.Title className="me-2 game-title">Jogger</Card.Title>
+        <HyperButton className="like-btn" text="8-12 Km/Hr"/>
+        </div>
+        
+        </Card.Body>
+    </Card>  
+  </SwiperSlide>
+  <SwiperSlide>
+    <Card className="p-1 p-md-2 game-card text-white text-start">
+        <Card.Img variant="top" src="./assets/images/rangers/5.png" />
+        <Card.Body className="p-2">
+        <div className="d-flex align-items-center justify-content-between">
+        <Card.Title className="me-2 game-title">Sprinter</Card.Title>
+        <HyperButton className="like-btn" text="12-20 Km/Hr"/>
+        </div>
+        
+        </Card.Body>
+    </Card>  
+  </SwiperSlide>
+  <SwiperSlide>
+    <Card className="p-1 p-md-2 game-card text-white text-start">
+        <Card.Img variant="top" src="./assets/images/rangers/6.png" />
+        <Card.Body className="p-2">
+        <div className="d-flex align-items-center justify-content-between">
+        <Card.Title className="me-2 game-title">Sprinter</Card.Title>
+        <HyperButton className="like-btn" text="12-20 Km/Hr"/>
+        </div>
+        
+        </Card.Body>
+    </Card>  
+  </SwiperSlide>
+  <SwiperSlide>
+    <Card className="p-1 p-md-2 game-card text-white text-start">
+        <Card.Img variant="top" src="./assets/images/rangers/7.png" />
+        <Card.Body className="p-2">
+        <div className="d-flex align-items-center justify-content-between">
+        <Card.Title className="me-2 game-title">Trainer</Card.Title>
+        <HyperButton className="like-btn" text="1-20 Km/Hr"/>
+        </div>
+        
+        </Card.Body>
+    </Card>  
+  </SwiperSlide>
+  <SwiperSlide>
+    <Card className="p-1 p-md-2 game-card text-white text-start">
+        <Card.Img variant="top" src="./assets/images/rangers/8.png" />
+        <Card.Body className="p-2">
+        <div className="d-flex align-items-center justify-content-between">
+        <Card.Title className="me-2 game-title">Trainer</Card.Title>
+        <HyperButton className="like-btn" text="1-20 Km/Hr"/>
+        </div>
+        
+        </Card.Body>
+    </Card>  
+  </SwiperSlide>
+  
+
+
+
+ 
+    
+  </Swiper>
+
+</Row>
+</Container>
+
+
+
+<Container>
 <Row className="py-5 team-section text-center align-items-center">
 <TeamSection/>
 

@@ -1,0 +1,40 @@
+.footer{
+    background-color: black;
+    padding: 80px;
+}
+
+.connect-col ul{
+list-style: none;
+padding: 0;
+
+}
+
+.connect-col ul li{
+  margin: 20px 0px;
+    
+    }
+
+.connect-col ul p{
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.connect-col ul a:link{
+text-decoration: none;
+color: blueviolet;
+font-weight: 600;
+}
+
+.footer-social-icon{
+    padding: 10px 15px;
+    background-color: blueviolet;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.footer-social-icon:hover{
+    
+    background-color: rgb(87, 23, 146);
+    
+}
