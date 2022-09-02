@@ -33,7 +33,7 @@ const useStore = create((set, get) => {
   }
 })
 
-const mutation = {
+let  mutation = {
   gameOver: false,
   score: 0,
   gameSpeed: 0.0,
@@ -46,4 +46,17 @@ const mutation = {
   globalColor: new Color()
 }
 
-export { useStore, mutation }
+const resetMutation = ()=>{
+  
+  mutation={gameOver: false,
+    score: 0,
+    gameSpeed: 0.0,
+    desiredSpeed: 0.0,
+    horizontalVelocity: 0,
+    colorLevel: 0,
+    shouldShiftItems: false,
+    currentMusicLevel: 0,
+    currentLevelLength: 0,
+    globalColor: new Color()}
+}
+export { useStore, mutation ,resetMutation}

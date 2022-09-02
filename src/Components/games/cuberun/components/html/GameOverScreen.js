@@ -4,10 +4,10 @@ import cubeRunLogo from '../../textures/cuberun-logo.png'
 
 import '../../styles/gameMenu.css'
 
-import { useStore } from '../../state/useStore'
+import { resetMutation, useStore } from '../../state/useStore'
 import { useScoresContext } from '../../../../../context/leaderBoard'
 import { useAlertContext } from '../../../../../context/alert'
-const GameOverScreen = () => {
+const GameOverScreen = ({setShowGame}) => {
   const previousScores = localStorage.getItem('highscores') ? JSON.parse(localStorage.getItem('highscores')) : [...Array(3).fill(0)]
   const [shown, setShown] = useState(false)
   const [opaque, setOpaque] = useState(false)
@@ -16,6 +16,7 @@ const [showLoader,setShowLoader]=useState(false)
 const [isSubmitted,setIsSubmitted]=useState(false)
   const gameOver = useStore(s => s.gameOver)
   const score = useStore(s => s.score)
+  const {set}= useStore()
 
   const {setAlert}=useAlertContext()
 const {setScores}=useScoresContext()
@@ -46,8 +47,13 @@ const {setScores}=useScoresContext()
     }
   }, [gameOver, highScores, score])
 
-  const handleRestart = () => {
-    window.location.reload() // TODO: make a proper restart
+  const handleRestart = () => { 
+    setShowGame(false)
+    set(prev=>{
+      return { ...prev,score:0,level:0,gameOver:false,gameStarted:false, isSpeedingUp: false,hasInteracted: false}
+    })
+    resetMutation()
+    
   }
   const showAlert=(msg)=>{
     setAlert({show:true,message:msg})
@@ -117,7 +123,9 @@ catch(e){
          
         </div>
       {isSubmitted ?
+      <>
         <h3 className="submit-info">Successfully Submitted</h3>
+        <button onClick={handleRestart}>Restart</button></>
       :  <div className="cuberun-from-container">
           <h1>Fill to Participate:</h1>
           <form onSubmit={handleSubmit}>

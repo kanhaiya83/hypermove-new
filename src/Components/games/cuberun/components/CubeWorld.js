@@ -25,7 +25,7 @@ import Hud from './html/Hud'
 import GameOverScreen from './html/GameOverScreen'
 
 
-export default function CubeWorld({ color, bgColor }) {
+export default function CubeWorld({ color, bgColor ,setShowGame}) {
   const directionalLight = useStore((s) => s.directionalLight)
 
   return (
@@ -56,7 +56,7 @@ export default function CubeWorld({ color, bgColor }) {
         </Suspense>
       </Canvas>
       <Hud />
-      <GameOverScreen />
+      <GameOverScreen setShowGame={setShowGame}/>
       <Overlay />
     </>
   )
