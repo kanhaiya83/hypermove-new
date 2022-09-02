@@ -125,7 +125,7 @@ catch(e){
       {isSubmitted ?
       <>
         <h3 className="submit-info">Successfully Submitted</h3>
-        <button onClick={handleRestart}>Restart</button></>
+        <button className="game__menu-button" onClick={handleRestart}>Restart</button></>
       :  <div className="cuberun-from-container">
           <h1>Fill to Participate:</h1>
           <form onSubmit={handleSubmit}>
