@@ -5,88 +5,79 @@ const PartnersLogosContainer=({filter})=>{
     const partnersLogos=[
         {
             image:"./assets/images/partners/ACY_FINACE.png",
-            tags:["all","nft","wallet","infrastructure"]
+            tags:["all","launchpads"]
         },
         {
             image:"./assets/images/partners/ANTPAD.png",
-            tags:["all","nft","wallet","infrastructure"]
+            tags:["all","launchpads"]
         },
         {
             image:"./assets/images/partners/ASSURE.png",
-            tags:["all","nft","wallet","infrastructure"]
+            tags:["all","nft","wallet"]
         },
-        {
-            image:"./assets/images/partners/BABYSWAP.png",
-            tags:["all","nft","wallet","infrastructure"]
-        },
+        
         {
             image:"./assets/images/partners/BITKEEP.png",
-            tags:["all","nft","wallet","infrastructure"]
+            tags:["all","nft","wallet"]
         },
         {
             image:"./assets/images/partners/BRIGHTPAD.png",
-            tags:["all","nft","wallet","infrastructure"]
+            tags:["all","launchpads"]
         },
         {
             image:"./assets/images/partners/DIVINER_PROTOCOL.png",
-            tags:["all","nft","wallet"]
+            tags:["all","launchpads","incubator"]
         },
         {
             image:"./assets/images/partners/DONUT_CAPITAL.png",
-            tags:["all","infrastructure"]
+            tags:["all","infrastructure","Venture"]
         },
         {
             image:"./assets/images/partners/ERAX.png",
-            tags:["all","infrastructure"]
+            tags:["all","launchpads"]
         },
         {
             image:"./assets/images/partners/FANTOM_LIVE.png",
-            tags:["all","incubator"]
+            tags:["all","incubator","launchpads"]
         },
         {
             image:"./assets/images/partners/GAME_SPACE.png",
-            tags:["all","incubator"]
+            tags:["all","defi","gaming metaverse","nft"]
         },
         {
             image:"./assets/images/partners/MARSPAD.png",
-            tags:["all","nft","wallet"]
+            tags:["all","incubator","launchpads"]
         },
         {
             image:"./assets/images/partners/METANIA_GAME.png",
-            tags:["all","infrastructure"]
+            tags:["all","gaming metaverse","nft"]
         },
         {
             image:"./assets/images/partners/NFT_TRADE.png",
-            tags:["all","nft","wallet"]
+            tags:["all","nft","nft marketplace"]
         },
         {
             image:"./assets/images/partners/PALMARE.png",
-            tags:["all","launchpads","infrastructure"]
+            tags:["all","gaming metaverse"]
         },
         {
             image:"./assets/images/partners/PASLMA.png",
-            tags:["all","guild","infrastructure"]
+            tags:["all","incubator","infrastructure","Venture"]
         },
         {
             image:"./assets/images/partners/PROPEL.png",
-            tags:["all","nft marketplace","infrastructure"]
+            tags:["all"]
         },
         {
             image:"./assets/images/partners/SAFUU_CRYPTO.png",
-            tags:["all","nft","exchange"]
+            tags:["all","incubator","Venture"]
         },
-        {
-            image:"./assets/images/partners/VKRO_MEDIA.png",
-            tags:["all","wallet","infrastructure"]
-        },
+       
         {
             image:"./assets/images/partners/WARXGAME.png",
-            tags:["all","wallet","infrastructure"]
+            tags:["all","gaming metaverse"]
         },
-        {
-            image:"./assets/images/partners/WINGSTEP.png",
-            tags:["all","wallet","defi"]
-        },
+       
     ]
     const filteredLogos=partnersLogos.filter(logo=>{
         return logo.tags.includes(filter.toLowerCase())
@@ -124,7 +115,7 @@ const PartnersSection= ()=>{
             text:"NFT",
         },
         {
-            text:"Guild",
+            text:"Venture",
         },
         {
             text:"NFT Marketplace",
