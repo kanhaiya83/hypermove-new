@@ -13,7 +13,7 @@ import CubeWorld from "./../../Components/games/cuberun/components/CubeWorld"
 import LeaderBoard from "../../Components/LeaderBoard";
 import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, EffectCards, Autoplay   } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Link } from "react-router-dom";
 
 import Marquee from "react-fast-marquee";
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -77,9 +77,9 @@ useEffect(() => {
   <h1>BLOCKCHAIN's FINEST GAMING PLATFORM!</h1>
   <h3>Onboard HyperMove, Convert your daily activities into real-world cash and Maintain a healthier life-style.</h3>
   <div className="d-grid d-sm-flex p-3 mt-5 gap-3 text-center justify-content-center">
-  <HyperButton href="/move-to-earn" variant="dark" className="purple-btn nevan" text="MOVE TO EARN"></HyperButton>
-  <HyperButton href="/play-to-earn" variant="dark" className="purple-btn nevan" text="PLAY TO EARN"></HyperButton>
-  <HyperButton href="/metaverse" variant="dark" className="purple-btn nevan" text="METAVERSE"></HyperButton>
+  <Link to="/move-to-earn"><HyperButton href="/move-to-earn" variant="dark" className="purple-btn nevan" text="MOVE TO EARN"></HyperButton></Link>
+  <Link to="/move-to-earn"><HyperButton href="/play-to-earn" variant="dark" className="purple-btn nevan" text="PLAY TO EARN"></HyperButton></Link>
+  <Link to="/move-to-earn"><HyperButton href="/metaverse" variant="dark" className="purple-btn nevan" text="METAVERSE"></HyperButton></Link>
   </div>
 
   <div className="d-sm-flex p-3 gap-2 text-center justify-content-center">

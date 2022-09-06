@@ -18,6 +18,46 @@ const TeamSection= ()=>{
             name:"Abhi Kishore",
             role:"Co-Founder"
         },
+        {
+            image:"./assets/images/team/Sonali_sharma.png",
+            name:"Sonali Sharma",
+            role:"3d Artist"
+        },
+        {
+            image:"./assets/images/team/kamaljeet.png",
+            name:"Kamaljeet",
+            role:"Graphics Artist"
+        },
+        {
+            image:"./assets/images/team/Tanishq.png",
+            name:"Tanishq Kumar",
+            role:"Graphics Artist"
+        },
+        {
+            image:"./assets/images/team/Pankaj_kumar.png",
+            name:"Pankaj Chauhan",
+            role:"Web Developer"
+        },
+        {
+            image:"./assets/images/team/Kanhaiya.png",
+            name:"Kanhaiya",
+            role:"Web Developer"
+        },
+        {
+            image:"./assets/images/team/Vicky.png",
+            name:"Nimesh Kumar",
+            role:"Web Developer"
+        },
+        {
+            image:"./assets/images/team/Vineet.png",
+            name:"Vineet Karotiya",
+            role:"Social Media Executive"
+        },  
+        {
+            image:"./assets/images/team/Pooja.png",
+            name:"Pooja Chauhan",
+            role:"Content Writer"
+        },
         
     ]
     const _TeamData=[
