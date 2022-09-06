@@ -32,6 +32,7 @@ import TeamSection from "./TeamSection";
 import PartnersSection from "./PartnersSection";
 import RoadmapSection from "./RoadmapSection";
 import CuberunGameContainer from "../../Components/CuberunGameContainer";
+import { Link } from "react-router-dom";
 
 
 // import 'https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css';
