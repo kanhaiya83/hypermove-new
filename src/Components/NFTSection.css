@@ -9,3 +9,10 @@
 .nft-modal-cross-btn img{
     width: 100%;
 }
+.nft-modal-text{
+    text-align: center;
+    margin: 1rem auto;
+    width: 100%;
+    display: block;
+    color: #222222;
+}
