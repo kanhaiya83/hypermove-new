@@ -50,7 +50,7 @@ const handleClick=(url)=>{
     return(
         <>
     <Container>
-        <Row className="py-5 nft-section text-center align-items-center d-none d-md-block">
+        <Row className="py-5 nft-section text-center align-items-center">
         <h2 className="nevan section-heading py-2 py-md-3">SNEAKER NFTs</h2>
 <div className='row row-cols-3 g-5'>
 {
