@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import HyperButton from "../../Components/HyperButton";
+
 import { BsTwitter, BsMedium } from 'react-icons/bs';
 import { FaDiscord, FaTelegramPlane, FaRegHeart } from 'react-icons/fa';
 import { RiFilePaper2Line, RiUserHeartLine } from "react-icons/ri";
@@ -14,6 +15,8 @@ import LeaderBoard from "../../Components/LeaderBoard";
 import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, EffectCards, Autoplay   } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from "react-router-dom";
+
+import NFTSection from "../../Components/NFTSection";
 
 import Marquee from "react-fast-marquee";
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -78,9 +81,9 @@ useEffect(() => {
   <h1>BLOCKCHAIN's FINEST GAMING PLATFORM!</h1>
   <h3>Onboard HyperMove, Convert your daily activities into real-world cash and Maintain a healthier life-style.</h3>
   <div className="d-grid d-sm-flex p-3 mt-5 gap-3 text-center justify-content-center">
-  <Link to="/move-to-earn"><HyperButton href="/move-to-earn" variant="dark" className="purple-btn nevan" text="MOVE TO EARN"></HyperButton></Link>
-  <Link to="/move-to-earn"><HyperButton href="/play-to-earn" variant="dark" className="purple-btn nevan" text="PLAY TO EARN"></HyperButton></Link>
-  <Link to="/move-to-earn"><HyperButton href="/metaverse" variant="dark" className="purple-btn nevan" text="METAVERSE"></HyperButton></Link>
+  <Link to="/move-to-earn" className="purple-btn nevan btn btn-dark">MOVE TO EARN</Link>
+  <Link to="/move-to-earn" className="purple-btn nevan btn btn-dark">PLAY TO EARN</Link>
+  <Link to="/move-to-earn" className="purple-btn nevan btn btn-dark">METAVERSE</Link>
   </div>
 
   <div className="d-sm-flex p-3 gap-2 text-center justify-content-center">
@@ -154,7 +157,7 @@ useEffect(() => {
 
 </Col>
 <Col  className="text-center mobile-screen p-3">
-<video playsinline autoplay="autoplay" muted="muted" loop="loop" className="mobile-video">
+<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="mobile-video">
   
   <source src="../assets/movs/app2.webm" type="video/webm"/>
   <source src="../assets/movs/app2.mp4" type="video/mp4"/>
@@ -292,7 +295,7 @@ useEffect(() => {
 
 
 <Row className="hypergame-bg">
-<div class="slides-wrapper text-center">
+<div className="slides-wrapper text-center">
 <div className="slides-container">
 <h2 className="nevan section-heading py-2 py-md-3">HYPER GAMES</h2>
 <Swiper
@@ -419,42 +422,10 @@ useEffect(() => {
 </Row>
 
 
-<Row className="py-5 nft-section text-center align-items-center">
-<h2 className="nevan section-heading py-2 py-md-3">SNEAKER NFTs</h2>
-
-<Col xs={12} md={6}>
-<div className="row row-cols-1 row-cols-md-2 ">
-<div>
-<iframe id="shoe01" src="https://app.vectary.com/p/1aElzxjuWZNe1OSFrJDq6J" frameborder="0" width="100%" height="480"></iframe>
-
-</div>
-<div>
-
-
-<iframe id="shoe02" src="https://app.vectary.com/p/33UdpimCRuQZuQQL66B21p" frameborder="0" width="100%" height="480"></iframe>
-</div>
-<div>
-
-
-<iframe id="shoe03" src="https://app.vectary.com/p/3wy3jxchbGO4w9CgyBINyS" frameborder="0" width="100%" height="480"></iframe>
-</div>
-<div>
-
-
-<iframe id="shoe04" src="https://app.vectary.com/p/2Ms4zNoKquPRSNNyeubI0l" frameborder="0" width="100%" height="480"></iframe>
-</div>
-
-
-</div>
-</Col>
-<Col xs={12} md={6}>
-<iframe id="shoe06" src="https://app.vectary.com/p/18pwIIThM3oVhy69sULlY1" frameborder="0" width="100%" height="480"></iframe>
-</Col>
-</Row>
-
-
-
 </Container>
+
+<NFTSection/>
+
 <Container fluid>
 <Row className="latest-nft text-center py-5">
 

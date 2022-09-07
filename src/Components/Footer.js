@@ -8,6 +8,7 @@ import { RiFilePaper2Line, RiUserHeartLine } from "react-icons/ri";
 import { IoFitnessOutline, IoGameControllerOutline, IoLogoBitcoin } from "react-icons/io5";
 import { AiOutlineLike } from "react-icons/ai";
 import './Footer.css';
+import ShoeModal from "./ShoeModal";
 
 
 const Footer = (props) => {
@@ -73,7 +74,7 @@ const Footer = (props) => {
                     </Row>
                     </Form>
                     <div className="d-sm-flex text-start justify-content-start">
-                    <a href="#" target="_blank" className="footer-social-icon">
+                    <a href="https://hypermoveio.gitbook.io/welcome-to-gitbook-1" target="_blank" className="footer-social-icon">
                     
                     <RiFilePaper2Line className="text-white "/>
                                             
@@ -102,6 +103,7 @@ const Footer = (props) => {
         </Col>
         </Row>
     </Container>
+    <ShoeModal/>
 </Container>
     );
 }

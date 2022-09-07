@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import FlipMove from 'react-flip-move';
 
 const PartnersLogosContainer=({filter})=>{
@@ -84,9 +84,9 @@ const PartnersLogosContainer=({filter})=>{
     })
 
     return(
-        <FlipMove className="logos-container" enterAnimation="fade" leaveAnimation="fade">
+        <FlipMove  className="logos-container" enterAnimation="fade" leaveAnimation="fade">
             {filteredLogos.map((logo,i)=>{
-                return <div className="logo-img"><img src={logo.image}/></div>
+                return <div key={logo.i} className="logo-img"><img src={logo.image}/></div>
             })}
         </FlipMove>
     )
@@ -130,14 +130,14 @@ const PartnersSection= ()=>{
             text:"Wallet",
         },
     ]
-return(<>
+return(<React.Fragment>
 <h2 className="nevan section-heading py-2 py-md-3">PARTNERS</h2>
 <ul className="partners-filter-btns">
     {filterBtns.map((btn,i)=>{
-        return <li><button className="filter-btn" onClick={()=>{setFilter(btn.text)}}> {btn.text}</button></li>
+        return <li key={btn.text}><button className="filter-btn" onClick={()=>{setFilter(btn.text)}}> {btn.text}</button></li>
     })}
 </ul>
 <PartnersLogosContainer filter={filter}/>
-</>)
+</React.Fragment>)
 }
 export default PartnersSection

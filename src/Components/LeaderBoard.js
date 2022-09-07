@@ -5,28 +5,32 @@ const LeaderBoardCard = (props) => {
 
   const context= useScoresContext()
   const {scores,setScores}=context;
-  console.warn({scores,setScores})
+  // console.warn({scores,setScores})
 const scoresList=
 scores.length>0 ?
-<table><tbody><tr className="score-row bold">
+<table className="table table-dark table-striped table-hover table-sm table-responsive">
+<thead>
+<tr className="score-row bold">
     
   <th>Rank</th>
-    <th>Name</th>
+    <th >Name</th>
     <th>Score</th>
-    <th>Wallet</th>
-  </tr>{
+    <th colSpan={2}>Wallet</th>
+  </tr>
+  </thead>
+<tbody className='table-group-divider'>{
   
 scores.map((sc,i)=>{
  return   <tr className="score-row">
       <td className="number">{i+1}</td>
-      <td className="name">{sc.name}</td>
+      <td className="name">{sc.name.substring(0, 6)+'..'}</td>
       <td >{sc.score}</td>
-      <td className="wallet-address">{sc.walletAddress}</td>
+      <td colSpan={2} className="wallet-address" >{sc.walletAddress}</td>
     </tr>
   
 })
 }</tbody></table> : <h2>No scores available</h2>
-console.log({scoresList});
+// console.log({scoresList});
   useEffect(()=>{
     (async ()=>{
       try{
