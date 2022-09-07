@@ -29,16 +29,16 @@ const nftData=[{
     image:"../assets/images/shoe-thumb/02.png",
     iframeLink:"https://app.vectary.com/p/3wy3jxchbGO4w9CgyBINyS",
 },{
-    image:"../assets/images/shoe-thumb/01.png",
+    image:"../assets/images/shoe-thumb/03.png",
     iframeLink:"https://app.vectary.com/p/2JU2I6vNFeeVIVvyy1bZAE",
 },{
-    image:"../assets/images/shoe-thumb/01.png",
+    image:"../assets/images/shoe-thumb/04.png",
     iframeLink:"https://app.vectary.com/p/4JtWSuEonRWuU02LyNNtlr",
 },{
-    image:"../assets/images/shoe-thumb/01.png",
+    image:"../assets/images/shoe-thumb/05.png",
     iframeLink:"https://app.vectary.com/p/2Ms4zNoKquPRSNNyeubI0l",
 },{
-    image:"../assets/images/shoe-thumb/01.png",
+    image:"../assets/images/shoe-thumb/06.png",
     iframeLink:"https://app.vectary.com/p/1aElzxjuWZNe1OSFrJDq6J",
 },
 ]
