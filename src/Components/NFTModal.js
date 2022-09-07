@@ -10,6 +10,7 @@ const customStyles = {
     height: "100%",
     padding:0,
     paddingTop:"20px",
+    overflow:"hidden"
   },
   overlay:{
     zIndex:1031
