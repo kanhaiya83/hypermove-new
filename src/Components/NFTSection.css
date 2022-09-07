@@ -17,6 +17,7 @@
     height: 10%;
     margin: 0 auto;
     margin-top: 2rem;
+    max-width: 80%;
 }
 .nft-modal-iframe-container{
     height: 100%;
