@@ -16,3 +16,7 @@
     display: block;
     color: #222222;
 }
+.nft-modal-iframe-container{
+    height: 100%;
+    width: 100%;
+}

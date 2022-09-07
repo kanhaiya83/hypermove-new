@@ -29,7 +29,9 @@ const NFTModal=({url,showModal,setShowModal})=>{
         contentLabel="Example Modal">
             <button className="nft-modal-cross-btn" onClick={closeModal}><img src="./assets/images/cross.svg" alt="" /></button>
             <span className="nft-modal-text">To access QR code and experience the AR shoe in your live environment, click the AR icon on top right corner.</span>
+            <div className="nft-modal-iframe-container">
             <iframe src={url} frameborder="0" width="100%" height="100%"></iframe>
+            </div>
         </Modal>
     )
 }
