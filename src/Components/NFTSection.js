@@ -52,7 +52,8 @@ const handleClick=(url)=>{
     <Container>
         <Row className="py-5 nft-section text-center align-items-center">
         <h2 className="nevan section-heading py-2 py-md-3">SNEAKER NFTs</h2>
-<div className='row row-cols-3 g-5'>
+        <p>Click on the shoe image to access QR code and experience the AR shoe in your live environment</p>
+<div className='row row-cols-1 row-cols-md-3 g-5'>
 {
     nftData.map((nft,i)=>{
 
