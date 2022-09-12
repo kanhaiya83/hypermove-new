@@ -65,6 +65,58 @@
     background-repeat: no-repeat;
     z-index: -1;
 }
+.podium-container{
+    width: 100%;
+    height: 175px;
+    padding:0 1rem ;
+    color: white;
+
+}
+.podium-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items:flex-end;
+
+}
+.podium-wrapper>*{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 5px;
+    
+}
+.podium-wrapper>* .podium-name{
+font-size: 16px;
+font-weight: 500;
+}
+.podium-wrapper>* .podium-score{
+font-size: 13px;
+font-weight: 500;
+color: #9a9696;
+margin-bottom: 8px;
+}
+.podium-wrapper .first-place-podium span.podium-score{
+    color: #D6D476;
+}
+
+.podium-wrapper>* .podium{
+    background-color: #6C02D7;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: 900;
+}
+.podium-wrapper .second-place-podium .podium{
+    height: 80px;
+}
+.podium-wrapper .third-place-podium .podium{
+    height: 65px;
+}
 
 .mobile-screen{
     position: relative;
