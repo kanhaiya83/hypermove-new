@@ -31,7 +31,7 @@ const LeaderBoardCard = (props) => {
           <div className="second-place-podium">
             <span  className="podium-name" >{formatName(scores[1].name)}</span>
             <span  className="podium-score" > {scores[1].score}</span>
-            <div className="podium"><span>3</span></div>
+            <div className="podium"><span>2</span></div>
           </div>
         </div>
         </>
