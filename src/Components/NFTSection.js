@@ -23,7 +23,7 @@ const NFTSection = (props) => {
     const [showModal,setShowModal]= useState(false)
 
 const nftData=[{
-    image:"../assets/images/shoe-thumb/01.png",
+    image:"../assets/images/shoe01-lg.webp",
     iframeLink:"https://app.vectary.com/p/33UdpimCRuQZuQQL66B21p",
 },{
     image:"../assets/images/shoe-thumb/02.png",

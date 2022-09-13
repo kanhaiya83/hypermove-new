@@ -15,6 +15,8 @@ import LeaderBoard from "../../Components/LeaderBoard";
 import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, EffectCards, Autoplay   } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from "react-router-dom";
+import { GlitchedImage } from 'react-image-glitch';
+
 
 import NFTSection from "../../Components/NFTSection";
 
@@ -51,7 +53,8 @@ const map = useRef(null);
 const [lng, setLng] = useState(-73.94);
 const [lat, setLat] = useState(40.72);
 const [zoom, setZoom] = useState(15);
-
+const myImageString = '../assets/images/about.png';
+const avatarImageString = '../assets/images/3dTurnAround.png';
 useEffect(() => {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
@@ -171,8 +174,11 @@ useEffect(() => {
 <Row className="create-avatar-section py-5 align-items-center">
 
 <Col  className="text-center mobile-screen">
-<Image src="../assets/images/3dTurnAround.png" fluid className="app-scree"/>
-<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
+{/*<div style={{ height: 600 }}>
+<GlitchedImage image={avatarImageString} />
+    </div>*/}
+<Image src="../assets/images/3d-md.webp" fluid className="app-scree"/>
+
 </Col>
 
 <Col xs={12} md={6}>
@@ -198,7 +204,10 @@ useEffect(() => {
 </Col>
 
 <Col  className="text-center mobile-screen">
-<Image src="../assets/images/about.png" fluid className="app-scree w-75"/>
+<div style={{ height: 500 }}>
+<GlitchedImage image={myImageString} />
+</div>
+{/*<Image src="../assets/images/about.png" fluid className="app-scree w-75 glitch__title"/>*/}
 <Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
 </Col>
 </Row>
