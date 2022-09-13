@@ -82,7 +82,6 @@ color: white;
   height:100%;
   max-height: 400px;
   color: black;
-  overflow-y: auto;
   background-color: #141415;
 } 
 .leaderboard-container table{
