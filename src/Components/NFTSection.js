@@ -57,7 +57,7 @@ const handleClick=(url)=>{
 {
     nftData.map((nft,i)=>{
 
-        return <Image src={nft.image} className="img-fluid" onClick={()=>{
+        return <Image src={nft.image} className="img-fluid shoe-nft" onClick={()=>{
             handleClick(nft.iframeLink) 
         }}   key={i} />
     })
