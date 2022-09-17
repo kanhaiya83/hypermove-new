@@ -177,14 +177,14 @@ useEffect(() => {
 {/*<div style={{ height: 600 }}>
 <GlitchedImage image={avatarImageString} />
     </div>*/}
-<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
+{/*<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
   
-  <source src="../assets/movs/CharAnim.webm" type="video/webm"/>
-  <source src="../assets/movs/CharAnim.mp4" type="video/mp4"/>
+  <source src="../assets/movs/turning.webm" type="video/webm"/>
+  <source src="../assets/movs/turning.mp4" type="video/mp4"/>
   Your browser does not support the video tag.
-</video>
-{/*<Image src="../assets/images/meta.webp" fluid className="app-scree"/>*/}
-
+  </video>*/}
+<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>
+<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
 </Col>
 
 <Col xs={12} md={6}>
