@@ -138,3 +138,15 @@ color: black;
   align-items: center;
   justify-content: center;
 }
+.badge-container{
+  text-align: center;
+  width: 100%;
+}
+.badge-container span{
+  font-size: 10rem;
+  font-weight: 800;
+  padding: 3rem;
+  margin-top: 3rem;
+  display: block;
+  border-radius: 3rem;
+}

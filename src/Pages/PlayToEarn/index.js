@@ -124,7 +124,7 @@ const PlayToEarn=()=>{
         </div>
         </div>
         {timecreated && <div className="badge-container">
-          {badgeNumber}
+          <span>{badgeNumber}</span>
         </div>}
         </>
     )
