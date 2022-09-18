@@ -20,6 +20,7 @@ const PlayToEarn=()=>{
     const handleSteamConnect=async ()=>{
         const address = localStorage.getItem("wallet-address")
         if(!address) return;
+        if(isSteamConnected)return;
         const popupWindow = window.open(
             process.env.REACT_APP_SERVER_URL + "/auth/steam",
             "_blank",
