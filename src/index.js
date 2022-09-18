@@ -13,13 +13,16 @@ import AlertProvider from "./context/alert"
 import {
   BrowserRouter,
 } from "react-router-dom";
+import { MetaMaskProvider } from 'metamask-react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
         <ScoresProvider>
 <AlertProvider>
-    <HyperMove/>
+  <MetaMaskProvider>    <HyperMove/>
+  </MetaMaskProvider>
+
     </AlertProvider>
     </ScoresProvider>
     </BrowserRouter>

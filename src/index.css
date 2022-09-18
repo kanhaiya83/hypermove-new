@@ -121,3 +121,20 @@ text-overflow: ellipsis;
   z-index: 100000;
 color: black;
 }
+.play-to-earn-container{
+  margin-top: 10rem;
+}
+.play-to-earn-container button{
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  color: white;
+  border:3px solid #6c02d7;
+  border-radius: 15px;
+  background-color: transparent;
+  padding: 2rem;
+  margin:0 auto 2rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
