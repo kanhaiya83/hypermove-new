@@ -82,11 +82,13 @@ const PartnersLogosContainer=({filter})=>{
     useEffect(()=>{
         (async()=>{
             const res= await fetch(process.env.REACT_APP_SERVER_URL+"/admin/partners")
-            const response = res.json()
+            const response =await  res.json()
+        console.log({response});
             if(response && response.success){
                 const temp = response.partnersList.map(p=>{
-                    return {...p,tags:p.split(",")}
+                    return {...p,tags:p.tags.split(",")}
                 })
+                console.log({temp});
                 setPartnersLogos(temp)
             }
         })()
@@ -95,7 +97,7 @@ const PartnersLogosContainer=({filter})=>{
     const filteredLogos=partnersLogos.filter(logo=>{
         return logo.tags.includes(filter.toLowerCase())
     })
-
+console.log({filteredLogos})
     return(
         <FlipMove  className="logos-container" enterAnimation="fade" leaveAnimation="fade">
             {filteredLogos.map((logo,i)=>{
