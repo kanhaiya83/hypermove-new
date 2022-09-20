@@ -81,7 +81,7 @@ const PartnersLogosContainer=({filter})=>{
     ]
     useEffect(()=>{
         (async()=>{
-            const res= await fetch(process.env.REACT_APP_SERVER_URL)
+            const res= await fetch(process.env.REACT_APP_SERVER_URL+"/admin/partners")
             const response = res.json()
             if(response && response.success){
                 const temp = response.partnersList.map(p=>{
