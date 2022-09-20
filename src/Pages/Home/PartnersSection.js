@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FlipMove from 'react-flip-move';
 
 const PartnersLogosContainer=({filter})=>{
-    const partnersLogos=[
+    const _partnersLogos=[
         {
             image:"./assets/images/partners/ACY_FINACE.png",
             tags:["all","launchpads"]
@@ -79,6 +79,19 @@ const PartnersLogosContainer=({filter})=>{
         },
        
     ]
+    useEffect(()=>{
+        (async()=>{
+            const res= await fetch(process.env.REACT_APP_SERVER_URL)
+            const response = res.json()
+            if(response && response.success){
+                const temp = response.partnersList.map(p=>{
+                    return {...p,tags:p.split(",")}
+                })
+                setPartnersLogos(temp)
+            }
+        })()
+    },[])
+    const [partnersLogos,setPartnersLogos]=useState([])
     const filteredLogos=partnersLogos.filter(logo=>{
         return logo.tags.includes(filter.toLowerCase())
     })
