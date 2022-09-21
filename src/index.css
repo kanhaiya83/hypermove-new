@@ -160,7 +160,7 @@ color: black;
 
 
 
-@media all and (min-width: 992px) { 
+
   .navbar .nav-item .dropdown-menu{ display: none; }
 	.navbar .nav-item:hover .nav-link{  
     
@@ -181,4 +181,4 @@ color: black;
     background-color: rgba(0,0,0,0.3);
   }
 
- }
+ 

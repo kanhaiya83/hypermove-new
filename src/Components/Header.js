@@ -79,13 +79,26 @@ const Header = (props) => {
             <Col xs={4} className="text-start">
             <Navbar.Toggle aria-controls="navbarScroll" className="mobile-toggle-btn"/>
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0">
-            
-          <NavMenuLinks href="/play-to-earn" text="Play-to-Earn"/>
-                <NavMenuLinks href="/move-to-earn" text="Move-to-Earn"/>
-                <NavMenuLinks href="/nft-marketplace" text="NFT Marketplace"/>
-                <NavMenuLinks href="/metaverse" text="METAVERSE"/>   
-          </Nav>
+              <NavDropdown title="Hypermove Directory" id="basic-nav-dropdown" show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
+              <NavDropdown.Item>
+              <NavMenuLinks href="/play-to-earn" text="Play-to-Earn"/>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+              <NavMenuLinks href="/move-to-earn" text="Move-to-Earn"/>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+              <NavMenuLinks href="/nft-marketplace" text="NFT Marketplace"/>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item>
+              <NavMenuLinks href="/metaverse" text="Metaverse"/>           
+
+              </NavDropdown.Item>
+            </NavDropdown>         
+              
+              
+              <NavMenuLinks href="#" text="Launchpad" className="py-3"/>           
+              <NavMenuLinks href="#" text="Tournaments" className="py-3"/>      
           
         </Navbar.Collapse>
             </Col>
