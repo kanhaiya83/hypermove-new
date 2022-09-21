@@ -47,7 +47,7 @@ const LeaderBoardCard = (props) => {
       <div className="podium-container">
 {podiumContainerContent}
       </div>
-      <SimpleBar className="scores-list" style={{maxHeight:"250px"}}>
+      <SimpleBar className="scores-list" style={{maxHeight:"225px"}}>
      <table className="table table-dark table-striped table-hover table-sm table-responsive">
         <thead>
           <tr className="score-row bold">
@@ -95,7 +95,7 @@ const LeaderBoardCard = (props) => {
 
   return (
     <>
-      <div className="leaderboard-container rounded-3">{scoresList}</div>
+      <div className="leaderboard-container rounded-3 overflow-hidden">{scoresList}</div>
     </>
   );
 };
