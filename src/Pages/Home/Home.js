@@ -125,6 +125,131 @@ useEffect(() => {
 
 <Container>
 
+<Row className="create-avatar-section py-5 align-items-center">
+
+<Col  className="text-center mobile-screen">
+{/*<div style={{ height: 600 }}>
+<GlitchedImage image={avatarImageString} />
+    </div>*/}
+  <div className="ratio ratio-1x1">
+<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
+  
+  <source src="../assets/movs/3dTurnAround.webm" type="video/webm"/>
+  <source src="../assets/movs/3dTurnAround.mp4" type="video/mp4"/>
+  
+  Your browser does not support the video tag.
+  </video>
+  </div>
+{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
+<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
+</Col>
+
+<Col xs={12} md={6}>
+<h2 className="nevan section-heading py-2 py-md-3">Create your avatar with one tap</h2>
+<p>HyperMove App is equipped with an hassle-free method to create and own an Avatar. Easy as it sounds, Create mesmerising avatars that best represents you with just a tap.</p>
+<HyperButton variant="dark" className="purple-btn nevan mb-5" text="CREATE AVATAR" href="https://hypermove.readyplayer.me/avatar" target="_blank"/>
+</Col>
+</Row>
+
+
+
+<Row className="create-avatar-section py-5 align-items-center">
+
+<Col xs={12} md={6}>
+<h2 className="nevan section-heading py-2 py-md-3">INTO THE METAVERSE</h2>
+<p>HyperMove acts a bridge that connects gamers/users to the vastness of the metaverse virtually via its app.</p>
+<p>Users would have the privilege to explore the blockchain's core via the HyperMove app that provides you with several opportunities to earn passive income as you maintain a healthier lifestyle.
+.</p>
+<div className="row row-cols-2">
+<Image src="../assets/images/app-store.png"  className="app-store apple"/>
+
+
+
+<Image src="../assets/images/google-play-badge.png"  className="app-store google"/>
+
+</div>
+</Col>
+
+<Col  className="text-center mobile-screen">
+{/*<div style={{ height: 600 }}>
+<GlitchedImage image={avatarImageString} />
+    </div>*/}
+  <div className="ratio ratio-1x1">
+<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
+  
+  <source src="../assets/movs/glitch.webm" type="video/webm"/>
+  <source src="../assets/movs/glitch.mp4" type="video/mp4"/>
+  
+  Your browser does not support the video tag.
+  </video>
+  </div>
+{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
+<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
+</Col>
+
+
+</Row>
+
+
+
+<Row className="create-avatar-section py-5 align-items-center">
+
+<Col  className="text-center mobile-screen">
+{/*<div style={{ height: 600 }}>
+<GlitchedImage image={avatarImageString} />
+    </div>*/}
+  <div className="ratio ratio-1x1">
+<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
+  
+  <source src="../assets/movs/shoes-factory.webm" type="video/webm"/>
+  <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
+  
+  Your browser does not support the video tag.
+  </video>
+  </div>
+{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
+<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
+</Col>
+
+<Col xs={12} md={6}>
+<h2 className="nevan section-heading py-2 py-md-3">MOVE . PLAY . EARN</h2>
+<p>HyperMove is the world's first blockchain M2E & P2E integrated app, that allows users to maintain a healthy & fit lifestyle and earn in a decentralized environment.</p>
+
+<p>HyperMove app provides you a sea of opportunities to convert your daily activities into real world cash as well as earn by playing blockchain powered games.</p>
+
+<p>Users would have the privilege to earn cryptocurrencies by carrying out their daily activities (Walking, running, swimming etc.) and by playing games online.</p>
+
+</Col>
+</Row>
+
+
+
+<Row className="aim-section py-5 align-items-center text-center">
+        <h2 className="nevan section-heading py-2 py-md-3">OUR AIM</h2>
+        <Col xs={12} md={4}  className="text-center py-3 py-ms-5">
+        <IoFitnessOutline size={120} className="purple-text glow-purple"/>
+        <h2 className="py-3">Healthy Lifestyle</h2>
+        <p>We encourage users to adopt to healthier lifestyle with our app</p>
+
+        </Col>
+
+        <Col xs={12} md={4}  className="text-center py-3 py-ms-5">
+        <IoGameControllerOutline size={120} className="purple-text glow-purple"/>
+        <h2 className="py-3">True Blockchain Gaming</h2>
+        <p>Experience M2E & P2E at its purest form in a decentralized environment</p>
+
+        </Col>
+
+        <Col xs={12} md={4}  className="text-center py-3 py-ms-5">
+        <IoLogoBitcoin size={120} className="purple-text glow-purple"/>
+        <h2 className="py-3">Passive Rewards        </h2>
+        <p>Earn cryptocurrencies as passive rewards from your activities</p>
+
+</Col>
+
+</Row>
+
+
 <Row className="game-section py-5 text-center g-5">
     <Col xs={12} md={4}>
     <HyperButton variant="dark" className="dark-btn nevan mb-5" text="TRACK YOUR MOVES"/>
@@ -144,78 +269,6 @@ useEffect(() => {
         <LeaderBoard/>
     </Col>
 
-</Row>
-
-<Row className="create-avatar-section py-5 align-items-center">
-<Col xs={12} md={6}>
-<h2 className="nevan section-heading py-2 py-md-3">INTO THE METAVERSE</h2>
-<p>HyperMove acts a bridge that connects gamers/users to the vastness of the metaverse virtually via its app.</p>
-<p>Users would have the privilege to explore the blockchain's core via the HyperMove app that provides you with several opportunities to earn passive income as you maintain a healthier lifestyle.
-.</p>
-<div className="row row-cols-2">
-<Image src="../assets/images/app-store.png"  className="app-store apple"/>
-<Image src="../assets/images/google-play-badge.png"  className="app-store google"/>
-
-</div>
-
-</Col>
-<Col  className="text-center mobile-screen p-3">
-<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="mobile-video">
-  
-  <source src="../assets/movs/app2.webm" type="video/webm"/>
-  <source src="../assets/movs/app2.mp4" type="video/mp4"/>
-  Your browser does not support the video tag.
-</video>
-<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
-</Col>
-</Row>
-
-
-<Row className="create-avatar-section py-5 align-items-center">
-
-<Col  className="text-center mobile-screen">
-{/*<div style={{ height: 600 }}>
-<GlitchedImage image={avatarImageString} />
-    </div>*/}
-{/*<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
-  
-  <source src="../assets/movs/turning.webm" type="video/webm"/>
-  <source src="../assets/movs/turning.mp4" type="video/mp4"/>
-  Your browser does not support the video tag.
-  </video>*/}
-<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>
-<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
-</Col>
-
-<Col xs={12} md={6}>
-<h2 className="nevan section-heading py-2 py-md-3">Create your avatar with one tap</h2>
-<p>HyperMove App is equipped with an hassle-free method to create and own an Avatar. Easy as it sounds, Create mesmerising avatars that best represents you with just a tap.</p>
-<HyperButton variant="dark" className="purple-btn nevan mb-5" text="CREATE AVATAR" href="https://hypermove.readyplayer.me/avatar" target="_blank"/>
-</Col>
-</Row>
-
-
-<Row className="move-play-section py-5 align-items-center">
-
-
-
-<Col xs={12} md={6} className="text-justify">
-<h2 className="nevan section-heading py-2 py-md-3">MOVE . PLAY . EARN</h2>
-<p>HyperMove is the world's first blockchain M2E & P2E integrated app, that allows users to maintain a healthy & fit lifestyle and earn in a decentralized environment.</p>
-
-<p>HyperMove app provides you a sea of opportunities to convert your daily activities into real world cash as well as earn by playing blockchain powered games.</p>
-
-<p>Users would have the privilege to earn cryptocurrencies by carrying out their daily activities (Walking, running, swimming etc.) and by playing games online.</p>
-
-</Col>
-
-<Col  className="text-center mobile-screen">
-<div style={{ height: 500 }}>
-<GlitchedImage image={myImageString} />
-</div>
-{/*<Image src="../assets/images/about.png" fluid className="app-scree w-75 glitch__title"/>*/}
-<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
-</Col>
 </Row>
 
 

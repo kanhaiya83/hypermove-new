@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useMetaMask } from "metamask-react";
 import Web3 from "web3"
+import { Row } from "react-bootstrap";
 const PlayToEarn=()=>{
     const { status, connect, account, chainId, ethereum } = useMetaMask();
     const [isSteamConnected,setIsSteamConnected] = useState(false)
@@ -111,16 +112,20 @@ const PlayToEarn=()=>{
 
     return(
         <>
-        <div className="container   play-to-earn-container">
+        <div className="container play-to-earn-container">
+        <Row className="vh-100 align-items-center">
         <div className="flex flex-column align-items-center">
           
         {content}
         <button onClick={handleSteamConnect}><img src="./assets/images/steam-icon.svg" alt="" />{isSteamConnected ? <span>Steam Connected</span>: <span>Connect Steam</span>}</button>
         </div>
+        </Row>
         </div>
         {timecreated && <div className="badge-container">
           <span>{badgeNumber}</span>
-        </div>}
+          
+          </div>
+      }
         </>
     )
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Col, Image } from "react-bootstrap";
 import Container from 'react-bootstrap/Container';
@@ -17,6 +17,14 @@ import NavMenuLinks from "./NavMenuLinks";
 
 const Header = (props) => {
 
+  const [show, setShow] = useState(false);
+  const showDropdown = (e)=>{
+      setShow(!show);
+  }
+  const hideDropdown = e => {
+      setShow(false);
+  }
+
     return(
 
         <Navbar className="main-menu" expand="lg" fixed="top">
@@ -32,16 +40,31 @@ const Header = (props) => {
           </Col>
           <Col xs={12} md={10}>
          <div className="d-flex">
-              <Nav className="flex-fill justify-content-center" >
-                
-                <NavMenuLinks href="/play-to-earn" text="Play-to-Earn"/>
-                <NavMenuLinks href="/move-to-earn" text="Move-to-Earn"/>
-                <NavMenuLinks href="/nft-marketplace" text="NFT Marketplace"/>
-                <NavMenuLinks href="/metaverse" text="METAVERSE"/>           
+         <Nav className="flex-fill justify-content-center" >
+         <NavDropdown title="Hypermove Directory" id="basic-nav-dropdown" show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
+           <NavDropdown.Item href="#action/3.1">
+           <NavMenuLinks href="/play-to-earn" text="Play-to-Earn"/>
+           </NavDropdown.Item>
+           <NavDropdown.Item>
+           <NavMenuLinks href="/move-to-earn" text="Move-to-Earn"/>
+           </NavDropdown.Item>
+           <NavDropdown.Item>
+           <NavMenuLinks href="/nft-marketplace" text="NFT Marketplace"/>
+           </NavDropdown.Item>
+           <NavDropdown.Divider />
+           <NavDropdown.Item>
+           <NavMenuLinks href="/metaverse" text="Metaverse"/>           
+
+           </NavDropdown.Item>
+         </NavDropdown>         
+           
+           
+           <NavMenuLinks href="#" text="Launchpad"/>           
+           <NavMenuLinks href="#" text="Tournaments"/>           
+           
 
 
-
-              </Nav>
+         </Nav>
               <HyperButton variant="dark" className="purple-btn float-end" text="JOIN COMMUNITY"></HyperButton>
               </div>
             </Col>

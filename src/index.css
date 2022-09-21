@@ -15,6 +15,8 @@ code {
 .nav-link{
   text-decoration: none;
   color: inherit;
+  font-size: 14px !important;
+  font-weight: 500 !important;
 }
 .header-logo{
   max-width: 200px !important;
@@ -155,3 +157,28 @@ color: black;
   display: block;
   border-radius: 3rem;
 }
+
+
+
+@media all and (min-width: 992px) { 
+  .navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{  
+    
+   }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; 
+    -webkit-box-shadow: 0px 0px 31px 0px rgba(106,22,255,0.59);
+    -moz-box-shadow: 0px 0px 31px 0px rgba(106,22,255,0.59);
+    box-shadow: 0px 0px 31px 0px rgba(106,22,255,0.59);
+    background-color: #6c02d7;
+  }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+
+  .navbar .nav-item:hover .dropdown-menu .dropdown-item{
+    background-color: rgba(0,0,0,0);
+  }
+
+  .navbar .nav-item:hover .dropdown-menu .dropdown-item:hover{
+    background-color: rgba(0,0,0,0.3);
+  }
+
+ }
