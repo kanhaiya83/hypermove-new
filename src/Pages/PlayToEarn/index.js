@@ -114,14 +114,10 @@ const PlayToEarn=()=>{
 
     return(
         <>
-<<<<<<< HEAD
-        <div className="container   play-to-earn-container">
-        <div className="flex flex-column align-items-center mt-6">
-=======
+
         <div className="container play-to-earn-container">
         <Row className="vh-100 align-items-center">
         <div className="flex flex-column align-items-center">
->>>>>>> 79f79eb75909b6a6aa94feeea19677b309660eba
           
         {content}
         <button onClick={handleSteamConnect}><img src="./assets/images/steam-icon.svg" alt="" />{isSteamConnected ? <span>Steam Connected</span>: <span>Connect Steam</span>}</button>
