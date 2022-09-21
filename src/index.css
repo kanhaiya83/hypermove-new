@@ -138,6 +138,11 @@ color: black;
   align-items: center;
   justify-content: center;
 }
+.play-to-earn-container button img{
+  width: 2rem;
+  margin-right: 1rem;
+}
+
 .badge-container{
   text-align: center;
   width: 100%;

@@ -4,20 +4,23 @@ import Web3 from "web3"
 const PlayToEarn=()=>{
     const { status, connect, account, chainId, ethereum } = useMetaMask();
     const [isSteamConnected,setIsSteamConnected] = useState(false)
+    const [isWalletConnected,setIsWalletConnected] = useState(false)
+    
     const [timecreated,settimecreated] = useState(false);
     console.log({timecreated})
     let badgeNumber = 0;
-    if(timecreated < 1661970600000){
+    if(timecreated > 1640975400000){
       badgeNumber=3
     }
-    else if(timecreated < 1651343400000){
+    else if(timecreated > 1609439400000){
       badgeNumber=2
     }
-    else if(timecreated < 1643653800000){
+    else{
       badgeNumber=1
     }
     
     const handleSteamConnect=async ()=>{
+      if(!isWalletConnected)return alert("First connect Metamask wallet")
         const address = localStorage.getItem("wallet-address")
         if(!address) return;
         if(isSteamConnected)return;
@@ -27,15 +30,6 @@ const PlayToEarn=()=>{
             "width=800, height=600",
           );
           if (window.focus) popupWindow.focus();
-        // const checkInterval = setInterval(async()=>{
-        //     const res=await fetch(process.env.REACT_APP_SERVER_URL+"/user/check/"+address)
-        //     const response = await res.json()
-        //     if(response.success && response.isSteamConnected){
-        //         clearInterval(checkInterval);
-        //         setIsSteamConnected(true)
-
-        //     }
-        // },4000)
     } 
     const signAndVerify = async (address) => {
         console.log({ address: address });
@@ -55,14 +49,13 @@ const PlayToEarn=()=>{
         );
         const resData = await res.json();
         if (resData && resData.success) {
-        //   updateStates(resData);
-        console.log({resData})
-        localStorage.setItem("auth-token", resData.authToken);
+        // localStorage.setItem("auth-token", resData.authToken);
         localStorage.setItem("wallet-address", resData.address);
+        setIsWalletConnected(true)
         }
       };
       const connectMetamask = async () => {
-        if(status ==="connected"){
+        if(status ==="connected" && isWalletConnected){
           return;
         }
         try {
@@ -80,6 +73,7 @@ const PlayToEarn=()=>{
           const response = await res.json();
           if(response && response.success){
             if(response.foundUser.isSteamConnected) setIsSteamConnected(true)
+            if(response.foundUser.isMetamaskConnected) setIsWalletConnected(true)
             if(response.foundUser.timecreated) settimecreated(response.foundUser.timecreated)
           }
         })()
@@ -87,7 +81,6 @@ const PlayToEarn=()=>{
     useEffect(() => {
         window.addEventListener("message", event => {
           if (event.origin !== process.env.REACT_APP_SERVER_URL) return;
-    console.log(event.data.user);
           const { user, ok } = event.data;
           if (ok) {
             fetch(process.env.REACT_APP_SERVER_URL +"/user/"+localStorage.getItem("wallet-address"),{
@@ -109,11 +102,12 @@ const PlayToEarn=()=>{
 
     if (status === "unavailable") {content= <button>Unavailable</button>}
 
-    if (status === "notConnected") {content= <button onClick={connectMetamask}>Connect Metamask</button>}
+    if (status === "notConnected") {content= <button onClick={connectMetamask}><img src="./assets/images/metamask-icon.svg" alt="" /><span>Connect Metamask</span> </button>}
 
     if (status === "connecting") {content= <button>Connecting...</button>}
 
-    if (status === "connected") {content= <button onClick={()=>{signAndVerify(account)}}>Metamask Connected</button>}
+    if (status === "connected" && isWalletConnected) {content= <button onClick={()=>{signAndVerify(account)}}><img src="./assets/images/metamask-icon.svg" alt="" /><span>Metamask Connected</span> </button>}
+    if (status === "connected" && !isWalletConnected) {content= <button onClick={connectMetamask}><img src="./assets/images/metamask-icon.svg" alt="" /><span>Connect Metamask</span> </button>}
 
     return(
         <>
@@ -121,7 +115,7 @@ const PlayToEarn=()=>{
         <div className="flex flex-column align-items-center">
           
         {content}
-        <button onClick={handleSteamConnect}>{isSteamConnected ? "Steam Connected":"Connect Steam"}</button>
+        <button onClick={handleSteamConnect}><img src="./assets/images/steam-icon.svg" alt="" />{isSteamConnected ? <span>Steam Connected</span>: <span>Connect Steam</span>}</button>
         </div>
         </div>
         {timecreated && <div className="badge-container">
