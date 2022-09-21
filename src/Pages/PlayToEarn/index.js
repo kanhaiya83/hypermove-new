@@ -9,10 +9,10 @@ const PlayToEarn=()=>{
     const [timecreated,settimecreated] = useState(false);
     console.log({timecreated})
     let badgeNumber = 0;
-    if(timecreated > 1640975400000){
+    if(timecreated > 1640975400){
       badgeNumber=3
     }
-    else if(timecreated > 1609439400000){
+    else if(timecreated > 1609439400){
       badgeNumber=2
     }
     else{
@@ -20,6 +20,7 @@ const PlayToEarn=()=>{
     }
     
     const handleSteamConnect=async ()=>{
+      if(isSteamConnected) return ;
       if(!isWalletConnected)return alert("First connect Metamask wallet")
         const address = localStorage.getItem("wallet-address")
         if(!address) return;
@@ -55,6 +56,7 @@ const PlayToEarn=()=>{
         }
       };
       const connectMetamask = async () => {
+        if(isWalletConnected) return; 
         if(status ==="connected" && isWalletConnected){
           return;
         }
