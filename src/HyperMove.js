@@ -6,6 +6,7 @@ import {
     Route,
   } from "react-router-dom";
 import './HyperMove.css';
+import PlayToEarn from "./Pages/PlayToEarn";
 import HomePage from "./Pages/Home/Home";
 import AlertComponent from "./Components/Alert";
 import ComingSoon from "./Pages/ComingSoon";
@@ -19,7 +20,7 @@ const HyperMove = (props) => {
 <Header/>
 <Routes>
 <Route path="/" element={<HomePage/>}/>
-<Route path="/play-to-earn" element={<ComingSoon pageAddress="Play to Earn"/>}/>
+<Route path="/play-to-earn" element={<PlayToEarn/>}/>
 <Route path="/move-to-earn" element={<ComingSoon pageAddress="Move to Earn"/>}/>
 <Route path="/nft-marketplace" element={<ComingSoon pageAddress="NFT marketplace"/>}/>
 <Route path="/metaverse" element={<ComingSoon pageAddress="Metaverse"/>}/>
