@@ -87,7 +87,7 @@ const LeaderBoardCard = (props) => {
             return parseInt(b.score) - parseInt(a.score);
           });
           console.log(sortedScores);
-          setScores(sortedScores);
+          setScores(sortedScores.slice(0,10));
         }
       } catch (e) {}
     })();

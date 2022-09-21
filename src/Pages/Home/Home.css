@@ -370,6 +370,24 @@ transform: translateX(-50%);
     max-width: 200px;
 }
 
+.char-video{
+    max-width: 100%;
+}
+
+.ReactModal__Content .ReactModal__Content--after-open{
+    background: rgb(255 255 255 / 0%) !important;
+    overflow: hidden !important;    
+    backdrop-filter: blur(10px) !important;
+}
+
+
+
+/*GLITCH EFFECT*/
+
+/* GLITH ENDS */
+
+
+
 @media only screen and (max-width: 414px){
     
 

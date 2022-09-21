@@ -24,6 +24,8 @@ const HyperMove = (props) => {
 <Route path="/move-to-earn" element={<ComingSoon pageAddress="Move to Earn"/>}/>
 <Route path="/nft-marketplace" element={<ComingSoon pageAddress="NFT marketplace"/>}/>
 <Route path="/metaverse" element={<ComingSoon pageAddress="Metaverse"/>}/>
+<Route path="/launchpad" element={<ComingSoon pageAddress="Launchpad"/>}/>
+<Route path="/tournament" element={<ComingSoon pageAddress="Tournament"/>}/>
 </Routes>
 <Footer/>
 </React.Fragment>
