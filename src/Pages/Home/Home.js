@@ -125,35 +125,7 @@ useEffect(() => {
 
 <Container>
 
-<Row className="create-avatar-section py-5 align-items-center">
-
-<Col  className="text-center mobile-screen">
-{/*<div style={{ height: 600 }}>
-<GlitchedImage image={avatarImageString} />
-    </div>*/}
-  <div className="ratio ratio-1x1">
-<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
-  
-  <source src="../assets/movs/3dTurnAround.webm" type="video/webm"/>
-  <source src="../assets/movs/3dTurnAround.mp4" type="video/mp4"/>
-  
-  Your browser does not support the video tag.
-  </video>
-  </div>
-{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
-<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
-</Col>
-
-<Col xs={12} md={6}>
-<h2 className="nevan section-heading py-2 py-md-3">Create your avatar with one tap</h2>
-<p>HyperMove App is equipped with an hassle-free method to create and own an Avatar. Easy as it sounds, Create mesmerising avatars that best represents you with just a tap.</p>
-<HyperButton variant="dark" className="purple-btn nevan mb-5" text="CREATE AVATAR" href="https://hypermove.readyplayer.me/avatar" target="_blank"/>
-</Col>
-</Row>
-
-
-
-<Row className="create-avatar-section py-5 align-items-center">
+<Row className="create-avatar-section py-5 align-items-center flex-column-reverse flex-lg-row">
 
 <Col xs={12} md={6}>
 <h2 className="nevan section-heading py-2 py-md-3">INTO THE METAVERSE</h2>
@@ -192,6 +164,7 @@ useEffect(() => {
 
 
 
+
 <Row className="create-avatar-section py-5 align-items-center">
 
 <Col  className="text-center mobile-screen">
@@ -223,31 +196,36 @@ useEffect(() => {
 </Row>
 
 
+<Row className="create-avatar-section py-5 align-items-center">
 
-<Row className="aim-section py-5 align-items-center text-center">
-        <h2 className="nevan section-heading py-2 py-md-3">OUR AIM</h2>
-        <Col xs={12} md={4}  className="text-center py-3 py-ms-5">
-        <IoFitnessOutline size={120} className="purple-text glow-purple"/>
-        <h2 className="py-3">Healthy Lifestyle</h2>
-        <p>We encourage users to adopt to healthier lifestyle with our app</p>
 
-        </Col>
-
-        <Col xs={12} md={4}  className="text-center py-3 py-ms-5">
-        <IoGameControllerOutline size={120} className="purple-text glow-purple"/>
-        <h2 className="py-3">True Blockchain Gaming</h2>
-        <p>Experience M2E & P2E at its purest form in a decentralized environment</p>
-
-        </Col>
-
-        <Col xs={12} md={4}  className="text-center py-3 py-ms-5">
-        <IoLogoBitcoin size={120} className="purple-text glow-purple"/>
-        <h2 className="py-3">Passive Rewards        </h2>
-        <p>Earn cryptocurrencies as passive rewards from your activities</p>
-
+<Col xs={12} md={6}>
+<h2 className="nevan section-heading py-2 py-md-3">Create your avatar with one tap</h2>
+<p>HyperMove App is equipped with an hassle-free method to create and own an Avatar. Easy as it sounds, Create mesmerising avatars that best represents you with just a tap.</p>
+<HyperButton variant="dark" className="purple-btn nevan mb-5" text="CREATE AVATAR" href="https://hypermove.readyplayer.me/avatar" target="_blank"/>
 </Col>
 
+
+<Col  className="text-center mobile-screen">
+{/*<div style={{ height: 600 }}>
+<GlitchedImage image={avatarImageString} />
+    </div>*/}
+  <div className="ratio ratio-1x1">
+<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
+  
+  <source src="../assets/movs/3dTurnAround.webm" type="video/webm"/>
+  <source src="../assets/movs/3dTurnAround.mp4" type="video/mp4"/>
+  
+  Your browser does not support the video tag.
+  </video>
+  </div>
+{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
+<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
+</Col>
+
+
 </Row>
+
 
 
 <Row className="game-section py-5 text-center g-5">
@@ -270,6 +248,8 @@ useEffect(() => {
     </Col>
 
 </Row>
+
+
 
 
 
@@ -651,9 +631,9 @@ useEffect(() => {
 </div>
 <Container>
 
-<Row className="py-5 partners-section text-center align-items-center">
+<div className="py-5 partners-section text-center align-items-center">
 <PartnersSection/>
-</Row>
+</div>
 
 
 </Container>

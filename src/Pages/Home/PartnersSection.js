@@ -99,9 +99,9 @@ const PartnersLogosContainer=({filter})=>{
     })
 console.log({filteredLogos})
     return(
-        <FlipMove  className="logos-container" enterAnimation="fade" leaveAnimation="fade">
+        <FlipMove  className="row row-cols-2 row-cols-md-4 g-5 align-items-center" enterAnimation="fade" leaveAnimation="fade">
             {filteredLogos.map((logo,i)=>{
-                return <div key={logo.i} className="logo-img"><img src={logo.image}/></div>
+                return <div key={logo.i} className="logo-img"><img src={logo.image} className="img-fluid"/></div>
             })}
         </FlipMove>
     )

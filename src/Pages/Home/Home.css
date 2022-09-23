@@ -259,8 +259,9 @@ max-height: 80px !important;
     align-items: center;
     justify-content: center;
 }
-.logos-container .logo-img img{
-    width: 100% ;
+.logo-img img{
+    max-width: 140px ;
+    max-height: 140px ;
 }
 .roadmap-section-row{
     display: grid;
