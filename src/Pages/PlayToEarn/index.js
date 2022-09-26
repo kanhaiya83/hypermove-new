@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { useMetaMask } from "metamask-react";
 import Web3 from "web3"
 import { Row } from "react-bootstrap";
+import { useAuthContext } from "../../context/AuthContext";
 const PlayToEarn=()=>{
     const { status, connect, account, chainId, ethereum } = useMetaMask();
     const [isSteamConnected,setIsSteamConnected] = useState(false)
     const [isWalletConnected,setIsWalletConnected] = useState(false)
     
     const [timecreated,settimecreated] = useState(false);
-    console.log({timecreated})
+    const {isAuthenticated,setIsAuthenticated,setUserData,userData} = useAuthContext()
+    console.log(isAuthenticated,userData)
     let badgeNumber = 0;
     if(timecreated > 1640975400){
       badgeNumber=3
@@ -22,10 +24,8 @@ const PlayToEarn=()=>{
     
     const handleSteamConnect=async ()=>{
       if(isSteamConnected) return ;
-      if(!isWalletConnected)return alert("First connect Metamask wallet")
-        const address = localStorage.getItem("wallet-address")
-        if(!address) return;
-        if(isSteamConnected)return;
+      const authToken = localStorage.getItem("auth-token")
+      if(!isWalletConnected || !authToken)return alert("First connect Metamask wallet")
         const popupWindow = window.open(
             process.env.REACT_APP_SERVER_URL + "/auth/steam",
             "_blank",
@@ -51,8 +51,7 @@ const PlayToEarn=()=>{
         );
         const resData = await res.json();
         if (resData && resData.success) {
-        // localStorage.setItem("auth-token", resData.authToken);
-        localStorage.setItem("wallet-address", resData.address);
+        localStorage.setItem("auth-token", resData.authToken);
         setIsWalletConnected(true)
         }
       };
@@ -69,15 +68,17 @@ const PlayToEarn=()=>{
         }
       };
       useEffect(()=>{
-        const address = localStorage.getItem("wallet-address")
-        if(!address)return;
+        const authToken = localStorage.getItem("auth-token")
+        if(!authToken)return;
         (async ()=>{
-          const res= await fetch(process.env.REACT_APP_SERVER_URL+"/user/check/"+address)
+          const res= await fetch(process.env.REACT_APP_SERVER_URL+"/user/check",{headers:{"Content-Type":"application/json","auth-token":authToken}})
           const response = await res.json();
           if(response && response.success){
-            if(response.foundUser.isSteamConnected) setIsSteamConnected(true)
-            if(response.foundUser.isMetamaskConnected) setIsWalletConnected(true)
-            if(response.foundUser.timecreated) settimecreated(response.foundUser.timecreated)
+            // if(response.foundUser.isSteamConnected) setIsSteamConnected(true)
+            // if(response.foundUser.isMetamaskConnected) setIsWalletConnected(true)
+            // if(response.foundUser.timecreated) settimecreated(response.foundUser.timecreated)
+            setIsAuthenticated(true)
+            setUserData(response.user)
           }
         })()
       },[])
@@ -86,15 +87,18 @@ const PlayToEarn=()=>{
           if (event.origin !== process.env.REACT_APP_SERVER_URL) return;
           const { user, ok } = event.data;
           if (ok) {
-            fetch(process.env.REACT_APP_SERVER_URL +"/user/"+localStorage.getItem("wallet-address"),{
+            fetch(process.env.REACT_APP_SERVER_URL +"/user",{
               method:"POST",
-              headers:{"Content-Type":"application/json"},
+              headers:{"Content-Type":"application/json","auth-token":localStorage.getItem("auth-token")},
               body:JSON.stringify(user)
             }).then(d=>d.json()).then(res=>{
               if(res && res.success){
-                console.log(res.updatedUser)
-                setIsSteamConnected(true)
-                settimecreated(res.updatedUser.timecreated)
+                const {address,timecreated,avatar}=res.updatedUser
+                setIsAuthenticated(true)
+                setUserData(res.updatedUser)
+                // setIsSteamConnected(true)
+                // setIsAuthenticated(true)
+                // settimecreated(res.updatedUser.timecreated)
               }
             })
           }
@@ -112,24 +116,82 @@ const PlayToEarn=()=>{
     if (status === "connected" && isWalletConnected) {content= <button onClick={()=>{signAndVerify(account)}}><img src="./assets/images/metamask-icon.svg" alt="" /><span>Metamask Connected</span> </button>}
     if (status === "connected" && !isWalletConnected) {content= <button onClick={connectMetamask}><img src="./assets/images/metamask-icon.svg" alt="" /><span>Connect Metamask</span> </button>}
 
-    return(
-        <>
+    const ConnectProfileContent=  <>
 
-        <div className="container play-to-earn-container">
-        <Row className="vh-100 align-items-center">
-        <div className="flex flex-column align-items-center">
-          
-        {content}
-        <button onClick={handleSteamConnect}><img src="./assets/images/steam-icon.svg" alt="" />{isSteamConnected ? <span>Steam Connected</span>: <span>Connect Steam</span>}</button>
-        </div>
-        </Row>
-        </div>
-        {timecreated && <div className="badge-container">
-          <span>{badgeNumber}</span>
-          
+    <div className="container play-to-earn-container">
+    <Row className="vh-100">
+    <div className="flex flex-column align-items-center">
+      
+    {content}
+    <button onClick={handleSteamConnect}><img src="./assets/images/steam-icon.svg" alt="" />{isSteamConnected ? <span>Steam Connected</span>: <span>Connect Steam</span>}</button>
+    </div>
+    </Row>
+    </div>
+    {timecreated && <div className="badge-container">
+      <span>{badgeNumber}</span>
+      
+      </div>
+  }
+    </>
+    const ProfilePageContent=<>
+     <div className="play-to-earn-page">
+       <div className="profile-page">
+       <div className="profile-info-container">
+          <div className="profile-img">
+            <img src={userData.avatar} alt="" />
+         
           </div>
-      }
-        </>
+          <div className="persona-name">{userData.personaname}</div>
+          <span className="wallet-address">{userData.address}</span>
+        </div>
+
+      <div className="page-content">
+        <div className="rank-info-container">
+          <h4 className="heading">Achievements Ranking</h4>
+          <div className="rank-info-wrapper">
+            <div className="badge-container">
+              <img src="" alt="" />
+            </div>
+            <div className="rank-info">
+            <div>
+                <div className="title">
+                  <img src="./assets/images/podium.svg" alt="" />
+                  <span>Rank</span>
+                </div>
+                <div className="value">
+                  <span>0</span>
+                </div>
+              </div>  <div>
+                <div className="title">
+                  <img src="./assets/images/crown.svg" alt="" />
+                  <span>Score</span>
+                </div>
+                <div className="value">
+                  <span>0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="game-container">
+          <h4>Games</h4>
+          <div className="games-row">
+            <div>Coming Soon</div>
+            <div>Coming Soon</div>
+            <div>Coming Soon</div>
+            <div>Coming Soon</div>
+          </div>
+        </div>
+      </div>
+       </div>
+    </div>
+    </>
+    return(
+     <>
+    {
+      isAuthenticated ? ProfilePageContent :ConnectProfileContent
+    }
+     </>  
     )
 }
 
