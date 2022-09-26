@@ -120,7 +120,7 @@ const PlayToEarn=()=>{
 
     <div className="container play-to-earn-container">
     <Row className="vh-100">
-    <div className="flex flex-column align-items-center">
+    <div className="flex flex-column align-items-center mt-5">
       
     {content}
     <button onClick={handleSteamConnect}><img src="./assets/images/steam-icon.svg" alt="" />{isSteamConnected ? <span>Steam Connected</span>: <span>Connect Steam</span>}</button>
