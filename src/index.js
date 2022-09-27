@@ -1,30 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import HyperMove from './HyperMove';
+import "bootstrap/dist/css/bootstrap.min.css";
+import HyperMove from "./HyperMove";
 
-import ScoresProvider from "./context/leaderBoard"
-import AlertProvider from "./context/alert"
+import ScoresProvider from "./context/leaderBoard";
+import AlertProvider from "./context/alert";
 
-import {
-  BrowserRouter,
-} from "react-router-dom";
-import { MetaMaskProvider } from 'metamask-react';
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { BrowserRouter } from "react-router-dom";
+import { MetaMaskProvider } from "metamask-react";
+import AuthContextProvider from "./context/AuthContext";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-        <ScoresProvider>
-<AlertProvider>
-  <MetaMaskProvider>    <HyperMove/>
-  </MetaMaskProvider>
-
-    </AlertProvider>
-    </ScoresProvider>
+      <ScoresProvider>
+        <AlertProvider>
+          <MetaMaskProvider>
+          <AuthContextProvider>
+            <HyperMove />
+            </AuthContextProvider>
+          </MetaMaskProvider>
+        </AlertProvider>
+      </ScoresProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

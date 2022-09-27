@@ -10,7 +10,7 @@ import PlayToEarn from "./Pages/PlayToEarn";
 import HomePage from "./Pages/Home/Home";
 import AlertComponent from "./Components/Alert";
 import ComingSoon from "./Pages/ComingSoon";
-
+import "./index.scss"
 const HyperMove = (props) => {
 
     return(
