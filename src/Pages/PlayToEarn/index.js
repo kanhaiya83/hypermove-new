@@ -3,14 +3,14 @@ import { useMetaMask } from "metamask-react";
 import Web3 from "web3"
 import { Row } from "react-bootstrap";
 import { useAuthContext } from "../../context/AuthContext";
+import MintBadgeSection from "./MintBadge";
+import MainPage from "./MainPage";
 const PlayToEarn=()=>{
     const { status, connect, account, chainId, ethereum } = useMetaMask();
     const [isSteamConnected,setIsSteamConnected] = useState(false)
-    const [isWalletConnected,setIsWalletConnected] = useState(false)
     
     const [timecreated,settimecreated] = useState(false);
-    const {isAuthenticated,setIsAuthenticated,setUserData,userData} = useAuthContext()
-    console.log(isAuthenticated,userData)
+    const {isAuthenticated,setIsAuthenticated,setUserData,userData,isWalletConnected,setIsWalletConnected} = useAuthContext()
     let badgeNumber = 0;
     if(timecreated > 1640975400){
       badgeNumber=3
@@ -77,8 +77,15 @@ const PlayToEarn=()=>{
             // if(response.foundUser.isSteamConnected) setIsSteamConnected(true)
             // if(response.foundUser.isMetamaskConnected) setIsWalletConnected(true)
             // if(response.foundUser.timecreated) settimecreated(response.foundUser.timecreated)
-            setIsAuthenticated(true)
+            
             setUserData(response.user)
+            console.log({user:response.user});
+            if(response.user &&  response.user.isMetamaskConnected){
+              setIsWalletConnected(true)
+            }
+            if(response.user &&  response.user.isMetamaskConnected && response.user.isSteamConnected){
+              setIsAuthenticated(true)
+            }
           }
         })()
       },[])
@@ -188,8 +195,12 @@ const PlayToEarn=()=>{
     </>
     return(
      <>
+      <div className="play-to-earn-page">
+     {isAuthenticated ?<MainPage/> : <MintBadgeSection connectMetamask={connectMetamask}  handleSteamConnect={handleSteamConnect} isWalletConnected={isWalletConnected}/>
+     }
+     </div>
     {
-      isAuthenticated ? ProfilePageContent :ConnectProfileContent
+      // isAuthenticated ? ProfilePageContent :ConnectProfileContent
     }
      </>  
     )
