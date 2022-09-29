@@ -85,8 +85,8 @@ useEffect(() => {
   <h3>Onboard HyperMove, Convert your daily activities into real-world cash and Maintain a healthier life-style.</h3>
   <div className="d-grid d-sm-flex p-3 mt-5 gap-3 text-center justify-content-center">
   <Link to="/move-to-earn" className="purple-btn nevan btn btn-dark">MOVE TO EARN</Link>
-  <Link to="/move-to-earn" className="purple-btn nevan btn btn-dark">PLAY TO EARN</Link>
-  <Link to="/move-to-earn" className="purple-btn nevan btn btn-dark">METAVERSE</Link>
+  <Link to="/play-to-earn" className="purple-btn nevan btn btn-dark">PLAY TO EARN</Link>
+  <Link to="/metaverse" className="purple-btn nevan btn btn-dark">METAVERSE</Link>
   </div>
 
   <div className="d-sm-flex p-3 gap-2 text-center justify-content-center">
