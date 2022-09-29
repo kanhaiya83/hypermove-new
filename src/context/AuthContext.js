@@ -13,6 +13,7 @@ export const useAuthContext = () => useContext(AuthContext);
 const AuthContextProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isWalletConnected,setIsWalletConnected] = useState(false)
  
   const contextValue = {
     userData,
@@ -20,7 +21,7 @@ const AuthContextProvider = ({ children }) => {
   
     setUserData,
     setIsAuthenticated,
-    
+    isWalletConnected,setIsWalletConnected
   };
 
   // useEffect(() => {

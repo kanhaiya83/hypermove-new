@@ -8,10 +8,9 @@ import MainPage from "./MainPage";
 const PlayToEarn=()=>{
     const { status, connect, account, chainId, ethereum } = useMetaMask();
     const [isSteamConnected,setIsSteamConnected] = useState(false)
-    const [isWalletConnected,setIsWalletConnected] = useState(false)
     
     const [timecreated,settimecreated] = useState(false);
-    const {isAuthenticated,setIsAuthenticated,setUserData,userData} = useAuthContext()
+    const {isAuthenticated,setIsAuthenticated,setUserData,userData,isWalletConnected,setIsWalletConnected} = useAuthContext()
     let badgeNumber = 0;
     if(timecreated > 1640975400){
       badgeNumber=3
