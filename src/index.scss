@@ -1,12 +1,28 @@
-:root{
-    --color-dark-sec:#3B3B3C;
+:root {
+  --color-dark-sec: #1f1f1f;
+  --primary-color: #6c02d7;
 }
-.play-to-earn-page{
-    margin-top: 100px;
+.play-to-earn-page {
+  margin-top: 100px;
+  position: relative;
 }
-
+.sub-nav-menu-btn{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 3rem;
+padding: 5px;
+  background: #353535;
+  border-radius: 5px  0 0 0;
+  border: none;
+  display: none;
+  img{
+    width: 100%;
+  }
+  
+}
 .profile-page {
-    padding:0 10px;
+  // padding: 0 10px;
   display: flex;
   align-items: stretch;
   min-height: 100vh;
@@ -30,136 +46,413 @@
         width: 100%;
       }
     }
-    .persona-name{
-        margin-top: 1rem;
+    .persona-name {
+      margin-top: 1rem;
     }
-    .wallet-address{
-        max-width: 94px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: 8px;
+    .wallet-address {
+      max-width: 94px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 8px;
     }
   }
 }
-.page-content{
+.page-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .game-container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    .game-container{
-        width: 100%;
-        background-color: var(--color-dark-sec);
-        border-radius: 10px;
-        padding: 1rem 2%;
-        margin: 5px;
-        height: 100%;
-    }
-}
-.rank-info-container{
     background-color: var(--color-dark-sec);
     border-radius: 10px;
     padding: 1rem 2%;
-    margin: 5px;
+    margin-top: 10px;
+    height: 100%;
+  }
+}
+.rank-info-container {
+  background-color: var(--color-dark-sec);
+  border-radius: 10px;
+  padding: 1rem 2%;
+  width: 100%;
+  margin-bottom: 10px;
+  .rank-info-wrapper {
     width: 100%;
-    .rank-info-wrapper{
+    display: flex;
+    align-items: stretch;
+    .badge-container {
+      width: 100%;
+      max-width: 200px;
+      height: 200px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-right: 5px;
+      img {
         width: 100%;
+      }
+    }
+    .rank-info {
+      margin-left: 5px;
+
+      background-color: #141414;
+      max-height: 200px;
+      border-radius: 10px;
+      display: flex;
+      width: 100%;
+      align-items: stretch;
+      justify-content: space-between;
+      padding: 1rem 10%;
+      & > div {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        flex-direction: column;
+        .title {
+          display: flex;
+          img {
+            width: 1.5rem;
+            margin-right: 2rem;
+            display: block;
+          }
+          span {
+            font-size: 2rem;
+            font-weight: 500;
+          }
+        }
+        .value {
+          margin-left: 3.5rem;
+          font-size: 3rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+.games-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem 3%;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    background-color: #141414;
+    border-radius: 10px;
+  }
+}
+.mint-badge-container {
+  width: 100%;
+  height: 100%;
+  padding: 0 4%;
+  .mint-badge-wrapper {
+    background: rgb(0, 94, 255);
+    background: hsla(270, 98%, 43%, 1);
+
+    background: radial-gradient(
+      circle,
+      hsla(270, 98%, 43%, 1) 0%,
+      hsla(215, 95%, 52%, 1) 100%
+    );
+
+    background: -moz-radial-gradient(
+      circle,
+      hsla(270, 98%, 43%, 1) 0%,
+      hsla(215, 95%, 52%, 1) 100%
+    );
+
+    background: -webkit-radial-gradient(
+      circle,
+      hsla(270, 98%, 43%, 1) 0%,
+      hsla(215, 95%, 52%, 1) 100%
+    );
+
+    border-radius: 20px;
+    display: flex;
+    align-items: stretch;
+    section {
+      width: 100%;
+    }
+    section.btns-section {
+      padding: 3%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      //   padding-top: 5rem;
+      .section-heading {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        text-shadow: 4px -4px #005eff;
+      }
+      & > span {
+        font-size: 1.2rem;
+        margin-bottom: 3.5rem;
+      }
+      .btns-wrapper {
         display: flex;
         align-items: stretch;
-        .badge-container{
-            width: 100%;
-    max-width: 200px;
-    height: 200px;
-    background: white;
-    border-radius: 10px;
-    margin-right: 5px;
-        }
-        .rank-info{
-    margin-left: 5px;
+        .btn-container {
+          background-image: hsla(218, 100%, 50%, 1);
 
-            background-color: #6C02D7;
-            max-height: 200px;
-            border-radius: 10px;
+          background-image: linear-gradient(
+            0deg,
+            #6c02d7 0%,
+            hsla(192, 100%, 44%, 1) 72%
+          );
+
+          background-image: -moz-linear-gradient(
+            0deg,
+            #6c02d7 0%,
+            hsla(192, 100%, 44%, 1) 72%
+          );
+
+          background-image: -webkit-linear-gradient(
+            0deg,
+            #6c02d7 0%,
+            hsla(192, 100%, 44%, 1) 72%
+          );
+
+          padding: 3px;
+          border-radius: 8px;
+          margin: 0 8px;
+
+          button {
+            border-radius: 8px;
+            border: none;
+            padding: 8px 1rem;
             display: flex;
-            width: 100%;
-            align-items: stretch;
-            justify-content: space-between;
-            padding:1rem 10%;
-            &>div{
-                display: flex;
-                width: 100%;
-                align-items: flex-start;
-                flex-direction: column;
-                .title{
-                    display: flex;
-                    img{
-
-                        width: 1.5rem;
-                        margin-right: 2rem;
-                        display: block;
-                    }
-                    span{
-                        font-size: 2rem;
-                        font-weight: 500;
-                    }
-                }
-                .value{
-                    margin-left: 3.5rem;
-                    font-size: 3rem;
-                    font-weight: 700;
-                }
+            align-items: center;
+            background-color: #005eff;
+            font-size: 1rem;
+            span {
+              color: white;
             }
+            img {
+              width: 1.2rem;
+              margin-right: 5px;
+            }
+          }
         }
+      }
     }
-}
-.games-row{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 1rem 3%;
-    div{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      min-height: 200px;
-        background-color: #141414;
-        border-radius: 10px;
-    }
-}
-@media only screen and (max-width: 1200px) {}
-@media only screen and (max-width: 992px) {
-    .play-to-earn-page{
-        margin-top: 135px;
+    section.img-section {
+      padding: 20px;
+      padding-left: 0;
+      .badge-img-container {
+        width: 100%;
+        background-color: #005eff;
+        border-radius: 20px;
 
-    }
-    .profile-page{
-        flex-direction: column;
-        .profile-info-container{
-            max-width: inherit;
+        img {
+          width: 100%;
+          max-width: 650px;
         }
+      }
     }
-    .games-row{
-        grid-template-columns: repeat(3,1fr);
+  }
+}
+.pte-sidebar {
+  position: absolute;
+  left: 0rem;
+  width: 18%;
+  height: 100%;
+  .btns-wrapper {
+    border-radius: 8px;
+
+    background-color: #1f1f1f;
+    margin: 0 10px;
+    padding: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    a {
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      width: 100%;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: #141414;
+      // box-shadow: inset 6px 6px 13px #2b2c30,
+      //             inset -6px -6px 13px #373a3e;
+      border-radius: 5px;
+      text-decoration: none;
+
+      margin-bottom: 1.5rem;
+      &.active {
+        background: #6c02d7;
+        box-shadow: inset 6px 6px 13px #5e02bb, inset -6px -6px 13px #7a02f3;
+      }
     }
+  }
+}
+.pte-mainpage-content {
+  min-height: 80vh;
+  .content-wrapper {
+    width: 82%;
+    margin-left: auto;
+    padding: 0 10px;
+  }
+}
+.coming-soon-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 20vh;
+  h1 {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+}
+.marketplace-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 4% 0 10px;
+}
+.top-filters-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #353535;
+  flex-wrap: wrap;
+  select {
+    padding: 12px 1rem;
+    border-radius: 10px;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 1rem;
+    appearance: none;
+    color: inherit;
+    min-width: 200px;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    flex-grow: 1;
+    border: 1px solid #353535;
+    &:focus {
+      border: 1px solid white;
+    }
+  }
+}
+.bottom-filters-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  button {
+    padding: 12px 1rem;
+    border-radius: 10px;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 1rem;
+    appearance: none;
+    color: inherit;
+    min-width: 200px;
+    flex-grow: 1;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    border: 1px solid #353535;
+    &:focus {
+      border: 1px solid #6c02d7;
+    }
+  }
+}
+
+.marketplace-content {
+  margin-top: 3rem;
+  width: 100%;
+  .items-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: space-between;
+    grid-gap: 1rem;
+    width: 100%;
+    & > div {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      min-height: 400px;
+    }
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .pte-sidebar{
+    width: 22%;
+  }
+  .pte-mainpage-content{
+    .content-wrapper{
+      width: 78%;
+    }
+  }
+}
+@media only screen and (max-width: 992px) {
+  .play-to-earn-page {
+    margin-top: 135px;
+  }
+  .profile-page {
+    flex-direction: column;
+    .profile-info-container {
+      max-width: inherit;
+    }
+  }
+  .games-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sub-nav-menu-btn{
+    display: block;
+    z-index: 101;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .pte-sidebar{
+    top: 0;
+    z-index: 100;
+    left: 0;
+    transform: translateY(-150%);
+    width: 100%;
+    &.open{
+      transform: translateY(0);
+    }
+  }
+  .pte-mainpage-content{
+    .content-wrapper{
+      width: 100%;
+    }
+  }
 }
 @media only screen and (max-width: 768px) {
-    .play-to-earn-page{
-     margin-top: 205px;
-    }
-    
-    .games-row{
-        grid-template-columns: repeat(2,1fr);
-    }
+  .play-to-earn-page {
+    margin-top: 205px;
+  }
+
+  .games-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media only screen and (max-width: 600px) {
-    .rank-info-container{
-        .rank-info-wrapper{
-            flex-direction: column;
-            align-items: center;
-            .badge-container{
-                margin-bottom: 1rem;
-            }
-        }
+  .rank-info-container {
+    .rank-info-wrapper {
+      flex-direction: column;
+      align-items: center;
+      .badge-container {
+        margin-bottom: 1rem;
+      }
     }
-    
-    .games-row{
-        grid-template-columns: repeat(1,1fr);
-    }
+  }
+
+  .games-row {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
