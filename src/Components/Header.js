@@ -72,7 +72,7 @@ const Header = (props) => {
 
 
          </Nav>
-              <HyperButton variant="dark" className="purple-btn float-end" text={isWalletConnected ? "LOGOUT" :"JOIN COMMUNITY"} onClick={()=>{if(isWalletConnected){return handleLogout()}; connectMetamask()}}></HyperButton>
+              <HyperButton variant="dark" className="purple-btn float-end" text={isWalletConnected ? "LOGOUT" :"CONNECT WALLET"} onClick={()=>{if(isWalletConnected){return handleLogout()}; connectMetamask()}}></HyperButton>
               </div>
             </Col>
             </Row>
