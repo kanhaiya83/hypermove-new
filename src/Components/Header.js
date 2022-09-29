@@ -13,11 +13,18 @@ import Button from 'react-bootstrap/Button';
 import './Header.css';
 import HyperButton from "./HyperButton";
 import NavMenuLinks from "./NavMenuLinks";
+import { useAuthContext } from "../context/AuthContext";
 
 
 const Header = (props) => {
 
   const [show, setShow] = useState(false);
+  const {connectMetamask,isWalletConnected,setIsWalletConnected, setIsAuthenticated} = useAuthContext()
+  const handleLogout=()=>{
+    setIsWalletConnected(false)
+    setIsAuthenticated(false)
+    localStorage.removeItem("auth-token")
+  }
   const showDropdown = (e)=>{
       setShow(!show);
   }
@@ -65,7 +72,7 @@ const Header = (props) => {
 
 
          </Nav>
-              <HyperButton variant="dark" className="purple-btn float-end" text="JOIN COMMUNITY"></HyperButton>
+              <HyperButton variant="dark" className="purple-btn float-end" text={isWalletConnected ? "LOGOUT" :"JOIN COMMUNITY"} onClick={()=>{if(isWalletConnected){return handleLogout()}; connectMetamask()}}></HyperButton>
               </div>
             </Col>
             </Row>
