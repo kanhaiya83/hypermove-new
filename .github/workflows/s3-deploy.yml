@@ -5,7 +5,7 @@ on:
     branches:
       - master
 jobs:
-  deploy hypermove(s3):
+  build-hypermove:
     runs-on: ubuntu-latest
     steps:
       - name: Checking out code
