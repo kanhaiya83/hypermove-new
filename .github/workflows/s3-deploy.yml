@@ -1,15 +1,11 @@
 
-# Name of workflow as seen in Github actions tab
-name: dev-build-and-deploy
-# Run workflow only on push to dev branch
+name: build-and-deploy
 on:
   push:
     branches:
-      - dev
       - master
 jobs:
-  # To build the project
-  build-tambola:
+  deploy hypermove(s3):
     runs-on: ubuntu-latest
     steps:
       - name: Checking out code
@@ -30,4 +26,4 @@ jobs:
           aws-region: us-west-1
 
       - name: Deploy to S3 bucket
-        run: aws s3 sync ./build/ s3://hypermove-404 --delete
+        run: aws s3 sync ./build/ s3://${{secrets.AWS_S3_BUCKET}} --delete
