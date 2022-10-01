@@ -19,7 +19,7 @@ jobs:
       - name: Installing dependencies
         run: npm install
       - name: Building project
-        run: CI=false npm run build
+        run: CI=false REACT_APP_SERVER_URL=$SERVER_URL npm run build
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
