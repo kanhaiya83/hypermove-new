@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+env: 
+  SERVER_URL: ${{secrets.SERVER_URL}}
 jobs:
   build-hypermove:
     runs-on: ubuntu-latest
