@@ -67,28 +67,7 @@ const PlayToEarn=()=>{
           console.log(e);
         }
       };
-      useEffect(()=>{
-        const authToken = localStorage.getItem("auth-token")
-        if(!authToken)return;
-        (async ()=>{
-          const res= await fetch(process.env.REACT_APP_SERVER_URL+"/user/check",{headers:{"Content-Type":"application/json","auth-token":authToken}})
-          const response = await res.json();
-          if(response && response.success){
-            // if(response.foundUser.isSteamConnected) setIsSteamConnected(true)
-            // if(response.foundUser.isMetamaskConnected) setIsWalletConnected(true)
-            // if(response.foundUser.timecreated) settimecreated(response.foundUser.timecreated)
-            
-            setUserData(response.user)
-            console.log({user:response.user});
-            if(response.user &&  response.user.isMetamaskConnected){
-              setIsWalletConnected(true)
-            }
-            if(response.user &&  response.user.isMetamaskConnected && response.user.isSteamConnected){
-              setIsAuthenticated(true)
-            }
-          }
-        })()
-      },[])
+    
     useEffect(() => {
       const onMessage = event => {
         console.log(event);
