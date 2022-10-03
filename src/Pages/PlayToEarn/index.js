@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useMetaMask } from "metamask-react";
 import Web3 from "web3"
 import { Row } from "react-bootstrap";
@@ -90,26 +90,36 @@ const PlayToEarn=()=>{
         })()
       },[])
     useEffect(() => {
-        window.addEventListener("message", event => {
-          if (event.origin !== process.env.REACT_APP_SERVER_URL) return;
-          const { user, ok } = event.data;
-          if (ok) {
-            fetch(process.env.REACT_APP_SERVER_URL +"/user",{
-              method:"POST",
-              headers:{"Content-Type":"application/json","auth-token":localStorage.getItem("auth-token")},
-              body:JSON.stringify(user)
-            }).then(d=>d.json()).then(res=>{
-              if(res && res.success){
-                const {address,timecreated,avatar}=res.updatedUser
-                setIsAuthenticated(true)
-                setUserData(res.updatedUser)
-                // setIsSteamConnected(true)
-                // setIsAuthenticated(true)
-                // settimecreated(res.updatedUser.timecreated)
-              }
-            })
-          }
-        });
+      const onMessage = event => {
+        console.log(event);
+        if (event.origin !== process.env.REACT_APP_SERVER_URL) return;
+        let { user, ok } = event.data;
+        const savedReferralCode = localStorage.getItem("referral-code")
+        if(savedReferralCode){
+          user.enteredReferralCode= savedReferralCode
+        }
+        console.log({savedReferralCode,user});
+        if (ok) {
+          fetch(process.env.REACT_APP_SERVER_URL +"/user",{
+            method:"POST",
+            headers:{"Content-Type":"application/json","auth-token":localStorage.getItem("auth-token")},
+            body:JSON.stringify(user)
+          }).then(d=>d.json()).then(res=>{
+            if(res && res.success){
+              const {address,timecreated,avatar}=res.updatedUser
+              setIsAuthenticated(true)
+              setUserData(res.updatedUser)
+              // setIsSteamConnected(true)
+              // setIsAuthenticated(true)
+              // settimecreated(res.updatedUser.timecreated)
+            }
+          })
+        }
+      }
+        window.addEventListener("message", onMessage);
+        return () => {
+          window.removeEventListener("message",onMessage);
+        }
       }, []);
       let content=<></>
       if (status === "initializing") {content= <button>Synchronising.</button>}
@@ -154,7 +164,9 @@ const PlayToEarn=()=>{
 
       <div className="page-content">
         <div className="rank-info-container">
-          <h4 className="heading">Achievements Ranking</h4>
+          <header><h4 className="heading">Achievements Ranking</h4>
+          <button>Refer a friend</button>
+          </header>
           <div className="rank-info-wrapper">
             <div className="badge-container">
               <img src="" alt="" />
@@ -174,7 +186,7 @@ const PlayToEarn=()=>{
                   <span>Score</span>
                 </div>
                 <div className="value">
-                  <span>0</span>
+                  <span>{userData.score}</span>
                 </div>
               </div>
             </div>

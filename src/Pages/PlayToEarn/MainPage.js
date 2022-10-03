@@ -1,11 +1,14 @@
 import { useState } from "react"
 import { Link, NavLink, Route, Routes } from "react-router-dom"
+import ReferralModal from "../../Components/ReferralModal"
 import { useAuthContext } from "../../context/AuthContext"
 import MarketPlace from "./MarketPlace"
 import MyNFTs from "./MyNfts"
 const HomePage=()=>{
   const {userData} =useAuthContext()
   const timecreated = userData.timecreated
+  const [referralModal,setReferralModal]= useState(false)
+
   let badgeImg=""
   if(timecreated > 1640975400){
     badgeImg="https://user-images.githubusercontent.com/76777058/193011572-cff0a175-231e-4a62-a3d4-fb7088d51dcc.jpg"
@@ -17,6 +20,7 @@ const HomePage=()=>{
     badgeImg="https://user-images.githubusercontent.com/76777058/193011595-66b19e8e-b09f-44d8-8a9e-bcab5b8afa77.jpg"
   }
     return (
+      <>
         <div className="profile-page">
         {/* <div className="profile-info-container">
            <div className="profile-img">
@@ -29,7 +33,10 @@ const HomePage=()=>{
  
        <div className="page-content">
          <div className="rank-info-container">
+           <div className="container-header">
            <h4 className="heading">Achievements Ranking</h4>
+           <button  onClick={()=>{setReferralModal(true)}}>Refer a friend</button>
+           </div>
            <div className="rank-info-wrapper">
              <div className="badge-container">
                <img src={badgeImg} alt="" />
@@ -49,7 +56,7 @@ const HomePage=()=>{
                    <span>Score</span>
                  </div>
                  <div className="value">
-                   <span>0</span>
+                   <span>{userData.score}</span>
                  </div>
                </div>
              </div>
@@ -66,6 +73,9 @@ const HomePage=()=>{
          </div>
        </div>
         </div>
+        <ReferralModal isOpen={referralModal} setIsOpen={setReferralModal}/>
+
+        </>
     )
 }
 const ComingSoon=()=>{

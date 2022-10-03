@@ -76,6 +76,18 @@ padding: 5px;
   padding: 1rem 2%;
   width: 100%;
   margin-bottom: 10px;
+  .container-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1rem 0;
+    button{
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 3px;
+    }
+  }
   .rank-info-wrapper {
     width: 100%;
     display: flex;
@@ -409,6 +421,55 @@ background: -webkit-linear-gradient(0deg, hsla(270, 98%, 43%, 1) 0%, hsla(267, 9
       padding: 1rem;
       text-align: center;
       min-height: 400px;
+    }
+  }
+}
+.modal-wrapper{
+  padding: 1.5rem 5%;
+  .cross-btn{
+    background-color: transparent;
+    border: none;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0!important;
+  }
+}
+.referral-modal-content{
+  text-align:center;
+  width: 100%;
+  .modal-heading{
+    font-size: 2rem;
+margin-bottom: 10px;
+  }
+  .modal-text{
+    font-size: 1rem;
+    font-weight: 400;
+margin-bottom: 16px;
+}
+  .link-container{
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    // border: 2px solid silver;
+    overflow: hidden;
+    border-radius: 3px;
+
+    span{
+      background-color: #141414;
+      font-size: 1rem;
+      width: 100%;
+      padding: 8px;
+    }
+    button{
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      padding: 8px;
+      // border-left: 2px solid silver;
     }
   }
 }
