@@ -7,7 +7,7 @@ img{
   font-size: 0rem;
 }
 .play-to-earn-page {
-  margin-top: 100px;
+  margin-top: 135px;
   position: relative;
 }
 
@@ -536,7 +536,7 @@ margin-bottom: 16px;
 }
 @media only screen and (max-width: 768px) {
   .play-to-earn-page {
-    margin-top: 205px;
+    margin-top: 240px;
   }
 
   .games-row {
@@ -544,6 +544,9 @@ margin-bottom: 16px;
   }
 }
 @media only screen and (max-width: 600px) {
+  .play-to-earn-page{
+    margin-top: 160px;
+  }
   .rank-info-container {
     .rank-info-wrapper {
       flex-direction: column;
