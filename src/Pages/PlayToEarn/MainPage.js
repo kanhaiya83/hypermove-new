@@ -10,26 +10,25 @@ const HomePage=()=>{
   const [referralModal,setReferralModal]= useState(false)
 
   let badgeImg=""
+  let badgeName=""
   if(timecreated > 1640975400){
     badgeImg="https://user-images.githubusercontent.com/76777058/193011572-cff0a175-231e-4a62-a3d4-fb7088d51dcc.jpg"
+    badgeName="Bronze"
   }
   else if(timecreated > 1609439400){
     badgeImg="https://user-images.githubusercontent.com/76777058/193011583-1ea00907-8459-4919-add2-f0cc95269194.jpg"
+    badgeName="Silver"
+
   }
   else{
     badgeImg="https://user-images.githubusercontent.com/76777058/193011595-66b19e8e-b09f-44d8-8a9e-bcab5b8afa77.jpg"
+    badgeName="Gold"
+
   }
     return (
       <>
         <div className="profile-page">
-        {/* <div className="profile-info-container">
-           <div className="profile-img">
-             <img src={userData.avatar} alt="" />
-          
-           </div>
-           <div className="persona-name">{userData.personaname}</div>
-           <span className="wallet-address">{userData.address}</span>
-         </div> */}
+       
  
        <div className="page-content">
          <div className="rank-info-container">
@@ -45,10 +44,10 @@ const HomePage=()=>{
              <div>
                  <div className="title">
                    <img src="./assets/images/podium.svg" alt="" />
-                   <span>Rank</span>
+                   <span>Badge</span>
                  </div>
-                 <div className="value">
-                   <span>0</span>
+                 <div className="badge-name">
+                   <span >{badgeName}</span>
                  </div>
                </div>  <div>
                  <div className="title">
