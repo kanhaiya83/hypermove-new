@@ -157,6 +157,7 @@ useEffect(()=>{
   
   <source src="../assets/movs/glitch.webm" type="video/webm"/>
   <source src="../assets/movs/glitch.mp4" type="video/mp4"/>
+  <source src="../assets/movs/glitch.mov" type="video/mp4"/>
   
   Your browser does not support the video tag.
   </video>
@@ -182,6 +183,7 @@ useEffect(()=>{
   
   <source src="../assets/movs/shoes-factory.webm" type="video/webm"/>
   <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
+  <source src="../assets/movs/shoes-factory.mov" type="video/mp4"/>
   
   Your browser does not support the video tag.
   </video>
@@ -221,6 +223,7 @@ useEffect(()=>{
   
   <source src="../assets/movs/3dTurnAround.webm" type="video/webm"/>
   <source src="../assets/movs/3dTurnAround.mp4" type="video/mp4"/>
+  <source src="../assets/movs/3dTurnAround.mov" type="video/mp4"/>
   
   Your browser does not support the video tag.
   </video>
