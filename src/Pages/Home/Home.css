@@ -247,19 +247,51 @@ max-height: 80px !important;
     border-radius: 8px;
 }
 
-.logos-container{
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    grid-gap: 4rem 5%;
-    justify-content: center;
-}
-.logos-container .logo-img {
+
+.partner-logo-container  {
     display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
 }
-.logo-img img{
+.partner-logo-container  .links-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px 5%;
+    background-color: rgba(39,39,39,.9);
+    display: flex;
+    border-radius: 100rem;
+    align-items: center;
+    
+    opacity: 0;
+    transition: opacity 200ms;
+}
+.partner-logo-container  .links-wrapper a{
+    width: 2rem;
+    height: 2rem;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+    border-radius: 100rem;
+    background-color: rgba(64, 64, 64, 0.9);
+
+}
+.partner-logo-container:hover .links-wrapper{
+    opacity: 1;
+}
+.partner-logo-container  .links-wrapper a img{
+    width: 100%;
+}
+
+
+.partner-logo-img img{
+    width: 100%;
     max-width: 140px ;
     max-height: 140px ;
 }

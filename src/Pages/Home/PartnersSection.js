@@ -2,83 +2,6 @@ import React, { useEffect, useState } from 'react';
 import FlipMove from 'react-flip-move';
 
 const PartnersLogosContainer=({filter})=>{
-    const _partnersLogos=[
-        {
-            image:"./assets/images/partners/ACY_FINACE.png",
-            tags:["all","launchpads"]
-        },
-        {
-            image:"./assets/images/partners/ANTPAD.png",
-            tags:["all","launchpads"]
-        },
-        {
-            image:"./assets/images/partners/ASSURE.png",
-            tags:["all","nft","wallet"]
-        },
-        
-        {
-            image:"./assets/images/partners/BITKEEP.png",
-            tags:["all","nft","wallet"]
-        },
-        {
-            image:"./assets/images/partners/BRIGHTPAD.png",
-            tags:["all","launchpads"]
-        },
-        {
-            image:"./assets/images/partners/DIVINER_PROTOCOL.png",
-            tags:["all","launchpads","incubator"]
-        },
-        {
-            image:"./assets/images/partners/DONUT_CAPITAL.png",
-            tags:["all","infrastructure","Venture"]
-        },
-        {
-            image:"./assets/images/partners/ERAX.png",
-            tags:["all","launchpads"]
-        },
-        {
-            image:"./assets/images/partners/FANTOM_LIVE.png",
-            tags:["all","incubator","launchpads"]
-        },
-        {
-            image:"./assets/images/partners/GAME_SPACE.png",
-            tags:["all","defi","gaming metaverse","nft"]
-        },
-        {
-            image:"./assets/images/partners/MARSPAD.png",
-            tags:["all","incubator","launchpads"]
-        },
-        {
-            image:"./assets/images/partners/METANIA_GAME.png",
-            tags:["all","gaming metaverse","nft"]
-        },
-        {
-            image:"./assets/images/partners/NFT_TRADE.png",
-            tags:["all","nft","nft marketplace"]
-        },
-        {
-            image:"./assets/images/partners/PALMARE.png",
-            tags:["all","gaming metaverse"]
-        },
-        {
-            image:"./assets/images/partners/PASLMA.png",
-            tags:["all","incubator","infrastructure","Venture"]
-        },
-        {
-            image:"./assets/images/partners/PROPEL.png",
-            tags:["all"]
-        },
-        {
-            image:"./assets/images/partners/SAFUU_CRYPTO.png",
-            tags:["all","incubator","Venture"]
-        },
-       
-        {
-            image:"./assets/images/partners/WARXGAME.png",
-            tags:["all","gaming metaverse"]
-        },
-       
-    ]
     useEffect(()=>{
         (async()=>{
             const res= await fetch(process.env.REACT_APP_SERVER_URL+"/admin/partners")
@@ -97,16 +20,35 @@ const PartnersLogosContainer=({filter})=>{
     const filteredLogos=partnersLogos.filter(logo=>{
         return logo.tags.includes(filter.toLowerCase())
     })
-console.log({filteredLogos})
     return(
         <FlipMove  className="row row-cols-2 row-cols-md-4 g-5 align-items-center" enterAnimation="fade" leaveAnimation="fade">
             {filteredLogos.map((logo,i)=>{
-                return <div key={logo.i} className="logo-img"><img src={logo.image} className="img-fluid"/></div>
+                return<>
+                <div key={i} className="partner-logo-container">
+        <div className="partner-logo-img">
+        <img src={logo.image} className="img-fluid"/>
+        </div>
+        <div className="links-wrapper">
+        <a href={logo.website || "#"} target="_blank">
+                    <img src="./assets/images/arrow-top-right.svg" alt="" />
+                </a>
+                <a href={logo.twitter || "#"}  target="_blank">
+                    <img src="./assets/images/twitter.svg" alt="" />
+                </a>
+        </div>
+    </div>
+                </>
             })}
         </FlipMove>
     )
 }
-
+const PartnerLogo=({logo})=>{
+    return <div key={logo.i} className="partner-logo-container">
+        <div className="partner-logo-img">
+        <img src={logo.image} className="img-fluid"/>
+        </div>
+    </div>
+}
 const PartnersSection= ()=>{
 
     const [filter,setFilter]=useState("all")
