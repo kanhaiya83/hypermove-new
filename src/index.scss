@@ -6,7 +6,7 @@ img{
   display: block;
   font-size: 0rem;
 }
-.play-to-earn-page {
+.play-to-earn-page,.header-top-padding {
   margin-top: 135px;
   position: relative;
 }
@@ -86,12 +86,13 @@ padding: 5px;
     justify-content: space-between;
     width: 100%;
     margin: 1rem 0;
-    button{
+    a{
       background-color: var(--primary-color);
       color: white;
       border: none;
       border-radius: 3px;
-      padding: 0 1.5rem;
+      padding: 5px 1.5rem;
+      text-decoration: none;
     }
   }
   .rank-info-wrapper {
@@ -130,23 +131,25 @@ padding: 5px;
           display: flex;
           img {
             width: 1.5rem;
-            margin-right: 2rem;
+            margin-right: 1rem;
             display: block;
           }
           span {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 500;
           }
         }
         .value {
           margin-left: 3.5rem;
-          font-size: 3rem;
+          font-size: 2rem;
           font-weight: 700;
+          margin-top: 2rem;
         }
         .badge-name{
-          font-size: 2.4rem;
+          font-size: 2rem;
+          margin-top: 2rem;
+
           font-family: "Nevan";
-          line-height: 6rem;
         }
       }
     }
@@ -489,6 +492,87 @@ margin-bottom: 16px;
     }
   }
 }
+.referral-page{
+  .page-header{
+    margin-bottom: 2rem;
+    button{
+      padding: 8px 1rem;
+      font-size: 1.1rem;
+      color: white;
+      font-weight: 600;
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 5px;
+    }
+  }
+  .page-cards-container{
+    .page-card{
+      background-color: #1F1F1F;
+      padding: 2.5rem 5%;
+      border-radius: 15px;
+      max-width: 400px;
+img{
+  height: 1.3rem;
+  margin-top: 2px;
+  margin-right: 8px;
+}
+      h1{
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+  .no-users-warning{
+    width: 100%;
+    text-align: center;
+    color: #aeaeae;
+    display: block;
+  }
+}
+.profile-page-2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  .profile-img{
+    border-radius: 1000rem;
+    overflow: hidden;
+    max-width: 250px;
+    width: 100%;
+    padding: 20px;
+    background-color: #1f1f1f;
+    margin-bottom: 2rem;
+    img{
+      margin: auto;
+    }
+  }
+  .user-name{
+    font-size: 2.3rem;
+  }
+  .page-cards{
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 4rem;
+   .border-div{
+width: 1px;
+background-color: #1f1f1f;
+height: 100%;
+min-height: 100px;
+    }
+    .page-card img{
+      margin-right: 5px;
+      width: 1.25rem;
+    }
+
+    h5,h2{
+      margin-bottom: 0;
+    }
+  }
+}
+.profile-button{
+  width: 2rem;
+  margin: auto;
+}
 @media only screen and (max-width: 1200px) {
   .pte-sidebar{
     width: 22%;
@@ -500,7 +584,7 @@ margin-bottom: 16px;
   }
 }
 @media only screen and (max-width: 992px) {
-  .play-to-earn-page {
+  .play-to-earn-page,.header-top-padding {
     margin-top: 135px;
   }
   .profile-page {
@@ -536,7 +620,7 @@ margin-bottom: 16px;
   }
 }
 @media only screen and (max-width: 768px) {
-  .play-to-earn-page {
+  .play-to-earn-page,.header-top-padding {
     margin-top: 240px;
   }
 
@@ -545,7 +629,7 @@ margin-bottom: 16px;
   }
 }
 @media only screen and (max-width: 600px) {
-  .play-to-earn-page{
+  .play-to-earn-page,.header-top-padding{
     margin-top: 160px;
   }
   .rank-info-container {

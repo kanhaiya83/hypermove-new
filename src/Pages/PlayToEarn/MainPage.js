@@ -34,7 +34,7 @@ const HomePage=()=>{
          <div className="rank-info-container">
            <div className="container-header">
            <h4 className="heading">Achievements Ranking</h4>
-           <button  onClick={()=>{setReferralModal(true)}}>Refer a friend</button>
+           <Link to="/refer">Refer a friend</Link>
            </div>
            <div className="rank-info-wrapper">
              <div className="badge-container">
@@ -51,11 +51,19 @@ const HomePage=()=>{
                  </div>
                </div>  <div>
                  <div className="title">
-                   <img src="./assets/images/crown.svg" alt="" />
-                   <span>Score</span>
+                   <img src="./assets/images/ticket.svg" alt="" />
+                   <span>Tickets</span>
                  </div>
                  <div className="value">
-                   <span>{userData.score}</span>
+                   <span>{userData.tickets || 0}</span>
+                 </div>
+               </div> <div>
+                 <div className="title">
+                   <img src="./assets/images/crown.svg" alt="" />
+                   <span>Gems</span>
+                 </div>
+                 <div className="value">
+                   <span>{userData.gems || 0}</span>
                  </div>
                </div>
              </div>

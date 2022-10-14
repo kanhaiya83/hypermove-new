@@ -161,11 +161,20 @@ const PlayToEarn=()=>{
                 </div>
               </div>  <div>
                 <div className="title">
-                  <img src="./assets/images/crown.svg" alt="" />
-                  <span>Score</span>
+                  <img src="./assets/images/ticket.svg" alt="" />
+                  <span>Tickets</span>
                 </div>
                 <div className="value">
-                  <span>{userData.score}</span>
+                  <span>{40}</span>
+                </div>
+              </div>
+              <div>
+                <div className="title">
+                  <img src="./assets/images/ticket.svg" alt="" />
+                  <span>Gems</span>
+                </div>
+                <div className="value">
+                  <span>{200}</span>
                 </div>
               </div>
             </div>

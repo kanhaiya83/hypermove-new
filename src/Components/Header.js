@@ -58,7 +58,11 @@ const Header = (props) => {
         </NavDropdown.Item>
         <NavDropdown.Item>
         <NavMenuLinks href="/nft-marketplace" text="NFT Marketplace"/>
-        </NavDropdown.Item>
+        </NavDropdown.Item> 
+        {isAuthenticated && <NavDropdown.Item>
+        <NavMenuLinks href="/profile" text="Profile"/>
+        </NavDropdown.Item> }
+        
       
         <NavDropdown.Divider />
         <NavDropdown.Item>
@@ -74,6 +78,8 @@ const Header = (props) => {
 
 
       </Nav>
+     {/* {isAuthenticated &&  <Link to="/profile"><img className="profile-button" src="./assets/images/profile.svg" alt="" /></Link>} */}
+
            <HyperButton variant="dark" className="purple-btn float-end" text={isWalletConnected ? "LOGOUT" :"CONNECT WALLET"} onClick={()=>{if(isWalletConnected){return handleLogout()}; connectMetamask()}}></HyperButton>
            </div>
          </Col>
