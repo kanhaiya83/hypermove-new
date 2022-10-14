@@ -1,14 +1,24 @@
+import { useState } from "react"
 import { useAuthContext } from "../../context/AuthContext"
 
 const ReferralPage=()=>{
-  const {userData} =useAuthContext()
+    const [copied,setCopied] = useState(false)
+    const {userData} = useAuthContext()
+    const referralLink=window.location.origin+"?referral_code="+userData.referralCode
+    const handleCopy=()=>{
 
+        navigator.clipboard.writeText(referralLink);
+        setCopied(true)
+        setInterval(() => {
+            setCopied(false)
+        }, 3000);
+    }
     const totalReferrals= userData.referredUsers ? userData.referredUsers.length : 0
 return <div className="container">
     <div className="header-top-padding referral-page">
 <div className="d-flex align-items-center justify-content-between page-header">
 <h2>Referrals</h2>
-<button >Copy referral code!</button>
+<button onClick={handleCopy}>{copied ? "Copied" :"Copy referral link!"}</button>
 </div>
 <div className="d-flex align-items-center justify-content-between page-cards-container">
     <div className="page-card d-flex flex-column align-items-center">
