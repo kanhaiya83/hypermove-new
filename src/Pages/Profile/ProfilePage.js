@@ -1,7 +1,16 @@
+import { useEffect } from "react"
+import { NavItem } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext"
 
 const ReferralPage=()=>{
-    const {userData} = useAuthContext()
+    const {userData,isAuthenticated} = useAuthContext()
+    const navigate = useNavigate()
+    useEffect(()=>{
+        if(!isAuthenticated){
+            navigate("/")
+        }
+    },[isAuthenticated])
 return <div className="container">
     <div className="header-top-padding profile-page-2">
     <div className="profile-img">
@@ -17,14 +26,14 @@ return <div className="container">
         <div className="border-div"></div>
         <div className="d-flex flex-column align-items-center page-card">
             <div className="d-flex align-items-center mb-4"><img src="./assets/images/gem.svg" alt="" /><h5>Gems</h5></div>
-            <h2>{userData.gems}</h2>
+            <h2>{userData.gems || 0}</h2>
         </div>
         <div className="border-div"></div>
 
         <div className="d-flex flex-column align-items-center page-card">
         <div className="d-flex align-items-center mb-4"><img src="./assets/images/ticket.svg" alt="" /><h5>Tickets</h5></div>
             
-            <h2>{userData.tickets}</h2>
+            <h2>{userData.tickets || 0}</h2>
         </div>
     </div>
 </div>

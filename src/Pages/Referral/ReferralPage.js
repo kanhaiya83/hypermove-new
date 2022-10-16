@@ -1,9 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext"
 
 const ReferralPage=()=>{
     const [copied,setCopied] = useState(false)
-    const {userData} = useAuthContext()
+    const {userData,isAuthenticated} = useAuthContext()
+    const navigate = useNavigate()
     const referralLink=window.location.origin+"?referral_code="+userData.referralCode
     const handleCopy=()=>{
 
@@ -14,6 +16,12 @@ const ReferralPage=()=>{
         }, 3000);
     }
     const totalReferrals= userData.referredUsers ? userData.referredUsers.length : 0
+    
+    useEffect(()=>{
+        if(!isAuthenticated){
+            navigate("/")
+        }
+    },[isAuthenticated])
 return <div className="container">
     <div className="header-top-padding referral-page">
 <div className="d-flex align-items-center justify-content-between page-header">

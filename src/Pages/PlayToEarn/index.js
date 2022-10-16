@@ -183,7 +183,12 @@ const PlayToEarn=()=>{
         <div className="game-container">
           <h4>Games</h4>
           <div className="games-row">
-            <div>Coming Soon</div>
+            <div>
+            <video controls loop>
+  <source src="./assets/movs/inorbit.mp4" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
+            </div>
             <div>Coming Soon</div>
             <div>Coming Soon</div>
             <div>Coming Soon</div>
