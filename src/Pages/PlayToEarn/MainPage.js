@@ -71,7 +71,7 @@ const HomePage = () => {
           <div className="game-container">
             <h4>Games</h4>
             <div className="games-row">
-            <a href="/games/inorbit">
+            {/* <a href="/games/inorbit">
               <div>
                 <div className="video-container">
                   <video controls={false} loop autoplay="autoplay" muted>
@@ -83,7 +83,8 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-              </a>
+              </a> */}
+              <div>Coming Soon</div>
               <div>Coming Soon</div>
               <div>Coming Soon</div>
               <div>Coming Soon</div>

@@ -129,75 +129,7 @@ const PlayToEarn=()=>{
       </div>
   }
     </>
-    const ProfilePageContent=<>
-     <div className="play-to-earn-page">
-       <div className="profile-page">
-       <div className="profile-info-container">
-          <div className="profile-img">
-            <img src={userData.avatar} alt="" />
-         
-          </div>
-          <div className="persona-name">{userData.personaname}</div>
-          <span className="wallet-address">{userData.address}</span>
-        </div>
-
-      <div className="page-content">
-        <div className="rank-info-container">
-          <header><h4 className="heading">Achievements Ranking</h4>
-          <button>Refer a friend</button>
-          </header>
-          <div className="rank-info-wrapper">
-            <div className="badge-container">
-              <img src="" alt="" />
-            </div>
-            <div className="rank-info">
-            <div>
-                <div className="title">
-                  <img src="./assets/images/podium.svg" alt="" />
-                  <span>Rank</span>
-                </div>
-                <div className="value">
-                  <span>0</span>
-                </div>
-              </div>  <div>
-                <div className="title">
-                  <img src="./assets/images/ticket.svg" alt="" />
-                  <span>Tickets</span>
-                </div>
-                <div className="value">
-                  <span>{40}</span>
-                </div>
-              </div>
-              <div>
-                <div className="title">
-                  <img src="./assets/images/ticket.svg" alt="" />
-                  <span>Gems</span>
-                </div>
-                <div className="value">
-                  <span>{200}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="game-container">
-          <h4>Games</h4>
-          <div className="games-row">
-            <div>
-            <video controls loop>
-  <source src="./assets/movs/inorbit.mp4" type="video/mp4"/>
-  Your browser does not support the video tag.
-</video>
-            </div>
-            <div>Coming Soon</div>
-            <div>Coming Soon</div>
-            <div>Coming Soon</div>
-          </div>
-        </div>
-      </div>
-       </div>
-    </div>
-    </>
+   
     return(
      <>
       <div className="play-to-earn-page">
