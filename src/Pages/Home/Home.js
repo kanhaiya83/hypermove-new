@@ -183,7 +183,7 @@ useEffect(()=>{
   
   <source src="../assets/movs/shoes-factory.webm" type="video/webm"/>
   <source src="../assets/movs/shoes-factory.mov" type="video/mp4"/>
-  <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
+  {/* <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/> */}
   
   Your browser does not support the video tag.
   </video>
