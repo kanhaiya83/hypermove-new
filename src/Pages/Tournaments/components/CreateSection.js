@@ -67,26 +67,19 @@ const CreateSection = ({ setTournaments }) => {
         theme: "dark",
       });
     }
-    const response = await toast.promise(createTournament(formData), {
-      pending: "Creating tournament...",
-    });
+    const response =await  createTournament(formData)
+    const id = toast.loading("Creating tournament...")
     console.log(response);
     if (response.success) {
       setTournaments((prev) => [...prev, response.savedTournament]);
       setUserData(response.user);
       setFetching(false);
-      toast.success('Tournament created successfully!!', {
-        position: "top-right",
-        autoClose: 3000,
-        closeOnClick: true,
-        hideProgressBar:true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        });
+      toast.update(id, { render: "Tournament created successfully!!", type: "success", isLoading: false ,theme:"dark",hideProgressBar:true,autoClose:2000,closeButton:true});
 resetForm()
       return;
     }
+      toast.update(id, { render: "Some error occurred!!", type: "error", isLoading: false ,theme:"dark",hideProgressBar:true,autoClose:2000,closeButton:true});
+
     setFetching(false);
 
   };
