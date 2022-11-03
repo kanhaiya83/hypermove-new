@@ -26,11 +26,19 @@ const res = await fetch(process.env.REACT_APP_SERVER_URL+"/tournament",{
 })
 const response = await res.json()
 console.log(response);
+if(response.success){
+    return alert("Tournament created!")
+}
   }
   return (
     <>
       <div className="create-tournament-section">
         <div className="wrapper">
+            <header>
+                <span>
+                    Create Tournament
+                </span>
+            </header>
           <form onSubmit={handleSubmit}>
             <label htmlFor="">Title</label>
             <input type="text" name="" id="" value={title} onChange={(e)=>{setTitle(e.target.value)}}/>
@@ -45,7 +53,7 @@ console.log(response);
                 In orbit
               </option>
             </select>
-            <button className="submit-btn">Submit</button>
+            <button className="submit-btn">Create</button>
           </form>
         </div>
       </div>
