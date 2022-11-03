@@ -67,18 +67,19 @@ const CreateSection = ({ setTournaments }) => {
         theme: "dark",
       });
     }
-    const response =await  createTournament(formData)
     const id = toast.loading("Creating tournament...")
+
+    const response =await  createTournament(formData)
     console.log(response);
     if (response.success) {
       setTournaments((prev) => [...prev, response.savedTournament]);
       setUserData(response.user);
       setFetching(false);
-      toast.update(id, { render: "Tournament created successfully!!", type: "success", isLoading: false ,theme:"dark",autoClose:2000,closeButton:true});
+      toast.update(id, { render: "Tournament created successfully!!", type: "success",theme:"dark",autoClose:2000,hideProgressBar:true,closeButton:true});
 resetForm()
       return;
     }
-      toast.update(id, { render: "Some error occurred!!", type: "error", isLoading: false ,theme:"dark",autoClose:2000,closeButton:true});
+      toast.update(id, { render: "Some error occurred!!", type: "error",theme:"dark",autoClose:2000,hideProgressBar:true,closeButton:true});
 
     setFetching(false);
 
