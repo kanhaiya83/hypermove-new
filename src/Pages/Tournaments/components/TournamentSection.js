@@ -1,34 +1,5 @@
 
-const TournamentsSection=()=>{
-    const tlist=[
-        {
-            name:"Tournament #252",
-            prize:100,
-            entryFee:{
-                gems:20,
-                tickets:1
-            },
-            playersCount:2
-        },
-        {
-            name:"Tournament #252",
-            prize:100,
-            entryFee:{
-                gems:20,
-                tickets:1
-            },
-            playersCount:2
-        },
-        {
-            name:"Tournament #252",
-            prize:100,
-            entryFee:{
-                gems:20,
-                tickets:1
-            },
-            playersCount:2
-        },
-      ]
+const TournamentsSection=({tournaments})=>{
     return(
         <>
          <div className="main-content">
@@ -38,7 +9,7 @@ const TournamentsSection=()=>{
                                 </header>
                                 <ul className="tournament-list">
                                         {
-                                            tlist.map((t,i)=>{
+                                            tournaments.map((t,i)=>{
                                                 return <TournamentCard data={t} key={i}/>
                                             })
                                         }
@@ -69,14 +40,14 @@ const TournamentsSection=()=>{
     )
 }
 const TournamentCard=({data})=>{
-    const {name,prize,entryFee,playersCount}=data
+    const {title,prize,entryFee,playersCount}=data
     return (
         <div className="t-card">
             <div className="img-container">
                 <img src="./assets/images/game-console.svg" alt="" />
             </div>
             <div className="t-card-info">
-                <span className="name">{name}</span>
+                <span className="name">{title}</span>
                 <div className="prize">
                     <span>{`Prize Pool: ${prize}`}</span>
                     <img className="icon" src="./assets/images/gem-purple.svg" alt="" />

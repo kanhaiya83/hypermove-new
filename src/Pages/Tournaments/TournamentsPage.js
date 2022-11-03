@@ -3,25 +3,37 @@ import { Routes,Route } from "react-router-dom";
 import TournamentsSection from "./components/TournamentSection";
 import CreateSection from "./components/CreateSection";
 import LeaderBoardCard from "../../Components/LeaderBoard";
+import LeaderboardSection from "./components/LeaderboardSection";
+import { useState } from "react";
+import { useEffect } from "react";
+const navLinks = [
+  {
+    text: "Tournaments",
+    image: "",
+    href: "/tournaments",
+  },
+  {
+    text: "Create",
+    image: "",
+    href: "/tournaments/create",
+  },
+  {
+    text: "Leaderboard",
+    image: "",
+    href: "/tournaments/leaderboard",
+  }
+];
 const TournamentPage =()=>{
-    const navLinks = [
-        {
-          text: "Tournaments",
-          image: "",
-          href: "/tournaments",
-        },
-        {
-          text: "Create",
-          image: "",
-          href: "/tournaments/create",
-        },
-        {
-          text: "Leaderboard",
-          image: "",
-          href: "/tournaments/leaderboard",
+  const [tournaments,setTournaments]=useState([]) 
+    useEffect(()=>{
+      (async()=>{
+        const res= await fetch(process.env.REACT_APP_SERVER_URL+"/tournament")
+        const response = await res.json()
+        if(response && response.success){
+          setTournaments(response.tournamentsList)
         }
-      ];
-    
+      })()
+    },[])
     return(
         <>
         <div className="header-top-padding">
@@ -30,9 +42,9 @@ const TournamentPage =()=>{
                 <div className="content-wrapper">
                    <Routes>
 
-                    <Route index element={<TournamentsSection/>}/>
+                    <Route index element={<TournamentsSection tournaments={tournaments}/>}/>
                     <Route path="create" element={<CreateSection/>}/>
-                    <Route  path="leaderboard" element={<LeaderBoardCard/>}/>
+                    <Route  path="leaderboard" element={<LeaderboardSection/>}/>
                    </Routes>
                 </div>
             </div>
