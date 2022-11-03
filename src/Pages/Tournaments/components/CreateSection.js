@@ -25,6 +25,10 @@ const CreateSection = ({ setTournaments }) => {
     return response
 
   };
+  const resetForm=()=>{
+    setTitle("");
+    setEntryFee({gems:20,tickets:1})
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(fetching)return;
@@ -80,7 +84,7 @@ const CreateSection = ({ setTournaments }) => {
         progress: undefined,
         theme: "dark",
         });
-
+resetForm()
       return;
     }
     setFetching(false);
