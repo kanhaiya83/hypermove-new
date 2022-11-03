@@ -181,9 +181,9 @@ useEffect(()=>{
   <div className="ratio ratio-1x1">
 <video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
   
-<source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
   <source src="../assets/movs/shoes-factory.webm" type="video/webm"/>
   <source src="../assets/movs/shoes-factory.mov" type="video/mp4"/>
+  <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
   
   Your browser does not support the video tag.
   </video>
