@@ -73,7 +73,7 @@ const Header = (props) => {
         
         
         <NavMenuLinks href="/launchpad" text="Launchpad"/>           
-        <NavMenuLinks href="/tournament" text="Tournaments"/>           
+        <NavMenuLinks href="/tournaments" text="Tournaments"/>           
         
 
 
@@ -112,8 +112,8 @@ const Header = (props) => {
          </NavDropdown>         
            
            
-           <NavMenuLinks href="#" text="Launchpad" className="py-3"/>           
-           <NavMenuLinks href="#" text="Tournaments" className="py-3"/>      
+           <NavMenuLinks href="/launchpad" text="Launchpad" className="py-3"/>           
+           <NavMenuLinks href="/tournaments" text="Tournaments" className="py-3"/>      
        
      </Navbar.Collapse>
          </Col>

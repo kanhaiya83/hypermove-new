@@ -1,29 +1,31 @@
 import SideNavBar from "../../Components/Sidebar"
-import { Routes,Route } from "react-router-dom";
+import { Routes,Route, Navigate } from "react-router-dom";
 import TournamentsSection from "./components/TournamentSection";
 import CreateSection from "./components/CreateSection";
 import LeaderBoardCard from "../../Components/LeaderBoard";
 import LeaderboardSection from "./components/LeaderboardSection";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useAuthContext } from "../../context/AuthContext";
 const navLinks = [
   {
     text: "Tournaments",
     image: "",
-    href: "/tournament",
+    href: "/tournaments",
   },
   {
     text: "Create",
     image: "",
-    href: "/tournament/create",
+    href: "/tournaments/create",
   },
   {
     text: "Leaderboard",
     image: "",
-    href: "/tournament/leaderboard",
+    href: "/tournaments/leaderboard",
   }
 ];
 const TournamentPage =()=>{
+  const {isAuthenticated,isWalletConnected} = useAuthContext()
   const [tournaments,setTournaments]=useState([]) 
     useEffect(()=>{
       (async()=>{
@@ -43,7 +45,7 @@ const TournamentPage =()=>{
                    <Routes>
 
                     <Route index element={<TournamentsSection tournaments={tournaments}/>}/>
-                    <Route path="create" element={<CreateSection/>}/>
+                    <Route path="create" element={<CreateSection setTournaments={setTournaments}/>}/>
                     <Route  path="leaderboard" element={<LeaderboardSection/>}/>
                    </Routes>
                 </div>

@@ -1,6 +1,7 @@
 import Web3 from "web3"
 import { useMetaMask } from "metamask-react";
 import { createContext, useContext, useState, useEffect } from "react";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 const defaultState = { name: "John Doe", bio: "Please Edit your bio" };
 const AuthContext = createContext({
   ...defaultState,
@@ -105,5 +106,16 @@ const AuthContextProvider = ({ children }) => {
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
 };
+export const  RequireAuth=()=> {
+  let {isAuthenticated} = useAuthContext();
+  let location = useLocation();
+
+  if (!isAuthenticated) {
+   
+    return <Navigate to="/play-to-earn" state={{ from: location }} />;
+  }
+
+  return <Outlet />;
+} 
 
 export default AuthContextProvider;

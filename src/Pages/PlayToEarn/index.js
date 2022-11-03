@@ -5,10 +5,13 @@ import { Row } from "react-bootstrap";
 import { useAuthContext } from "../../context/AuthContext";
 import MintBadgeSection from "./MintBadge";
 import MainPage from "./MainPage";
+import {  useLocation, useNavigate } from "react-router-dom";
 const PlayToEarn=()=>{
     const { status, connect, account, chainId, ethereum } = useMetaMask();
     const [isSteamConnected,setIsSteamConnected] = useState(false)
-    
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location.state)
     const [timecreated,settimecreated] = useState(false);
     const {isAuthenticated,setIsAuthenticated,setUserData,userData,isWalletConnected,setIsWalletConnected} = useAuthContext()
     let badgeNumber = 0;
@@ -70,7 +73,6 @@ const PlayToEarn=()=>{
     
     useEffect(() => {
       const onMessage = event => {
-        console.log(event);
         if (event.origin !== process.env.REACT_APP_SERVER_URL) return;
         let { user, ok } = event.data;
         const savedReferralCode = localStorage.getItem("referral-code")
@@ -88,6 +90,9 @@ const PlayToEarn=()=>{
               const {address,timecreated,avatar}=res.updatedUser
               setIsAuthenticated(true)
               setUserData(res.updatedUser)
+              if(location.state && location.state.from){
+                navigate(location.state.from)
+              }
               // setIsSteamConnected(true)
               // setIsAuthenticated(true)
               // settimecreated(res.updatedUser.timecreated)

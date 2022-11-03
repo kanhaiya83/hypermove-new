@@ -707,6 +707,10 @@ font-size: 1.5rem;
       border-radius: 5px;
       align-items: center;
       padding: 5px 8px;
+      a{
+        color: white;
+        text-decoration: none;
+      }
       span:first-child{
         margin-right: 10px;
       }
@@ -807,7 +811,9 @@ font-size: 1.5rem;
       outline: none;
     }
   }
-  .submit-btn{
+  .submit-btn,a{
+    text-decoration: none;
+    text-align: center;
     width: 100%;
     padding:8px 1rem;
     border-radius: 4px;
