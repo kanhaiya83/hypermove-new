@@ -10,17 +10,17 @@ const navLinks = [
   {
     text: "Tournaments",
     image: "",
-    href: "/tournaments",
+    href: "/tournament",
   },
   {
     text: "Create",
     image: "",
-    href: "/tournaments/create",
+    href: "/tournament/create",
   },
   {
     text: "Leaderboard",
     image: "",
-    href: "/tournaments/leaderboard",
+    href: "/tournament/leaderboard",
   }
 ];
 const TournamentPage =()=>{
