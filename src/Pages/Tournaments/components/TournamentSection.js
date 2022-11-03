@@ -31,10 +31,10 @@ const TournamentsSection=({tournaments})=>{
                                 <option value="week">This Week</option>
                             </select>
                             <select name="" id="">
-                                <option value="week">This Week</option>
+                                <option value="week">Game</option>
                             </select>
                             <select name="" id="">
-                                <option value="week">This Week</option>
+                                <option value="week">Prize</option>
                             </select>
                             {/* <button>
                                 <span>This Week</span>

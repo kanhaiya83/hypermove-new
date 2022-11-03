@@ -12,9 +12,12 @@ import ReferralPage from "./Pages/Referral/ReferralPage";
 import ProfilePage from "./Pages/Profile/ProfilePage";
 import TournamentPage from "./Pages/Tournaments/TournamentsPage";
 import { RequireAuth } from "./context/AuthContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const HyperMove = (props) => {
   return (
     <React.Fragment>
+      <ToastContainer/>
       <AlertComponent />
 
       <Header />
