@@ -48,7 +48,7 @@ const TournamentPage =()=>{
     },[])
     const joinedTournaments = tournaments.filter(t=>{
       let isJoined= false;
-      t.joinedPlayers.forEach(p=>{
+      t?.joinedPlayers?.forEach(p=>{
         console.log(p.userId ,userData._id)
         if(p.userId === userData._id){
             isJoined = true;
@@ -75,7 +75,7 @@ const TournamentPage =()=>{
                         return false;
                       }
                       return true;
-                    })}/>}/>
+                    })} setTournaments={setTournaments}/>} />
                     <Route path="create" element={<CreateSection setTournaments={setTournaments}/>}/>
                     <Route  path="leaderboard" element={<LeaderboardSection/>}/>
                     <Route  path="mytournaments" element={<MyTournamentsSection/>} joinedTournaments={joinedTournaments}/>

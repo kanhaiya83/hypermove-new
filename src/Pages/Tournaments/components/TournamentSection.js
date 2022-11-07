@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../context/AuthContext";
 import { successToast } from "../../../utils/toast";
 
-const TournamentsSection = ({ tournaments }) => {
+const TournamentsSection = ({ tournaments,setTournaments }) => {
   const { isAuthenticated, isWalletConnected, setIsAuthenticated } =
     useAuthContext();
   return (
@@ -27,6 +27,7 @@ const TournamentsSection = ({ tournaments }) => {
                     key={i}
                     isAuthenticated={isAuthenticated}
                     isWalletConnected={isWalletConnected}
+                    setTournaments={setTournaments}
                   />
                 );
               })
@@ -69,7 +70,7 @@ const TournamentsSection = ({ tournaments }) => {
     </>
   );
 };
-const TournamentCard = ({ data, isAuthenticated, isWalletConnected }) => {
+const TournamentCard = ({ data, isAuthenticated, isWalletConnected ,setTournaments}) => {
     const { title, prize, entryFee, playersCount,_id ,joinedPlayers} = data;
 
   const {userData} = useAuthContext() 
@@ -83,6 +84,12 @@ const TournamentCard = ({ data, isAuthenticated, isWalletConnected }) => {
     const response = await res.json()
     if(response && response.success){
       successToast("Tournament joined successfully!!")
+      setTournaments(prev=>prev.map(t=>{
+        if(t._id === response.tournament._id){
+          return response.tournament;
+        }
+        return t;
+      }))
     }
   }
   let userJoined = false;
