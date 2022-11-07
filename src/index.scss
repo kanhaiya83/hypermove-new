@@ -699,11 +699,12 @@ font-size: 1.5rem;
     flex-direction: column;
     margin-left: auto;
     margin-right: 5%;
-    button{
+    button,a{
       display: flex;
       background-color: #6c02d7;
       color: white;
       border: none;
+      text-decoration: none;
       border-radius: 5px;
       align-items: center;
       padding: 5px 8px;
@@ -821,6 +822,13 @@ font-size: 1.5rem;
     color: white;
     border: none;
     margin-top: 1rem;
+  }
+}
+.my-tournaments-section{
+  width: 100%;
+  .tournament-card{
+    display: flex;
+    
   }
 }
 @media only screen and (max-width: 1200px) {

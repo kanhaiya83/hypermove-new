@@ -8,8 +8,8 @@ const CreateSection = ({ setTournaments }) => {
   const [title, setTitle] = useState("");
   const [fetching, setFetching] = useState(false);
   const [entryFee, setEntryFee] = useState({
-    gems: 20,
-    tickets: 1,
+    gems: null,
+    tickets: null,
   });
   const [game, setGame] = useState("inorbit");
   const createTournament = async (formData) => {
@@ -27,7 +27,7 @@ const CreateSection = ({ setTournaments }) => {
   };
   const resetForm=()=>{
     setTitle("");
-    setEntryFee({gems:20,tickets:1})
+    setEntryFee({gems:"",tickets:""})
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -102,6 +102,7 @@ resetForm()
             <label htmlFor="">Title</label>
             <input
               type="text"
+              required={true}
               name=""
               id=""
               value={title}
@@ -113,7 +114,8 @@ resetForm()
             <div className="entry-fee">
               <input
                 type="number"
-                name=""
+              required={true}
+              name=""
                 id=""
                 placeholder="Gems"
                 value={entryFee.gems}
@@ -123,7 +125,8 @@ resetForm()
               />{" "}
               <input
                 type="number"
-                name=""
+              required={true}
+              name=""
                 id=""
                 placeholder="Tickets"
                 value={entryFee.tickets}
