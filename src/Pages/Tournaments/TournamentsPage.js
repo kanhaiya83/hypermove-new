@@ -35,6 +35,8 @@ const TournamentPage =()=>{
   const {isAuthenticated,isWalletConnected,userData} = useAuthContext()
   console.log({userData});
   const [tournaments,setTournaments]=useState([]) 
+  const [myTournaments,setMyTournaments] = useState([])
+
     useEffect(()=>{
       (async()=>{
         const res= await fetch(process.env.REACT_APP_SERVER_URL+"/tournament")
@@ -46,6 +48,19 @@ const TournamentPage =()=>{
         }
       })()
     },[])
+    useEffect(()=>{
+      (async()=>{
+          const res= await fetch(process.env.REACT_APP_SERVER_URL+"/tournament/joined",{
+              headers:{
+                  "auth-token":localStorage.getItem("auth-token")
+              }
+          })
+          const response = await res.json()
+          if(response && response.success){
+            setMyTournaments(response.tournamentsList)
+          }
+      })()
+  },[tournaments.length])
     const joinedTournaments = tournaments.filter(t=>{
       let isJoined= false;
       t?.joinedPlayers?.forEach(p=>{
@@ -78,7 +93,7 @@ const TournamentPage =()=>{
                     })} setTournaments={setTournaments}/>} />
                     <Route path="create" element={<CreateSection setTournaments={setTournaments}/>}/>
                     <Route  path="leaderboard" element={<LeaderboardSection/>}/>
-                    <Route  path="mytournaments" element={<MyTournamentsSection/>} joinedTournaments={joinedTournaments}/>
+                    <Route  path="mytournaments" element={<MyTournamentsSection myTournaments={myTournaments}/>} joinedTournaments={joinedTournaments}/>
                    </Routes>
                 </div>
             </div>

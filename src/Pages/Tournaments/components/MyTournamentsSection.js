@@ -35,22 +35,9 @@ const TournamentCard=({data,userId})=>{
         </div>
     )
 }
-const MyTournamentSection =()=>{
-    const [myTournaments,setMyTournaments] = useState([])
+const MyTournamentSection =({myTournaments})=>{
     const {userData} = useAuthContext()
-    useEffect(()=>{
-        (async()=>{
-            const res= await fetch(process.env.REACT_APP_SERVER_URL+"/tournament/joined",{
-                headers:{
-                    "auth-token":localStorage.getItem("auth-token")
-                }
-            })
-            const response = await res.json()
-            if(response && response.success){
-              setMyTournaments(response.tournamentsList)
-            }
-        })()
-    },[])
+  
     return(
         <>
           <div className="my-tournaments-section">
