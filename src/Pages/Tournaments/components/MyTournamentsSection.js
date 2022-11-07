@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useAuthContext } from "../../../context/AuthContext"
 
 const TournamentCard=({data,userId})=>{
-    const {title,prize,entryFee,playersCount,joinedPlayers}=data
+    const {title,prize,entryFee,playersCount,joinedPlayers,winner,isDraw}=data
     const joinedPlayer = joinedPlayers.find(j=>j.userId===userId)
     if(!joinedPlayer)return <></>
     let btnContent =<a href={window.location.origin + "/games/inorbit?code="+joinedPlayer.code} target="_blank">
@@ -10,9 +10,21 @@ const TournamentCard=({data,userId})=>{
     </a>
     if(joinedPlayer.hasCompleted){
         btnContent =<button>
-            {joinedPlayer.score}
+           Your score:{joinedPlayer.score}
         </button>
     }
+    if(winner && winner.length>0){
+        btnContent =<button>
+           {winner === userId ? "You won": "You Lost"}
+        </button>
+    }
+    
+    if(isDraw ){
+        btnContent =<button>
+           Draw
+        </button>
+    }
+    
     return (
         <div className="t-card">
             <div className="img-container">
@@ -27,10 +39,7 @@ const TournamentCard=({data,userId})=>{
             </div>
             <div className="join-btn-container">
                {btnContent}
-                <div className="players-count">
-                    <img src="/assets/images/player-gray.svg" alt="" />
-                    <span>{playersCount}</span>
-                </div>
+                
             </div>
         </div>
     )
