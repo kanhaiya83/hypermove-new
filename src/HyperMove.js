@@ -47,7 +47,8 @@ const HyperMove = (props) => {
         {/* </Route> */}
         <Route
           path="/tournaments/*"
-          element={<TournamentPage />}
+            element={<ComingSoon pageAddress="Tournaments" />}
+            // element={<TournamentPage />}
         />
       </Routes>
       <Footer />
