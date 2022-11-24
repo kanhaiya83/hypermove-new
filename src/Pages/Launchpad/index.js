@@ -56,7 +56,7 @@ const LaunchpadPage = () => {
             </div>
             <div className="address-wrapper mt-4">
               <h4>IDO SALE CONTRACT ADDRESS</h4>
-              <h1>0xdAe3aBcf151F3da99c9738DDf13a2e33E6eA0B37</h1>
+              <h1 className="ido-address">0xdAe3aBcf151F3da99c9738DDf13a2e33E6eA0B37</h1>
             </div>
             <button className="view-btn">View BSC Scan</button>
           </section>
