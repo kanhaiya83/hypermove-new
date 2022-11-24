@@ -14,6 +14,7 @@ import TournamentPage from "./Pages/Tournaments/TournamentsPage";
 import { RequireAuth } from "./context/AuthContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LaunchpadPage from "./Pages/Launchpad";
 const HyperMove = (props) => {
   return (
     <React.Fragment>
@@ -42,13 +43,12 @@ const HyperMove = (props) => {
           />
           <Route
             path="/launchpad"
-            element={<ComingSoon pageAddress="Launchpad" />}
+            element={<LaunchpadPage/>}
           />
         {/* </Route> */}
         <Route
           path="/tournaments/*"
-            element={<ComingSoon pageAddress="Tournaments" />}
-            // element={<TournamentPage />}
+            element={<TournamentPage />}
         />
       </Routes>
       <Footer />
