@@ -21,7 +21,7 @@ const PartnersLogosContainer=({filter})=>{
         return logo.tags.includes(filter.toLowerCase())
     })
     return(
-        <FlipMove  className="row row-cols-2 row-cols-md-4 g-5 align-items-center" enterAnimation="fade" leaveAnimation="fade">
+        <FlipMove  className="row row-cols-2 row-cols-md-4 g-2 px-4 align-items-center" enterAnimation="fade" leaveAnimation="fade">
             {filteredLogos.map((logo,i)=>{
                 return<>
                 <div key={i} className="partner-logo-container">

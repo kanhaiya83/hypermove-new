@@ -833,9 +833,41 @@ img {
   50% {background-color: transparent;border-color: white;}
   100% {background-color: transparent;border-color: white;}
 }
+.launchpad-page-wrapper{
+  padding: 1rem 5% 3rem;
+.launchpad-partner-section-wrapper{
+  margin-top: 2rem;
+}
+.game-slider-section{
+  margin: 3rem 0;
+  h1{
+    font-size: 2rem;
+    font-weight: 400;
+margin-bottom: 1rem;
+  }
+
+.slide-image-container{
+  width: 95%;
+  .img-wrapper{
+    
+    width: 100%;
+    padding-top:55% ;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    img{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 100%;
+    }
+  }
+}
+}
+}
 .launchpad-container {
   background-color: #141415;
-  padding: 1rem 5% 3rem;
   color: white;
   .rounded-corner {
     border-radius: 8px;
