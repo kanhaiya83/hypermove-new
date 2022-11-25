@@ -19,7 +19,7 @@ const LaunchpadProjectPage = () => {
   }, []);
   useEffect(() => {
     (async () => {
-      const res = await fetch(process.env.REACT_APP_SERVER_URL);
+      const res = await fetch(process.env.REACT_APP_SERVER_URL+"/pool");
       const response = await res.json();
       if (response && response.success) {
         setProject((prev) => {
@@ -199,7 +199,7 @@ const InputContainer = ({ projectId, setProject }) => {
     const authToken = localStorage.getItem("auth-token");
     if (!authToken || fetching) return;
     setFetching(true)
-    const res = await fetch(process.env.REACT_APP_SERVER_URL, {
+    const res = await fetch(process.env.REACT_APP_SERVER_URL+"/pool", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

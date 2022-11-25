@@ -7,7 +7,6 @@ import LeaderboardSection from "./components/LeaderboardSection";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useAuthContext } from "../../context/AuthContext";
-import MyTournamentsSection from "./components/MyTournamentsSection";
 const navLinks = [
   {
     text: "Tournaments",
@@ -61,16 +60,7 @@ const TournamentPage =()=>{
           }
       })()
   },[tournaments.length])
-    const joinedTournaments = tournaments.filter(t=>{
-      let isJoined= false;
-      t?.joinedPlayers?.forEach(p=>{
-        console.log(p.userId ,userData._id)
-        if(p.userId === userData._id){
-            isJoined = true;
-        }
-      })
-      return isJoined
-    })
+   
     return(
         <>
         <div className="header-top-padding">
@@ -84,8 +74,7 @@ const TournamentPage =()=>{
                 <div className="content-wrapper">
                    <Routes>
 
-                    <Route index element={<TournamentsSection tournaments={tournaments.filter(t=>{
-                      console.log(t,userData._id);
+                    <Route index element={<TournamentsSection tournaments={tournaments} tournamentss={tournaments.filter(t=>{
                       if(t.createdBy === userData._id){
                         return false;
                       }
@@ -93,7 +82,7 @@ const TournamentPage =()=>{
                     })} setTournaments={setTournaments}/>} />
                     <Route path="create" element={<CreateSection setTournaments={setTournaments}/>}/>
                     <Route  path="leaderboard" element={<LeaderboardSection/>}/>
-                    <Route  path="mytournaments" element={<MyTournamentsSection myTournaments={myTournaments}/>} joinedTournaments={joinedTournaments}/>
+                   
                    </Routes>
                 </div>
             </div>

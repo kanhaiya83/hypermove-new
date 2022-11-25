@@ -1,15 +1,73 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../context/AuthContext";
 import { successToast } from "../../../utils/toast";
+import parseTournaments, {
+  getScore,
+  hasPlayed,
+} from "../../../utils/tournamentParser";
 
-const TournamentsSection = ({ tournaments,setTournaments }) => {
-  const { isAuthenticated, isWalletConnected, setIsAuthenticated } =
+const calculateDisplayMessage=(array,filter)=>{
+  if(array === undefined || !array){
+    return "Loading..."
+  }
+  if (filter === "myTournament" && array.length ===0) {
+    return <span>No tournament created by you.</span>;
+  }
+  if (filter === "nonParticipatedTournaments" && array.length ===0) {
+    return <>
+    <span>No tournaments available.</span>
+    </>;
+  }
+  if (filter === "completedTournaments"&& array.length ===0) {
+    return <span>You haven't completed any tournaments</span>;
+  }
+  if (filter === "joinedTournaments"&& array.length ===0) {
+    return <span>You haven't joined any tournament.</span>;
+  }
+  else{
+    return <span>No tournaments available.</span>
+
+  }
+}
+const TournamentsSection = ({ tournaments, setTournaments }) => {
+  const { isAuthenticated, isWalletConnected, setIsAuthenticated, userData } =
     useAuthContext();
+  const [filter, setFilter] = useState("joinedTournaments");
+  const result = parseTournaments(tournaments, userData._id);
+  const handleJoin = async (tournamentId) => {
+    const res = await fetch(
+      process.env.REACT_APP_SERVER_URL +
+        "/tournament/join?tournamentId=" +
+        tournamentId,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("auth-token"),
+        },
+      }
+    );
+    const response = await res.json();
+    if (response && response.success) {
+      successToast("Tournament joined successfully!!");
+      setTournaments((prev) =>
+        prev.map((t) => {
+          if (t._id === response.tournament._id) {
+            return response.tournament;
+          }
+          return t;
+        })
+      );
+    }
+  };
+  
+  const currentTournamentArray = result[filter];
+const displayMessage = calculateDisplayMessage(currentTournamentArray,filter)
   return (
     <>
       <div className="main-content">
         <div className="wrapper">
-          <header>
+          <header className="main-content-header">
             <h1
               onClick={() => {
                 setIsAuthenticated(false);
@@ -17,151 +75,125 @@ const TournamentsSection = ({ tournaments,setTournaments }) => {
             >
               Tournaments
             </h1>
+            <div className="filter-wrapper">
+              <label htmlFor="">Filter By</label>
+              <select
+              name=""
+              id=""
+              onChange={(e) => {
+                setFilter(e.target.value);
+              }}
+              value={filter}
+            >
+              <option value="myTournaments">Created By You</option>
+              <option value="nonParticipatedTournaments">
+                Non participated
+              </option>
+              <option value="completedTournaments">
+                Completed Tournaments
+              </option>
+              <option value="joinedTournaments">Joined Tournaments</option>
+            </select>
+            </div>
           </header>
-          <ul className="tournament-list">
-            {tournaments.length > 0 ? (
-              tournaments.map((t, i) => {
-                return (
-                  <TournamentCard
-                    data={t}
-                    key={i}
-                    isAuthenticated={isAuthenticated}
-                    isWalletConnected={isWalletConnected}
-                    setTournaments={setTournaments}
-                  />
-                );
-              })
+          <div>
+            {(Array.isArray(currentTournamentArray) && currentTournamentArray.length > 0) ? (
+              <div className="tournaments-list-container">
+                { currentTournamentArray.map((t, i) => {
+                    return (
+                      <TournamentCard
+                        data={t}
+                        key={t._id}
+                        isAuthenticated={isAuthenticated}
+                        isWalletConnected={isWalletConnected}
+                        setTournaments={setTournaments}
+                        filter={filter}
+                        handleJoin={handleJoin}
+                        userId={userData._id}
+                      />
+                    );
+                  })}
+              </div>
             ) : (
-              <>No Tournaments available</>
+              <div className="display-message-container">{displayMessage}</div>
             )}
-          </ul>
-        </div>
-      </div>
-      <div className="filter-sidebar">
-        <div className="wrapper">
-          <header>
-            <span>Filter By</span>
-          </header>
-          <div className="filter-list">
-            <select name="" id="">
-              <option value="week">This Week</option>
-            </select>
-            <select name="" id="">
-              <option value="week">Game</option>
-            </select>
-            <select name="" id="">
-              <option value="week">Prize</option>
-            </select>
-            {/* <button>
-                                <span>This Week</span>
-                                <img src="./assets/images/chevron-down-white.svg" alt="" />
-                            </button>
-                            <button>
-                                <span>Game</span>
-                                <img src="./assets/images/chevron-down-white.svg" alt="" />
-                            </button>
-                            <button>
-                                <span>Prize</span>
-                                <img src="./assets/images/chevron-down-white.svg" alt="" />
-                            </button> */}
           </div>
         </div>
       </div>
     </>
   );
 };
-const TournamentCard = ({ data, isAuthenticated, isWalletConnected ,setTournaments}) => {
-    const { title, prize, entryFee, playersCount,_id ,joinedPlayers} = data;
+const TournamentCard = ({
+  data,
+  isAuthenticated,
+  isWalletConnected,
+  filter,
+  handleJoin,
+  userId,
+}) => {
+  const title = data?.title;
+  const prize = data?.prize;
+  const player = data.joinedPlayers.find((p) => p.userId === userId);
 
-  const {userData} = useAuthContext() 
-  const handleJoin=async ()=>{
-    const res= await fetch(process.env.REACT_APP_SERVER_URL+"/tournament/join?tournamentId="+_id,{
-        headers:{
-            "Content-Type":"application/json",
-            "auth-token":localStorage.getItem("auth-token")
-        }
-    })
-    const response = await res.json()
-    if(response && response.success){
-      successToast("Tournament joined successfully!!")
-      setTournaments(prev=>prev.map(t=>{
-        if(t._id === response.tournament._id){
-          return response.tournament;
-        }
-        return t;
-      }))
-    }
-  }
-  let userJoined = false;
+  let btnContent =<span>Unavailable</span>;
+  let btnAction = () => {};
+  if (filter === "joinedTournaments") {
 
-  joinedPlayers.forEach(p=>{
-    console.log(p.userId ,userData._id)
-    if(p.userId === userData._id){
-        userJoined = true;
-    }
-  })
-  
-  let btnContent = (
-    <>
-    <button onClick={handleJoin}>
-      <span>Join</span>
-      <span>{entryFee?.tickets}</span>
-      <img className="icon" src="./assets/images/ticket.svg" alt="" />
-
-      <span>{entryFee?.gems}</span>
-
-      <img className="icon" src="./assets/images/gem.svg" alt="" />
-      </button>
-    </>
-  );
-if(userJoined){
-    btnContent = (
-        <>
-        <button onClick={handleJoin}>
-          <span>Joined</span>
-          </button>
-        </>
+    if (player?.hasPlayed) {
+      btnContent = (
+        <span>Your score: {getScore(data.joinedPlayers, userId)}</span>
       );
-}
-  if (!isAuthenticated) {
-    btnContent = (
-      <>
-        <button>
-            <Link to="/play-to-earn" state={{ from: "/tournaments" }}>
-          Connect Steam to Join
-        </Link>
-      </button>
-      </>
-    );
+    } else {
+      btnAction = () => {
+        window.open(
+          window.location.origin + "/games/inorbit?code=" + player?.code,
+          "_blank"
+        );
+      };
+
+      btnContent = <span>Play</span>;
+    }
   }
-  if (!isWalletConnected) {
-    btnContent = (
-      <>
-      <button>
-        <Link to="/play-to-earn" state={{ from: "/tournaments" }}>
-          Login to Join
-        </Link>
-        </button>
-      </>
-    );
+  if (filter === "nonParticipatedTournaments") {
+    btnContent = <span>Join</span>
+    btnAction = ()=>{handleJoin(data._id)};
   }
+  if(filter === "myTournaments"){
+    if(player?.hasPlayed && data?.isCompleted){
+      btnContent =<span>{userId===data.winner ?  "You won!!":"You lost!!"}</span>
+    }
+    else if(player?.hasPlayed && !(data?.isCompleted)){
+      btnContent =<span>{`Your score: ${player?.score || "unavailable"}`}</span>
+    }
+    else if(!player?.hasPlayed){
+      btnContent = <span>Play to Score</span>
+      btnAction = () => {
+        window.open(
+          window.location.origin + "/games/inorbit?code=" + player?.code,
+          "_blank"
+        );
+      };
+    }
+  }
+  if(filter === "completedTournaments"){
+    
+      btnContent =<span>{ userId===data.winner?  "You won!!":"You lost!!"}</span>
+
+  }
+
   return (
-    <div className="t-card">
-      <div className="img-container">
-        <img src="./assets/images/game-console.svg" alt="" />
-      </div>
-      <div className="t-card-info">
-        <span className="name">{title}</span>
-        <div className="prize">
-          <span>{`Prize Pool: ${prize}`}</span>
-          <img className="icon" src="./assets/images/gem-purple.svg" alt="" />
+    <div className="tournament-card">
+      <div className="img-container"></div>
+      <div className="card-info-container">
+        <div className="card-info-wrapper">
+          <h1 className="card-title">{title}</h1>
+          <h4 className="card-prize">
+            <span>Prize Pool:{prize}</span>
+            <img className="icon" src="/assets/images/gem-purple.svg" alt="" />
+          </h4>
         </div>
-      </div>
-      <div className="join-btn-container">
-        {btnContent}
-        <div className="players-count">
-          <img src="./assets/images/player-gray.svg" alt="" />
-          <span>{playersCount}</span>
+        <div className="card-info-wrapper">
+          <button onClick={btnAction || (() => {})}>{btnContent}</button>
         </div>
       </div>
     </div>
