@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import { successToast,errorToast } from "../../utils/toast";
+import PartnersSection from "../Home/PartnersSection";
 const LaunchpadProjectPage = () => {
   const [project, setProject] = useState({
     title: "Hypermove",
@@ -19,7 +20,7 @@ const LaunchpadProjectPage = () => {
   }, []);
   useEffect(() => {
     (async () => {
-      const res = await fetch(process.env.REACT_APP_SERVER_URL+"/pool");
+      const res = await fetch("http://localhost:5000/pool");
       const response = await res.json();
       if (response && response.success) {
         setProject((prev) => {
@@ -30,6 +31,7 @@ const LaunchpadProjectPage = () => {
   }, []);
   const progress = ((project.raised / project.totalRaise) * 100).toFixed(2);
   return (
+  <>
     <div className="launchpad-container header-top-padding">
       <div className="top-info-wrapper">
         <section>
@@ -188,18 +190,19 @@ const LaunchpadProjectPage = () => {
         </div>
       </div>
     </div>
+    <PartnersSection/></>
   );
 };
 const InputContainer = ({ projectId, setProject }) => {
   const [value, setValue] = useState(100);
   const [fetching, setFetching] = useState(false);
   const handleSubmit = async (e) => {
-    e.preventDefault();
+   try{ e.preventDefault();
     console.log(value);
     const authToken = localStorage.getItem("auth-token");
     if (!authToken || fetching) return;
     setFetching(true)
-    const res = await fetch(process.env.REACT_APP_SERVER_URL+"/pool", {
+    const res = await fetch("http://localhost:5000/pool", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -211,9 +214,17 @@ const InputContainer = ({ projectId, setProject }) => {
 
     console.log(response);
     if (response && response.success) {
+      successToast("Success!!")
+      
       setProject((prev) => ({ ...prev, ...response.updatedProject }));
+      setFetching(false)
+      return;
     }
-    setFetching(false)
+    errorToast("Some error occurred!")
+    setFetching(false)}
+    catch(e){
+      setFetching(false)
+    }
   };
   return (
     <div className="form-container  ">
