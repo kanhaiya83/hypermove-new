@@ -2,6 +2,11 @@
   --color-dark-sec: #1f1f1f;
   --primary-color: #6c02d7;
 }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 img {
   display: block;
   font-size: 0rem;
@@ -1231,10 +1236,21 @@ transition-delay: 400ms;
     grid-template-columns: repeat(1, 1fr);
   }
   .launchpad-container{
-    
+    .top-info-wrapper{
+      .section-header{
+        img{
+          max-width: 150px;
+        }
+        .tags-wrapper{
+          h1{
+            font-size: 2rem;
+          }
+        }
+      }
+    }
     .bottom-info-wrapper{
       .info-cards-wrapper{
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(1,1fr);
       }
     }
   }
