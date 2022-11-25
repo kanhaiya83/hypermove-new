@@ -155,25 +155,25 @@ const LaunchpadProjectPage = () => {
               <h1>Nov 28th</h1>
             </div>
           </div>
-          <div className="info-card ">
+          <div className="info-card shadow-box rounded-corner">
             <div className="info-stack">
               <h4>End</h4>
               <h1>Dec 1th</h1>
             </div>
           </div>
-          <div className="info-card ">
+          <div className="info-card shadow-box rounded-corner">
             <div className="info-stack">
               <h4>Distribution</h4>
               <h1>15%</h1>
             </div>
           </div>
-          <div className="info-card ">
+          <div className="info-card shadow-box rounded-corner">
             <div className="info-stack">
               <h4>Hardcap</h4>
               <h1>$100,000</h1>
             </div>
           </div>
-          <div className="info-card ">
+          <div className="info-card shadow-box rounded-corner">
             <div className="info-stack">
               <h4>Price</h4>
               <h1>$0.012</h1>
