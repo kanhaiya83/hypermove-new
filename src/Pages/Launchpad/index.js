@@ -56,6 +56,9 @@ const settings = {
       }
     }]
 };
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 const LaunchpadProjectPage = () => {
   const [project, setProject] = useState({
     title: "Hypermove",
@@ -187,6 +190,10 @@ const LaunchpadProjectPage = () => {
               <button className="neo-container">I BUSD = 200 GEMS</button>
             </div>
           </div>
+          <div className="info-stack">
+            <h4>Total Raised Amount</h4>
+            <h1>${numberWithCommas(project.raised)}</h1>
+          </div>
           <h4 className="start-info">
             <b>Starts:</b>
             <pre> 01/01/2023</pre>
@@ -292,7 +299,7 @@ metaverseImages.map((source,i)=>{
     </>
   );
 };
-const InputContainer = ({ projectId, setProject }) => {
+const InputContainer = ({ projectId, setProject,project }) => {
   const [value, setValue] = useState(100);
   const [fetching, setFetching] = useState(false);
     const { status, connect, account, chainId, ethereum ,switchChain} = useMetaMask();
@@ -333,24 +340,26 @@ const InputContainer = ({ projectId, setProject }) => {
   };
   if(!isWalletConnected){
     return <div className="form-container">
-      <button className="submit-btn" onClick={connectMetamask}>
+      <button className="wallet-btn" onClick={connectMetamask}>
         Connect Wallet
       </button>
     </div>
   }
   if(chainId !== "0x38"){
     return <div className="form-container">
-    <button className="submit-btn" onClick={()=>{switchChain("0x38")}}>
+    <button className="wallet-btn" onClick={()=>{switchChain("0x38")}}>
       Switch Network
     </button>
   </div>
   }
   const handleSubmit = async (e) => {
    try{ e.preventDefault();
-    console.log(value);
     const authToken = localStorage.getItem("auth-token");
     if (!authToken || fetching) return;
     setFetching(true)
+    if((value + project.raised) > project.totalRaise){
+      return errorToast("Can't approve required amount!!")
+    }
     const res = await fetch(process.env.REACT_APP_SERVER_URL+"/pool", {
       method: "POST",
       headers: {
