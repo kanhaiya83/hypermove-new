@@ -1124,6 +1124,11 @@ transition-delay: 400ms;
       width: 78%;
     }
   }
+  .launchpad-container{
+    .top-info-wrapper{
+      flex-direction: column;
+    }
+  }
 }
 @media only screen and (max-width: 992px) {
   .play-to-earn-page,
@@ -1198,12 +1203,12 @@ transition-delay: 400ms;
         }
       }
     }
-    .ido-address{
-      max-width: 250px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: no-wrap;
+    .bottom-info-wrapper{
+      .info-cards-wrapper{
+        grid-template-columns: repeat(2,1fr);
+      }
     }
+    
     
   }
 }
@@ -1224,5 +1229,13 @@ transition-delay: 400ms;
 
   .games-row {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .launchpad-container{
+    
+    .bottom-info-wrapper{
+      .info-cards-wrapper{
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
   }
 }
