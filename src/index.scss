@@ -1137,16 +1137,17 @@ transition-delay: 400ms;
       display: flex;
       justify-content: flex-end;
       margin-top: 1rem;
-      button{
-        border-radius: 2px;
-        background: #6C02D7;
-        box-shadow:  5px 5px 8px #121212,
-                     -5px -5px 8px #161618;        
-             text-transform: uppercase;
+  
+    }
+    button{
+      border-radius: 2px;
+      background: #6C02D7;
+      box-shadow:  5px 5px 8px #121212,
+                   -5px -5px 8px #161618;        
+           text-transform: uppercase;
 &:hover{
-  cursor: pointer;
+cursor: pointer;
 }
-      }
     }
   }
 

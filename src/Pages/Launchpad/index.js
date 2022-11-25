@@ -4,6 +4,10 @@ import PartnersSection from "../Home/PartnersSection";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { useAuthContext } from "../../context/AuthContext";
+
+import { useMetaMask } from "metamask-react";
+import Web3 from "web3"
 const NFTGameImages =[
 "https://user-images.githubusercontent.com/76777058/203996529-bdd6e284-0303-4aaa-9235-05b88b30223a.png",
 
@@ -291,6 +295,56 @@ metaverseImages.map((source,i)=>{
 const InputContainer = ({ projectId, setProject }) => {
   const [value, setValue] = useState(100);
   const [fetching, setFetching] = useState(false);
+    const { status, connect, account, chainId, ethereum ,switchChain} = useMetaMask();
+    const {isWalletConnected,setIsWalletConnected} = useAuthContext()
+  const signAndVerify = async (address) => {
+    console.log({ address: address });
+    const web3 = new Web3(Web3.givenProvider);
+    const response = await fetch(
+      process.env.REACT_APP_SERVER_URL + "/message?address=" + address
+    );
+    const { messageToSign } = await response.json();
+    const signature = await web3.eth.personal.sign(messageToSign, address);
+
+    const res = await fetch(
+      process.env.REACT_APP_SERVER_URL +
+        "/jwt?address=" +
+        address +
+        "&signature=" +
+        signature
+    );
+    const resData = await res.json();
+    if (resData && resData.success) {
+    localStorage.setItem("auth-token", resData.authToken);
+    setIsWalletConnected(true)
+    }
+  };
+  const connectMetamask = async () => {
+    if(isWalletConnected) return; 
+    if(status ==="connected" && isWalletConnected){
+      return;
+    }
+    try {
+      const data = await connect();
+      signAndVerify(data[0]);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  if(!isWalletConnected){
+    return <div className="form-container">
+      <button className="submit-btn" onClick={connectMetamask}>
+        Connect Wallet
+      </button>
+    </div>
+  }
+  if(chainId !== "0x38"){
+    return <div className="form-container">
+    <button className="submit-btn" onClick={()=>{switchChain("0x38")}}>
+      Switch Network
+    </button>
+  </div>
+  }
   const handleSubmit = async (e) => {
    try{ e.preventDefault();
     console.log(value);
