@@ -42,14 +42,7 @@ const PartnersLogosContainer=({filter})=>{
         </FlipMove>
     )
 }
-const PartnerLogo=({logo})=>{
-    return <div key={logo.i} className="partner-logo-container">
-        <div className="partner-logo-img">
-        <img src={logo.image} className="img-fluid"/>
-        </div>
-    </div>
-}
-const PartnersSection= ()=>{
+const PartnersSection= ({hideFilters})=>{
 
     const [filter,setFilter]=useState("all")
     const filterBtns=[
@@ -87,13 +80,20 @@ const PartnersSection= ()=>{
             text:"Wallet",
         },
     ]
+
+
+    const filtersPanel = Boolean(hideFilters) ? "" :
+    <ul className="partners-filter-btns">
+        {filterBtns.map((btn,i)=>{
+            return <li key={btn.text}><button className="filter-btn" onClick={()=>{setFilter(btn.text)}}> {btn.text}</button></li>
+        })}
+    </ul>
+
 return(<React.Fragment>
-<h2 className="nevan section-heading py-2 py-md-3">PARTNERS</h2>
-<ul className="partners-filter-btns">
-    {filterBtns.map((btn,i)=>{
-        return <li key={btn.text}><button className="filter-btn" onClick={()=>{setFilter(btn.text)}}> {btn.text}</button></li>
-    })}
-</ul>
+<h2 className="nevan section-heading py-2 py-md-3 text-center w-full" >PARTNERS</h2>
+{
+    filtersPanel
+}
 <PartnersLogosContainer filter={filter}/>
 </React.Fragment>)
 }

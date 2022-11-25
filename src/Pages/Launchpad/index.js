@@ -255,7 +255,7 @@ const LaunchpadProjectPage = () => {
       </div>
     </div>
     <div className="launchpad-partner-section-wrapper">
-    <PartnersSection/>
+    <PartnersSection hideFilters={true}/>
     </div>
     <div className="game-slider-section">
       <h1>Hypermove NFT Game</h1>
