@@ -6,31 +6,34 @@ import Row from "react-bootstrap/Row";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 import "./Header.css";
 import HyperButton from "./HyperButton";
 import NavMenuLinks from "./NavMenuLinks";
-import { useAuthContext } from "../context/AuthContext";
 import { useWeb3React } from "@web3-react/core";
+import { injected } from "../connector";
 
 const Header = (props) => {
   const [show, setShow] = useState(false);
-  const {
-    connectMetamask,
-    isWalletConnected,
-    setIsWalletConnected,
-    setIsAuthenticated,
-    isAuthenticated,
-    ethereum,
-    account,
-  } = useAuthContext();
-  console.log({ isWalletConnected });
-  const handleLogout = () => {
-    setIsWalletConnected(false);
-    setIsAuthenticated(false);
-    localStorage.removeItem("auth-token");
+
+  const { active, chainId, activate, account, connector } = useWeb3React();
+
+  console.log({ account, active });
+
+  const tryActivate = async () => {
+    try {
+      await activate(injected);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await activate(null);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const showDropdown = (e) => {
     setShow(!show);
@@ -77,7 +80,7 @@ const Header = (props) => {
                         text="NFT Marketplace"
                       />
                     </NavDropdown.Item>
-                    {isAuthenticated && (
+                    {active && (
                       <NavDropdown.Item>
                         <NavMenuLinks href="/profile" text="Profile" />
                       </NavDropdown.Item>
@@ -98,15 +101,15 @@ const Header = (props) => {
                   variant="dark"
                   className="purple-btn float-end"
                   text={
-                    isWalletConnected
+                    active && account
                       ? account?.slice(0, 10) + "..."
                       : "CONNECT WALLET"
                   }
                   onClick={() => {
-                    if (isWalletConnected) {
+                    if (active) {
                       return handleLogout();
                     }
-                    connectMetamask();
+                    tryActivate();
                   }}
                 ></HyperButton>
               </div>
@@ -168,12 +171,16 @@ const Header = (props) => {
               <HyperButton
                 variant="dark"
                 className="purple-btn float-end"
-                text={isWalletConnected ? "LOGOUT" : "CONNECT WALLET"}
+                text={
+                  active && account
+                    ? String(account).slice(0, 10) + "..."
+                    : "CONNECT WALLET"
+                }
                 onClick={() => {
-                  if (isWalletConnected) {
+                  if (active && account) {
                     return handleLogout();
                   }
-                  connectMetamask();
+                  tryActivate();
                 }}
               ></HyperButton>
             </Col>

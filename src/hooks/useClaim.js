@@ -4,18 +4,17 @@ import { estimatedGas, gasPrice, unitParser, unitFormatter } from "../utils";
 import { useWeb3React } from "@web3-react/core";
 import { isEmpty } from "lodash";
 import { BigNumber } from "ethers";
-import { BSC_CHAIN_ID } from "../constants";
-import { useAuthContext } from "../context/AuthContext";
+import { BSC_TESTNET_CHAIN } from "../constants";
 
 export const useClaim = (IDO) => {
-  const { account, provider, chainId } = useAuthContext();
+  const { account, library, chainId } = useWeb3React();
   const [transactionStatus, setTransactionStatus] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const ido = useIdoContract(IDO);
 
   const claimToken = useCallback(async () => {
-    if (chainId !== BSC_CHAIN_ID || !ido) return null;
+    if (chainId !== BSC_TESTNET_CHAIN || !ido) return null;
     try {
       setIsLoading(true);
       const gasLimitExpected = await estimatedGas(
@@ -31,10 +30,10 @@ export const useClaim = (IDO) => {
         0
       );
 
-      const gas_price = await gasPrice(provider);
+      const gas_price = await gasPrice(library);
 
       const transaction = await ido
-        .connect(provider.getSigner())
+        .connect(library.getSigner())
         .claimHyperMove({
           from: account,
           gasLimit,

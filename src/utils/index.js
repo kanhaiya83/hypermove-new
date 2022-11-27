@@ -2,7 +2,7 @@ import { aggregate } from "@makerdao/multicall";
 import { ethers } from "ethers";
 import { parseUnits, formatUnits } from "@ethersproject/units";
 import { isEmpty } from "lodash";
-import { BSC_CHAIN_ID } from "../constants";
+import { BSC_TESTNET_CHAIN } from "../constants";
 
 export const multicallAddress = {
   97: "0xae11C5B5f29A6a25e955F0CB8ddCc416f522AF5C",
@@ -53,8 +53,8 @@ export const createIDOMulticall = (IDO, account) => {
 export const multicall = async (calls) => {
   if (isEmpty(calls)) return null;
   const results = await aggregate(calls, {
-    rpcUrl: rpcUrls[BSC_CHAIN_ID],
-    multicallAddress: multicallAddress[BSC_CHAIN_ID],
+    rpcUrl: rpcUrls[BSC_TESTNET_CHAIN],
+    multicallAddress: multicallAddress[BSC_TESTNET_CHAIN],
   });
   return results;
 };

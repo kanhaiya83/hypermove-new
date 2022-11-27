@@ -3,9 +3,6 @@ import { useTokenContract } from "./useContract.js";
 import { estimatedGas, gasPrice, unitParser, unitFormatter } from "../utils";
 import { useWeb3React } from "@web3-react/core";
 import { isEmpty } from "lodash";
-import { BigNumber } from "ethers";
-import { useMetaMask } from "metamask-react";
-import { useAuthContext } from "../context/AuthContext.js";
 
 // to fetch allowance
 export const useAllowance = (
@@ -45,7 +42,7 @@ export const useApproval = (
   const [isApprovalRequired, setApprovalRequired] = useState(true);
   let [isLoding, setIsLoading] = useState(false);
 
-  const { account, provider } = useAuthContext();
+  const { account, library } = useWeb3React();
 
   const allowance = useAllowance(account, spender, tokenId);
 
@@ -69,15 +66,15 @@ export const useApproval = (
       const gasLimit = await estimatedGas(
         instance,
         "approve",
-        [spender, unitParser(String(amount))],
+        [spender, unitParser(String(10000))],
         account
       );
       // get the median gas price for latest 50 BLock.
-      const gas_price = await gasPrice(provider?.getSigner());
+      const gas_price = await gasPrice(library?.getSigner());
 
       const transaction = await instance
-        .connect(provider?.getSigner())
-        .approve(spender, unitParser(String(amount)), {
+        .connect(library?.getSigner())
+        .approve(spender, unitParser(String(10000)), {
           from: account,
           gasLimit,
           gasPrice: gas_price,
@@ -94,7 +91,7 @@ export const useApproval = (
       console.log(err);
       setIsLoading(false);
     }
-  }, [spender, provider, instance, account, amount]);
+  }, [spender, library, instance, account, amount]);
 
   return {
     isApprovalRequired,

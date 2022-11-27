@@ -5,28 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import HyperMove from "./HyperMove";
-
-import ScoresProvider from "./context/leaderBoard";
-import AlertProvider from "./context/alert";
-
-import { BrowserRouter } from "react-router-dom";
-import { MetaMaskProvider } from "metamask-react";
-import AuthContextProvider from "./context/AuthContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ScoresProvider>
-        <AlertProvider>
-          <MetaMaskProvider>
-          <AuthContextProvider>
-            <HyperMove />
-            </AuthContextProvider>
-          </MetaMaskProvider>
-        </AlertProvider>
-      </ScoresProvider>
-    </BrowserRouter>
+    <App />
   </React.StrictMode>
 );
 

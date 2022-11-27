@@ -8,14 +8,10 @@ import {
   roundValue,
 } from "../utils";
 import { useWeb3React } from "@web3-react/core";
-import { isEmpty } from "lodash";
-import { BigNumber } from "ethers";
-import { BSC_CHAIN_ID } from "../constants";
-import { useAuthContext } from "../context/AuthContext";
 import _ from "lodash";
 
 export const useBuy = (IDO) => {
-  const { account, provider, chainId } = useAuthContext();
+  const { account, library } = useWeb3React();
   const [transactionStatus, setTransactionStatus] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,7 +21,6 @@ export const useBuy = (IDO) => {
     async (amount) => {
       if (!ido) return null;
       try {
-        console.log({ chainId, ido });
         setIsLoading(true);
         const gasLimitExpected = await estimatedGas(
           ido,
@@ -43,10 +38,10 @@ export const useBuy = (IDO) => {
           0
         );
 
-        const gas_price = await gasPrice(provider);
+        const gas_price = await gasPrice(library);
 
         const transaction = await ido
-          .connect(provider.getSigner())
+          .connect(library.getSigner())
           .buy(unitParser(String(amount)), {
             from: account,
             gasLimit,

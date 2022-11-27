@@ -4,10 +4,7 @@ import PartnersSection from "../Home/PartnersSection";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useAuthContext } from "../../context/AuthContext";
 
-import { useMetaMask } from "metamask-react";
-import Web3 from "web3";
 import { useApproval } from "../../hooks/useApproval";
 import { useWeb3React } from "@web3-react/core";
 import { useMultiCall } from "../../hooks/useMulticall";
@@ -15,6 +12,8 @@ import { ZERO_ADDRESS, currencyFormatter, timeConverter } from "../../utils";
 import { IDO_INFO } from "../../constants/idoInfo";
 import { useTokenBalance } from "../../hooks/useTokenBalance";
 import { useBuy } from "../../hooks/useBuy";
+import { injected } from "../../connector";
+import { useSwitchNetwork } from "../../hooks/useSwitchNetwork";
 const NFTGameImages = [
   "https://user-images.githubusercontent.com/76777058/203996529-bdd6e284-0303-4aaa-9235-05b88b30223a.png",
 
@@ -90,7 +89,7 @@ const LaunchpadProjectPage = () => {
     setAmount(Number(input));
   };
 
-  const { account } = useAuthContext();
+  const { account } = useWeb3React();
 
   const idoData = useMultiCall(account ? account : ZERO_ADDRESS);
 
@@ -346,6 +345,7 @@ const LaunchpadProjectPage = () => {
     </>
   );
 };
+
 const InputContainer = ({
   buy,
   approval,
@@ -354,68 +354,72 @@ const InputContainer = ({
   setHandleAmount,
   balance,
 }) => {
-  const {
-    status,
-    connect,
-    account,
-    chainId,
-    ethereum,
-    switchChain,
-    metaState,
-    web3,
-  } = useMetaMask();
+  const { active, account, chainId, activate } = useWeb3React();
+  const switchChain = useSwitchNetwork();
 
-  const { isWalletConnected, setIsWalletConnected } = useAuthContext();
-  const signAndVerify = async (address) => {
-    const web3 = new Web3(Web3.givenProvider);
-    const response = await fetch(
-      process.env.REACT_APP_SERVER_URL + "/message?address=" + address
-    );
-    const { messageToSign } = await response.json();
-    const signature = await web3.eth.personal.sign(messageToSign, address);
+  // const { , setIsWalletConnected } = useAuthContext();
+  // const signAndVerify = async (address) => {
+  //   const web3 = new Web3(Web3.givenProvider);
+  //   const response = await fetch(
+  //     process.env.REACT_APP_SERVER_URL + "/message?address=" + address
+  //   );
+  //   const { messageToSign } = await response.json();
+  //   const signature = await web3.eth.personal.sign(messageToSign, address);
 
-    const res = await fetch(
-      process.env.REACT_APP_SERVER_URL +
-        "/jwt?address=" +
-        address +
-        "&signature=" +
-        signature
-    );
-    const resData = await res.json();
-    if (resData && resData.success) {
-      localStorage.setItem("auth-token", resData.authToken);
-      setIsWalletConnected(true);
-    }
-  };
-  const connectMetamask = async () => {
-    if (!isWalletConnected) return;
-    if (status === "connected" && isWalletConnected) {
-      return;
-    }
+  //   const res = await fetch(
+  //     process.env.REACT_APP_SERVER_URL +
+  //       "/jwt?address=" +
+  //       address +
+  //       "&signature=" +
+  //       signature
+  //   );
+  //   const resData = await res.json();
+  //   if (resData && resData.success) {
+  //     localStorage.setItem("auth-token", resData.authToken);
+  //     setIsWalletConnected(true);
+  //   }
+  // };
+
+  const tryActivate = async () => {
     try {
-      const data = await connect();
-      signAndVerify(data[0]);
-    } catch (e) {
-      console.log(e);
+      await activate(injected);
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  if (!isWalletConnected) {
+  const handleLogout = async () => {
+    try {
+      await activate(null);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const connectWallet = () => {
+    if (account && active) {
+      handleLogout();
+    } else {
+      tryActivate();
+    }
+  };
+
+  if (!active) {
     return (
       <div className="form-container">
-        <button className="wallet-btn" onClick={connectMetamask}>
+        <button className="wallet-btn" onClick={connectWallet}>
           Connect Wallet
         </button>
       </div>
     );
   }
-  if (chainId !== "0x61") {
+  if (Number(chainId) !== 97) {
     return (
       <div className="form-container">
         <button
           className="wallet-btn"
           onClick={() => {
-            switchChain("0x61");
+            switchChain();
           }}
         >
           Switch Network
@@ -477,13 +481,13 @@ const InputContainer = ({
           onClick={() => approval.triggeredApproval()}
           // disabled={!approval?.isApprovalRequired}
         >
-          {approval.isLoading ? "Approving" : "Approve"}
+          {approval.isLoading ? "Approving..." : "Approve"}
         </button>
         <button
           onClick={() => buy.buyToken(amount)}
           // disabled={approval?.isApprovalRequired}
         >
-          {buy.isLoading ? "buying" : "buy"}
+          {buy.isLoading ? "Buying..." : "buy"}
         </button>
       </div>
     </div>
