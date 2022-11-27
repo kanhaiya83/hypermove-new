@@ -14,6 +14,7 @@ import { useTokenBalance } from "../../hooks/useTokenBalance";
 import { useBuy } from "../../hooks/useBuy";
 import { injected } from "../../connector";
 import { useSwitchNetwork } from "../../hooks/useSwitchNetwork";
+import { divide, round } from "lodash";
 const NFTGameImages = [
   "https://user-images.githubusercontent.com/76777058/203996529-bdd6e284-0303-4aaa-9235-05b88b30223a.png",
 
@@ -225,7 +226,9 @@ const LaunchpadProjectPage = () => {
                 </div>
                 <div className="info-stack ">
                   <h4>Value</h4>
-                  <button className="neo-container">I BUSD = 200 GEMS</button>
+                  <button className="neo-container">
+                    1 BUSD = {idoData.hyperMovePrice} HMove
+                  </button>
                 </div>
               </div>
               <div className="info-stack">
@@ -292,7 +295,7 @@ const LaunchpadProjectPage = () => {
               <div className="info-card shadow-box rounded-corner">
                 <div className="info-stack">
                   <h4>Price</h4>
-                  <h1>${IDO_INFO.priceInUSD}</h1>
+                  <h1>${round(divide(1, idoData.hyperMovePrice), 3)}</h1>
                 </div>
               </div>
               <div className="info-card shadow-box rounded-corner">
