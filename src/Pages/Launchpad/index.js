@@ -308,8 +308,8 @@ const LaunchpadProjectPage = () => {
           <Slider {...settings}>
             {NFTGameImages.map((source, i) => {
               return (
-                <div>
-                  <div className="slide-image-container" key={i}>
+                <div key={i}>
+                  <div className="slide-image-container">
                     <div className="img-wrapper">
                       <img src={source} alt="" />
                     </div>
@@ -323,15 +323,15 @@ const LaunchpadProjectPage = () => {
           <h1>Metaverse</h1>
           <Slider {...settings}>
             {metaverseImages.map((source, i) => {
-              return (
-                <div>
-                  <div className="slide-image-container" key={i}>
+               return (
+                <div key={i}>
+                  <div className="slide-image-container">
                     <div className="img-wrapper">
                       <img src={source} alt="" />
                     </div>
                   </div>
                 </div>
-              );
+             );
             })}
           </Slider>
         </div>
@@ -420,6 +420,7 @@ const InputContainer = ({
       />
       <div className="approve-btn">
         <button
+        className={!approval.isApprovalRequired && "approved"}
           onClick={() => approval.triggeredApproval()}
           disabled={!approval?.isApprovalRequired}
         >
