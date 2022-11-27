@@ -9,6 +9,7 @@ import {
 } from "../utils";
 import { useWeb3React } from "@web3-react/core";
 import _ from "lodash";
+import { errorToast, successToast } from "../utils/toast";
 
 export const useBuy = (IDO) => {
   const { account, library } = useWeb3React();
@@ -52,8 +53,11 @@ export const useBuy = (IDO) => {
 
         setTransactionStatus(transaction.hash);
         setIsLoading(false);
+        successToast("Payment successful!!")
       } catch (err) {
         setIsLoading(false);
+        errorToast("Payment unsuccessful!!")
+
         console.log(err);
       }
     },

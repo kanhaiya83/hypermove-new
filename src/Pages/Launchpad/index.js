@@ -61,9 +61,6 @@ const settings = {
     },
   ],
 };
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 const LaunchpadProjectPage = () => {
   const [amount, setAmount] = useState(100);
   const [project, setProject] = useState({
@@ -101,7 +98,6 @@ const LaunchpadProjectPage = () => {
   const approval = useApproval(amount, IDO_INFO.contractAddress, IDO_INFO.BUSD);
 
   const buy = useBuy(IDO_INFO.contractAddress);
-
   useEffect(() => {
     (async () => {
       const res = await fetch(process.env.REACT_APP_SERVER_URL + "/pool");
@@ -355,28 +351,6 @@ const InputContainer = ({
   const { active, account, chainId, activate } = useWeb3React();
   const switchChain = useSwitchNetwork();
 
-  // const { , setIsWalletConnected } = useAuthContext();
-  // const signAndVerify = async (address) => {
-  //   const web3 = new Web3(Web3.givenProvider);
-  //   const response = await fetch(
-  //     process.env.REACT_APP_SERVER_URL + "/message?address=" + address
-  //   );
-  //   const { messageToSign } = await response.json();
-  //   const signature = await web3.eth.personal.sign(messageToSign, address);
-
-  //   const res = await fetch(
-  //     process.env.REACT_APP_SERVER_URL +
-  //       "/jwt?address=" +
-  //       address +
-  //       "&signature=" +
-  //       signature
-  //   );
-  //   const resData = await res.json();
-  //   if (resData && resData.success) {
-  //     localStorage.setItem("auth-token", resData.authToken);
-  //     setIsWalletConnected(true);
-  //   }
-  // };
 
   const tryActivate = async () => {
     try {
@@ -425,37 +399,7 @@ const InputContainer = ({
       </div>
     );
   }
-  // const handleSubmit = async (e) => {
-  //   try {
-  //     e.preventDefault();
-  //     const authToken = localStorage.getItem("auth-token");
-  //     if (!authToken) return;
-  //     if (amount + project.raised > project.totalRaise) {
-  //       return errorToast("Can't approve required amount!!");
-  //     }
-  //     const res = await fetch(process.env.REACT_APP_SERVER_URL + "/pool", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "auth-token": authToken,
-  //       },
-  //       body: JSON.stringify({ amount }),
-  //     });
-  //     const response = await res.json();
-
-  //     console.log(response);
-  //     if (response && response.success) {
-  //       successToast("Success!!");
-
-  //       setProject((prev) => ({ ...prev, ...response.updatedProject }));
-  //       return;
-  //     }
-  //     errorToast("Some error occurred!");
-  //   } catch (e) {
-  //     console.log("error");
-  //   }
-  // };
-  return (
+ return (
     <div className="form-container  ">
       <div className="deposit-details">
         <h3>Your Deposited</h3>
@@ -485,12 +429,17 @@ const InputContainer = ({
               : "Approve"
             : "Approved"}
         </button>
-        <button
+       {
+        !Boolean(approval.isApprovalRequired) &&
+        <>
+         <button
           onClick={() => buy.buyToken(amount)}
           disabled={approval?.isApprovalRequired}
         >
           {buy.isLoading ? "Buying..." : "buy"}
         </button>
+        </>
+       }
       </div>
     </div>
   );
