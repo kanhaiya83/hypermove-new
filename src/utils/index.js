@@ -47,6 +47,11 @@ export const createIDOMulticall = (IDO, account) => {
       call: ["isClaimable()(bool)"],
       returns: [["isClaimable"]],
     },
+    {
+      target: IDO,
+      call: ["hyperMovePrice()(uint256)"],
+      returns: [["hyperMovePrice"]],
+    },
   ];
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { IDO_INFO } from "../constants/idoInfo";
 import { getIDOMulticall, unitFormatter, ZERO_ADDRESS } from "../utils";
+import { round } from "lodash";
 
 export const useMultiCall = (account) => {
   const [totalRaised, setTotalRaised] = React.useState(0);
@@ -12,6 +13,7 @@ export const useMultiCall = (account) => {
   const [isSaleStarted, setSaleStarted] = React.useState(false);
   const [isSaleEnd, setSaleEnd] = React.useState(false);
   const [isClaimable, setClaimable] = React.useState(false);
+  const [hyperMovePrice, setHyperMovePrice] = React.useState(0);
 
   React.useEffect(() => {
     async function fetchIdoData() {
@@ -32,10 +34,11 @@ export const useMultiCall = (account) => {
       setMaxAllocation(unitFormatter(ido.maxAllocation));
       setPurchaseCap(unitFormatter(ido.purchaseCap));
       setUserPurchases(unitFormatter(ido.PURCHASED));
-      setRaisedPercentage(raisedPercentaged);
+      setRaisedPercentage(round(raisedPercentaged, 2));
       setSaleStarted(ido.isSaleStarted);
       setSaleEnd(ido.isSaleStarted);
       setClaimable(ido.isClaimable);
+      setHyperMovePrice(Number(ido.hyperMovePrice));
     }
 
     fetchIdoData();
@@ -51,5 +54,6 @@ export const useMultiCall = (account) => {
     isSaleStarted,
     isSaleEnd,
     isClaimable,
+    hyperMovePrice,
   };
 };
