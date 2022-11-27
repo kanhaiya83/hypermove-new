@@ -180,7 +180,7 @@ const LaunchpadProjectPage = () => {
               <div className="io-info">
                 <div className="info-stack">
                   <h4>TOTAL RAISE</h4>
-                  <h1>$100,000</h1>
+                  <h1>{currencyFormatter(idoData.purchaseCap)}</h1>
                 </div>
 
                 <div className="info-stack">
