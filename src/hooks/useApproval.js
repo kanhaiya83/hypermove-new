@@ -40,7 +40,7 @@ export const useApproval = (
 ) => {
   const [tx, setTx] = useState(false);
   const [isApprovalRequired, setApprovalRequired] = useState(true);
-  let [isLoding, setIsLoading] = useState(false);
+  let [isLoading, setIsLoading] = useState(false);
 
   const { account, library } = useWeb3React();
 
@@ -95,7 +95,7 @@ export const useApproval = (
 
   return {
     isApprovalRequired,
-    isLoding,
+    isLoading,
     triggeredApproval,
     tx,
   };
