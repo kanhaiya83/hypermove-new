@@ -93,8 +93,6 @@ const LaunchpadProjectPage = () => {
 
   const idoData = useMultiCall(account ? account : ZERO_ADDRESS);
 
-  console.log({ idoData });
-
   const balance = useTokenBalance(
     account ? account : ZERO_ADDRESS,
     IDO_INFO.BUSD
@@ -479,13 +477,17 @@ const InputContainer = ({
       <div className="approve-btn">
         <button
           onClick={() => approval.triggeredApproval()}
-          // disabled={!approval?.isApprovalRequired}
+          disabled={!approval?.isApprovalRequired}
         >
-          {approval.isLoading ? "Approving..." : "Approve"}
+          {approval.isApprovalRequired
+            ? approval.isLoading
+              ? "Approving..."
+              : "Approve"
+            : "Approved"}
         </button>
         <button
           onClick={() => buy.buyToken(amount)}
-          // disabled={approval?.isApprovalRequired}
+          disabled={approval?.isApprovalRequired}
         >
           {buy.isLoading ? "Buying..." : "buy"}
         </button>
