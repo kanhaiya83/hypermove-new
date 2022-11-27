@@ -1,132 +1,187 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Col, Image } from "react-bootstrap";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
-
-import './Header.css';
+import "./Header.css";
 import HyperButton from "./HyperButton";
 import NavMenuLinks from "./NavMenuLinks";
 import { useAuthContext } from "../context/AuthContext";
-
+import { useWeb3React } from "@web3-react/core";
 
 const Header = (props) => {
-
   const [show, setShow] = useState(false);
-  const {connectMetamask,isWalletConnected,setIsWalletConnected, setIsAuthenticated,isAuthenticated} = useAuthContext()
-  const handleLogout=()=>{
-    setIsWalletConnected(false)
-    setIsAuthenticated(false)
-    localStorage.removeItem("auth-token")
-  }
-  const showDropdown = (e)=>{
-      setShow(!show);
-  }
-  const hideDropdown = e => {
-      setShow(false);
-  }
+  const {
+    connectMetamask,
+    isWalletConnected,
+    setIsWalletConnected,
+    setIsAuthenticated,
+    isAuthenticated,
+    ethereum,
+    account,
+  } = useAuthContext();
+  console.log({ isWalletConnected });
+  const handleLogout = () => {
+    setIsWalletConnected(false);
+    setIsAuthenticated(false);
+    localStorage.removeItem("auth-token");
+  };
+  const showDropdown = (e) => {
+    setShow(!show);
+  };
+  const hideDropdown = (e) => {
+    setShow(false);
+  };
 
-    return(
+  return (
+    <>
+      <Navbar className="main-menu" expand="lg" fixed="top">
+        <Container>
+          <Row className="flex-fill align-items-center d-none d-sm-flex">
+            <Col xs={12} md={2} className="text-center">
+              <Navbar.Brand className="">
+                <Link to="/">
+                  <Image
+                    src="./assets/images/HM_NewLogo.png"
+                    fluid
+                    className="header-logo "
+                  />
+                </Link>
+              </Navbar.Brand>
+            </Col>
+            <Col xs={12} md={10}>
+              <div className="d-flex">
+                <Nav className="flex-fill justify-content-center">
+                  <NavDropdown
+                    title="Hypermove Directory"
+                    id="basic-nav-dropdown"
+                    show={show}
+                    onMouseEnter={showDropdown}
+                    onMouseLeave={hideDropdown}
+                  >
+                    <NavDropdown.Item href="#action/3.1">
+                      <NavMenuLinks href="/play-to-earn" text="Play-to-Earn" />
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <NavMenuLinks href="/move-to-earn" text="Move-to-Earn" />
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <NavMenuLinks
+                        href="/nft-marketplace"
+                        text="NFT Marketplace"
+                      />
+                    </NavDropdown.Item>
+                    {isAuthenticated && (
+                      <NavDropdown.Item>
+                        <NavMenuLinks href="/profile" text="Profile" />
+                      </NavDropdown.Item>
+                    )}
 
-       <>
-        <Navbar className="main-menu" expand="lg" fixed="top">
-       
-       <Container>
-       <Row className="flex-fill align-items-center d-none d-sm-flex">
-       <Col xs={12} md={2} className="text-center">
-         <Navbar.Brand className="">
-           <Link to="/">
-         <Image src="./assets/images/HM_NewLogo.png" fluid className="header-logo "/>
-         </Link>
-         </Navbar.Brand>
-       </Col>
-       <Col xs={12} md={10}>
-      <div className="d-flex">
-      <Nav className="flex-fill justify-content-center" >
-      <NavDropdown title="Hypermove Directory" id="basic-nav-dropdown" show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
-        <NavDropdown.Item href="#action/3.1">
-        <NavMenuLinks href="/play-to-earn" text="Play-to-Earn"/>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
-        <NavMenuLinks href="/move-to-earn" text="Move-to-Earn"/>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
-        <NavMenuLinks href="/nft-marketplace" text="NFT Marketplace"/>
-        </NavDropdown.Item> 
-        {isAuthenticated && <NavDropdown.Item>
-        <NavMenuLinks href="/profile" text="Profile"/>
-        </NavDropdown.Item> }
-        
-      
-        <NavDropdown.Divider />
-        <NavDropdown.Item>
-        <NavMenuLinks href="/metaverse" text="Metaverse"/>           
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item>
+                      <NavMenuLinks href="/metaverse" text="Metaverse" />
+                    </NavDropdown.Item>
+                  </NavDropdown>
 
-        </NavDropdown.Item>
-      </NavDropdown>         
-        
-        
-        <NavMenuLinks href="/launchpad" text="Launchpad"/>           
-        <NavMenuLinks href="/tournaments" text="Tournaments"/>           
-        
+                  <NavMenuLinks href="/launchpad" text="Launchpad" />
+                  <NavMenuLinks href="/tournaments" text="Tournaments" />
+                </Nav>
+                {/* {isAuthenticated &&  <Link to="/profile"><img className="profile-button" src="./assets/images/profile.svg" alt="" /></Link>} */}
 
+                <HyperButton
+                  variant="dark"
+                  className="purple-btn float-end"
+                  text={
+                    isWalletConnected
+                      ? account?.slice(0, 10) + "..."
+                      : "CONNECT WALLET"
+                  }
+                  onClick={() => {
+                    if (isWalletConnected) {
+                      return handleLogout();
+                    }
+                    connectMetamask();
+                  }}
+                ></HyperButton>
+              </div>
+            </Col>
+          </Row>
 
-      </Nav>
-     {/* {isAuthenticated &&  <Link to="/profile"><img className="profile-button" src="./assets/images/profile.svg" alt="" /></Link>} */}
+          <Row className="d-flex flex-fill d-sm-none text-center justify-content-center mobile-menu">
+            <Navbar.Brand href="#home" className="mb-3">
+              <Image
+                src="./assets/images/HM_NewLogo.png"
+                fluid
+                className="header-logo "
+              />
+            </Navbar.Brand>
+            <Col xs={4} className="text-start">
+              <Navbar.Toggle
+                aria-controls="navbarScroll"
+                className="mobile-toggle-btn"
+              />
+              <Navbar.Collapse id="navbarScroll">
+                <NavDropdown
+                  title="Hypermove Directory"
+                  id="basic-nav-dropdown"
+                  show={show}
+                  onMouseEnter={showDropdown}
+                  onMouseLeave={hideDropdown}
+                >
+                  <NavDropdown.Item>
+                    <NavMenuLinks href="/play-to-earn" text="Play-to-Earn" />
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <NavMenuLinks href="/move-to-earn" text="Move-to-Earn" />
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <NavMenuLinks
+                      href="/nft-marketplace"
+                      text="NFT Marketplace"
+                    />
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item>
+                    <NavMenuLinks href="/metaverse" text="Metaverse" />
+                  </NavDropdown.Item>
+                </NavDropdown>
 
-           <HyperButton variant="dark" className="purple-btn float-end" text={isWalletConnected ? "LOGOUT" :"CONNECT WALLET"} onClick={()=>{if(isWalletConnected){return handleLogout()}; connectMetamask()}}></HyperButton>
-           </div>
-         </Col>
-         </Row>
-
-
-
-         <Row className="d-flex flex-fill d-sm-none text-center justify-content-center mobile-menu">
-         <Navbar.Brand href="#home" className="mb-3">
-         <Image src="./assets/images/HM_NewLogo.png" fluid className="header-logo "/>
-         </Navbar.Brand>
-         <Col xs={4} className="text-start">
-         <Navbar.Toggle aria-controls="navbarScroll" className="mobile-toggle-btn"/>
-     <Navbar.Collapse id="navbarScroll">
-           <NavDropdown title="Hypermove Directory" id="basic-nav-dropdown" show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
-           <NavDropdown.Item>
-           <NavMenuLinks href="/play-to-earn" text="Play-to-Earn"/>
-           </NavDropdown.Item>
-           <NavDropdown.Item>
-           <NavMenuLinks href="/move-to-earn" text="Move-to-Earn"/>
-           </NavDropdown.Item>
-           <NavDropdown.Item>
-           <NavMenuLinks href="/nft-marketplace" text="NFT Marketplace"/>
-           </NavDropdown.Item>
-           <NavDropdown.Divider />
-           <NavDropdown.Item>
-           <NavMenuLinks href="/metaverse" text="Metaverse"/>           
-
-           </NavDropdown.Item>
-         </NavDropdown>         
-           
-           
-           <NavMenuLinks href="/launchpad" text="Launchpad" className="py-3"/>           
-           <NavMenuLinks href="/tournaments" text="Tournaments" className="py-3"/>      
-       
-     </Navbar.Collapse>
-         </Col>
-         <Col xs={8}>
-         <HyperButton variant="dark" className="purple-btn float-end" text={isWalletConnected ? "LOGOUT" :"CONNECT WALLET"} onClick={()=>{if(isWalletConnected){return handleLogout()}; connectMetamask()}}></HyperButton>
-
-         </Col>
-         
-         </Row>
-       </Container>
-   </Navbar>
-       </>
-    );
-}
+                <NavMenuLinks
+                  href="/launchpad"
+                  text="Launchpad"
+                  className="py-3"
+                />
+                <NavMenuLinks
+                  href="/tournaments"
+                  text="Tournaments"
+                  className="py-3"
+                />
+              </Navbar.Collapse>
+            </Col>
+            <Col xs={8}>
+              <HyperButton
+                variant="dark"
+                className="purple-btn float-end"
+                text={isWalletConnected ? "LOGOUT" : "CONNECT WALLET"}
+                onClick={() => {
+                  if (isWalletConnected) {
+                    return handleLogout();
+                  }
+                  connectMetamask();
+                }}
+              ></HyperButton>
+            </Col>
+          </Row>
+        </Container>
+      </Navbar>
+    </>
+  );
+};
 
 export default Header;

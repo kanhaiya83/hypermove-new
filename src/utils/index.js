@@ -1,17 +1,21 @@
 import { aggregate } from "@makerdao/multicall";
+import { ethers } from "ethers";
 import { parseUnits, formatUnits } from "@ethersproject/units";
+import { isEmpty } from "lodash";
+import { BSC_CHAIN_ID } from "../constants";
 
 export const multicallAddress = {
-  1: "0xeefba1e63905ef1d7acba5a8513c70307c1ce441",
-  56: "0x41263cba59eb80dc200f3e2544eda4ed6a90e76c",
-  137: "0x11ce4B23bD875D7F5C6a31084f55fDe1e9A87507",
-  43114: "0xed386Fe855C1EFf2f843B910923Dd8846E45C5A4",
+  97: "0xae11C5B5f29A6a25e955F0CB8ddCc416f522AF5C",
+};
+
+export const rpcUrls = {
+  97: "https://rpc.ankr.com/bsc_testnet_chapel",
 };
 
 export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
 export const createIDOMulticall = (IDO, account) => {
-  if (!IDO) return null;
+  if (!IDO || !account) return null;
   return [
     {
       target: IDO,
@@ -25,24 +29,39 @@ export const createIDOMulticall = (IDO, account) => {
     },
     {
       target: IDO,
-      call: ["userPurchases()(uint256)", account],
+      call: ["userPurchases(address)(uint256)", account],
       returns: [["PURCHASED"]],
+    },
+    {
+      target: IDO,
+      call: ["isSaleEnd()(bool)"],
+      returns: [["isSaleEnd"]],
+    },
+    {
+      target: IDO,
+      call: ["isSaleStarted()(bool)"],
+      returns: [["isSaleStarted"]],
+    },
+    {
+      target: IDO,
+      call: ["isClaimable()(bool)"],
+      returns: [["isClaimable"]],
     },
   ];
 };
 
-export const multicall = async (chainId, calls) => {
+export const multicall = async (calls) => {
   if (isEmpty(calls)) return null;
   const results = await aggregate(calls, {
-    rpcUrl: rpcUrls[chainId],
-    multicallAddress: multicallAddress[chainId],
+    rpcUrl: rpcUrls[BSC_CHAIN_ID],
+    multicallAddress: multicallAddress[BSC_CHAIN_ID],
   });
   return results;
 };
 
-export const getIDOMulticall = async (IDO, account, chainId) => {
+export const getIDOMulticall = async (IDO, account) => {
   const calls = createIDOMulticall(IDO, account);
-  const idoMulticall = await multicall(chainId, calls);
+  const idoMulticall = await multicall(calls);
 
   // return result results
   return idoMulticall.results.original;
@@ -50,7 +69,12 @@ export const getIDOMulticall = async (IDO, account, chainId) => {
 
 export const unitParser = (units, decimals = 18) => {
   if (!units) return null;
-  return parseUnits(units.toString(), decimals ? decimals : 18);
+  return ethers.utils.parseUnits(units);
+};
+
+export const unitFormatter = (units, decimals = 18) => {
+  if (!units) return null;
+  return parseInt(ethers.utils.formatUnits(units, decimals));
 };
 
 export const gasPrice = async (library) => {
@@ -58,10 +82,48 @@ export const gasPrice = async (library) => {
 };
 
 export const estimatedGas = async (contract, method, methodParams, account) => {
-  console.log("gasEstemation", contract, method, methodParams);
   const gasEstemation = await contract.estimateGas[method](...methodParams, {
     from: account,
   });
-  console.log("gasEstemation", gasEstemation);
   return gasEstemation;
+};
+
+export const currencyFormatter = (amount) => {
+  // Create our number formatter.
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+
+    // These options are needed to round to whole numbers if that's what you want.
+    minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
+  return formatter.format(amount);
+};
+
+export function timeConverter(UNIX_timestamp) {
+  var a = new Date(UNIX_timestamp * 1000);
+  var months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var time = month + " " + date + "th";
+  return time;
+}
+
+export const roundValue = (value, roundTo) => {
+  return Math.floor(value * 10 ** roundTo) / 10 ** roundTo;
 };

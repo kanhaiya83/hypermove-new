@@ -1,11 +1,10 @@
-import HyperMove from './HyperMove';
+import HyperMove from "./HyperMove";
 import { MetaMaskProvider } from "metamask-react";
 function App() {
   return (
     <MetaMaskProvider>
-      <HyperMove/>
-      </MetaMaskProvider>
-   
+      <HyperMove />
+    </MetaMaskProvider>
   );
 }
 

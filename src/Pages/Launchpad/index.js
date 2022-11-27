@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { successToast, errorToast } from "../../utils/toast";
 import PartnersSection from "../Home/PartnersSection";
 import Slider from "react-slick";
@@ -8,6 +8,13 @@ import { useAuthContext } from "../../context/AuthContext";
 
 import { useMetaMask } from "metamask-react";
 import Web3 from "web3";
+import { useApproval } from "../../hooks/useApproval";
+import { useWeb3React } from "@web3-react/core";
+import { useMultiCall } from "../../hooks/useMulticall";
+import { ZERO_ADDRESS, currencyFormatter, timeConverter } from "../../utils";
+import { IDO_INFO } from "../../constants/idoInfo";
+import { useTokenBalance } from "../../hooks/useTokenBalance";
+import { useBuy } from "../../hooks/useBuy";
 const NFTGameImages = [
   "https://user-images.githubusercontent.com/76777058/203996529-bdd6e284-0303-4aaa-9235-05b88b30223a.png",
 
@@ -59,6 +66,7 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 const LaunchpadProjectPage = () => {
+  const [amount, setAmount] = useState(100);
   const [project, setProject] = useState({
     title: "Hypermove",
     logo: "https://user-images.githubusercontent.com/76777058/203909737-d9916486-3f6c-4e12-a558-112ba3b3c15d.png",
@@ -69,12 +77,34 @@ const LaunchpadProjectPage = () => {
     raised: 0,
     totalRaise: 100000,
   });
+
   const [hideBar, setHideBar] = useState(true);
+
   useEffect(() => {
     if (hideBar) {
       setHideBar(false);
     }
   }, []);
+
+  const setHandleAmount = (input) => {
+    setAmount(Number(input));
+  };
+
+  const { account } = useAuthContext();
+
+  const idoData = useMultiCall(account ? account : ZERO_ADDRESS);
+
+  console.log({ idoData });
+
+  const balance = useTokenBalance(
+    account ? account : ZERO_ADDRESS,
+    IDO_INFO.BUSD
+  );
+
+  const approval = useApproval(amount, IDO_INFO.contractAddress, IDO_INFO.BUSD);
+
+  const buy = useBuy(IDO_INFO.contractAddress);
+
   useEffect(() => {
     (async () => {
       const res = await fetch(process.env.REACT_APP_SERVER_URL + "/pool");
@@ -86,7 +116,7 @@ const LaunchpadProjectPage = () => {
       }
     })();
   }, []);
-  const progress = ((project.raised / project.totalRaise) * 100).toFixed(2);
+
   return (
     <>
       <div className="launchpad-page-wrapper">
@@ -97,7 +127,9 @@ const LaunchpadProjectPage = () => {
                 <img src={project.image} alt="" />
                 <div className="tags-wrapper">
                   <div className="tags">
-                    <span className="tag">LIVE</span>
+                    {idoData?.isSaleStarted && (
+                      <span className="tag">LIVE</span>
+                    )}
                     <span className="tag">BSC</span>
                     <span className="tag">BUSD</span>
                   </div>
@@ -163,25 +195,36 @@ const LaunchpadProjectPage = () => {
                   <h1>Private</h1>
                 </div>
               </div>
-              {/* <div className="address-wrapper">
-            <h4>IDO SALE CONTRACT ADDRESS</h4>
-            <h1>0xdAe3aBcf151F3da99c9738DDf13a2e33E6eA0B37</h1>
-          </div> */}
+              <div className="address-wrapper">
+                {/* <h4>IDO SALE CONTRACT ADDRESS</h4>
+                <h1>
+                  {String(
+                    "0x9988a784bdaea25ae2bFD5e3FC29D243F8D83b04".slice(0, 10) +
+                      "..."
+                  )}
+                </h1> */}
+              </div>
               {/* <button className="view-btn">View BSC Scan</button> */}
             </section>
             <section className="shadow-box rounded-corner">
-              <div className="live-tag-container">
-                <span className="tag">LIVE</span>
-              </div>
+              {idoData?.isSaleStarted && (
+                <div className="live-tag-container">
+                  <span className="tag">LIVE</span>
+                </div>
+              )}
               <div className="raised-amount-wrapper">
                 <div className="info-stack ">
                   <h4>Min Allocation</h4>
-                  <button className="neo-container">$100</button>
+                  <button className="neo-container">
+                    {currencyFormatter(idoData?.minAllocation)}
+                  </button>
                 </div>
 
                 <div className="info-stack ">
                   <h4>Max Allocation</h4>
-                  <button className="neo-container">$3,000</button>
+                  <button className="neo-container">
+                    {currencyFormatter(idoData?.maxAllocation)}
+                  </button>
                 </div>
                 <div className="info-stack ">
                   <h4>Value</h4>
@@ -190,24 +233,36 @@ const LaunchpadProjectPage = () => {
               </div>
               <div className="info-stack">
                 <h4>Total Raised Amount</h4>
-                <h1>${numberWithCommas(project.raised)}</h1>
+                <h1>{currencyFormatter(idoData?.totalRaised)}</h1>
               </div>
               <h4 className="start-info">
                 <b>Starts:</b>
-                <pre> 01/01/2023</pre>
+                <pre>
+                  {new Date(IDO_INFO.startTime * 1000).toLocaleDateString(
+                    "en-US"
+                  )}
+                </pre>
               </h4>
               <div className="progress-bar-wrapper">
                 <h4>
-                  PROGRESS <span>[{progress}%]</span>
+                  PROGRESS <span>[{idoData?.raisedPercentage}%]</span>
                 </h4>
                 <div className="bar">
                   <div
                     className={`completed-bar ${hideBar && "hidden"}`}
-                    style={{ width: progress + "%" }}
+                    style={{ width: idoData?.raisedPercentage }}
                   ></div>
                 </div>
               </div>
-              <InputContainer setProject={setProject} />
+              <InputContainer
+                setProject={setProject}
+                amount={amount}
+                setHandleAmount={setHandleAmount}
+                balance={balance}
+                purchases={idoData?.userPurchases}
+                approval={approval}
+                buy={buy}
+              />
             </section>
           </div>
           <div className="bottom-info-wrapper">
@@ -216,37 +271,37 @@ const LaunchpadProjectPage = () => {
               <div className="info-card shadow-box rounded-corner">
                 <div className="info-stack">
                   <h4>Start</h4>
-                  <h1>Nov 28th</h1>
+                  <h1>{timeConverter(IDO_INFO.startTime)}</h1>
                 </div>
               </div>
               <div className="info-card shadow-box rounded-corner">
                 <div className="info-stack">
                   <h4>End</h4>
-                  <h1>Dec 1th</h1>
+                  <h1>{timeConverter(IDO_INFO.endTime)}</h1>
                 </div>
               </div>
               <div className="info-card shadow-box rounded-corner">
                 <div className="info-stack">
                   <h4>Distribution</h4>
-                  <h1>15%</h1>
+                  <h1>{IDO_INFO.distribution}%</h1>
                 </div>
               </div>
               <div className="info-card shadow-box rounded-corner">
                 <div className="info-stack">
                   <h4>Hardcap</h4>
-                  <h1>$100,000</h1>
+                  <h1>{currencyFormatter(idoData?.purchaseCap)}</h1>
                 </div>
               </div>
               <div className="info-card shadow-box rounded-corner">
                 <div className="info-stack">
                   <h4>Price</h4>
-                  <h1>$0.012</h1>
+                  <h1>${IDO_INFO.priceInUSD}</h1>
                 </div>
               </div>
               <div className="info-card shadow-box rounded-corner">
                 <div className="info-stack">
                   <h4>Contract Address</h4>
-                  <h1>0xdAe3aBcf1...</h1>
+                  <h1>{IDO_INFO.contractAddress.slice(0, 10) + "..."}</h1>
                 </div>
               </div>
             </div>
@@ -291,14 +346,27 @@ const LaunchpadProjectPage = () => {
     </>
   );
 };
-const InputContainer = ({ projectId, setProject, project }) => {
-  const [value, setValue] = useState(100);
-  const [fetching, setFetching] = useState(false);
-  const { status, connect, account, chainId, ethereum, switchChain } =
-    useMetaMask();
+const InputContainer = ({
+  buy,
+  approval,
+  purchases,
+  amount,
+  setHandleAmount,
+  balance,
+}) => {
+  const {
+    status,
+    connect,
+    account,
+    chainId,
+    ethereum,
+    switchChain,
+    metaState,
+    web3,
+  } = useMetaMask();
+
   const { isWalletConnected, setIsWalletConnected } = useAuthContext();
   const signAndVerify = async (address) => {
-    console.log({ address: address });
     const web3 = new Web3(Web3.givenProvider);
     const response = await fetch(
       process.env.REACT_APP_SERVER_URL + "/message?address=" + address
@@ -320,7 +388,7 @@ const InputContainer = ({ projectId, setProject, project }) => {
     }
   };
   const connectMetamask = async () => {
-    if (isWalletConnected) return;
+    if (!isWalletConnected) return;
     if (status === "connected" && isWalletConnected) {
       return;
     }
@@ -331,6 +399,7 @@ const InputContainer = ({ projectId, setProject, project }) => {
       console.log(e);
     }
   };
+
   if (!isWalletConnected) {
     return (
       <div className="form-container">
@@ -340,13 +409,13 @@ const InputContainer = ({ projectId, setProject, project }) => {
       </div>
     );
   }
-  if (chainId !== "0x38") {
+  if (chainId !== "0x61") {
     return (
       <div className="form-container">
         <button
           className="wallet-btn"
           onClick={() => {
-            switchChain("0x38");
+            switchChain("0x61");
           }}
         >
           Switch Network
@@ -354,63 +423,69 @@ const InputContainer = ({ projectId, setProject, project }) => {
       </div>
     );
   }
-  const handleSubmit = async (e) => {
-    try {
-      e.preventDefault();
-      const authToken = localStorage.getItem("auth-token");
-      if (!authToken || fetching) return;
-      setFetching(true);
-      if (value + project.raised > project.totalRaise) {
-        return errorToast("Can't approve required amount!!");
-      }
-      const res = await fetch(process.env.REACT_APP_SERVER_URL + "/pool", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": authToken,
-        },
-        body: JSON.stringify({ amount: value }),
-      });
-      const response = await res.json();
+  // const handleSubmit = async (e) => {
+  //   try {
+  //     e.preventDefault();
+  //     const authToken = localStorage.getItem("auth-token");
+  //     if (!authToken) return;
+  //     if (amount + project.raised > project.totalRaise) {
+  //       return errorToast("Can't approve required amount!!");
+  //     }
+  //     const res = await fetch(process.env.REACT_APP_SERVER_URL + "/pool", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "auth-token": authToken,
+  //       },
+  //       body: JSON.stringify({ amount }),
+  //     });
+  //     const response = await res.json();
 
-      console.log(response);
-      if (response && response.success) {
-        successToast("Success!!");
+  //     console.log(response);
+  //     if (response && response.success) {
+  //       successToast("Success!!");
 
-        setProject((prev) => ({ ...prev, ...response.updatedProject }));
-        setFetching(false);
-        return;
-      }
-      errorToast("Some error occurred!");
-      setFetching(false);
-    } catch (e) {
-      setFetching(false);
-    }
-  };
+  //       setProject((prev) => ({ ...prev, ...response.updatedProject }));
+  //       return;
+  //     }
+  //     errorToast("Some error occurred!");
+  //   } catch (e) {
+  //     console.log("error");
+  //   }
+  // };
   return (
     <div className="form-container  ">
       <div className="deposit-details">
         <h3>Your Deposited</h3>
-        <h1>0.00</h1>
+        <h1>{purchases}</h1>
       </div>
       <div className="wallet-balance">
         <span>Your wallet balance:</span>
-        <span>0.00</span>
+        <span>{balance ? balance : 0}</span>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          className="neo-container"
-          type="number"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          required={true}
-          min={100}
-          max={3000}
-        />
-        <div className="approve-btn">
-          <button>{fetching ? "Approving" : "Approve"}</button>
-        </div>
-      </form>
+      <input
+        className="neo-container"
+        type="number"
+        value={amount ?? "0"}
+        onChange={(e) => setHandleAmount(e.target.value)}
+        required={true}
+        min={100}
+        max={5000}
+      />
+      <div className="approve-btn">
+        <button
+          onClick={() => approval.triggeredApproval()}
+          // disabled={!approval?.isApprovalRequired}
+        >
+          {approval.isLoading ? "Approving" : "Approve"}
+        </button>
+        <button
+          onClick={() => buy.buyToken(amount)}
+          // disabled={approval?.isApprovalRequired}
+        >
+          {buy.isLoading ? "buying" : "buy"}
+        </button>
+      </div>
     </div>
   );
 };

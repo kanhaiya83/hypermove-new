@@ -5,43 +5,79 @@ import { useWeb3React } from "@web3-react/core";
 import { isEmpty } from "lodash";
 import { BigNumber } from "ethers";
 import { useMetaMask } from "metamask-react";
+import { useAuthContext } from "../context/AuthContext.js";
+
+// to fetch allowance
+export const useAllowance = (
+  /** account address */
+  account,
+  /** spender address */
+  spender,
+  /** token address */
+  token
+) => {
+  let tokenContract = useTokenContract(token);
+  let [allowance, setAllownace] = useState(null);
+
+  useEffect(() => {
+    if (!isEmpty(tokenContract) && spender && account) {
+      // fetch allowance only once
+      const derivedAllowance = async () => {
+        let allowed = await tokenContract.allowance(account, spender);
+        setAllownace(allowed);
+      };
+      derivedAllowance();
+    }
+  }, [tokenContract, account, spender]);
+
+  return allowance;
+};
 
 export const useApproval = (
   /** amount to spend */
-  amountToSpend,
+  amount,
   /** spender address */
   spender,
   /** approval token Id */
-  tokenId,
-  /**provider */
-  provider
+  tokenId
 ) => {
   const [tx, setTx] = useState(false);
+  const [isApprovalRequired, setApprovalRequired] = useState(true);
+  let [isLoding, setIsLoading] = useState(false);
 
-  let [approvalTxStatus, setApprovalTxStatus] = useState();
+  const { account, provider } = useAuthContext();
 
-  const { account, library } = useMetaMask();
+  const allowance = useAllowance(account, spender, tokenId);
+
+  useEffect(() => {
+    if (!allowance || !amount) return;
+    if (unitFormatter(allowance) > unitFormatter(amount)) {
+      setApprovalRequired(false);
+    }
+  }, [allowance, amount]);
+
   const instance = useTokenContract(tokenId);
 
   const triggeredApproval = useCallback(async () => {
+    console.log({ instance, account, spender });
     try {
       if (!account || !instance || !spender) return null;
       // set approval status loading
-      setApprovalTxStatus("loading");
+      setIsLoading(true);
       // fetch the gaslimit
       // console.log('amount', amount);
       const gasLimit = await estimatedGas(
         instance,
         "approve",
-        [spender, unitParser(amountToSpend)],
+        [spender, unitParser(String(amount))],
         account
       );
       // get the median gas price for latest 50 BLock.
-      const gas_price = await gasPrice(library);
+      const gas_price = await gasPrice(provider?.getSigner());
 
       const transaction = await instance
-        .connect(library.getSigner())
-        .approve(spender, unitParser(amountToSpend), {
+        .connect(provider?.getSigner())
+        .approve(spender, unitParser(String(amount)), {
           from: account,
           gasLimit,
           gasPrice: gas_price,
@@ -52,15 +88,17 @@ export const useApproval = (
       setTx(true);
       setApprovalRequired(false);
       // set approval transaction status to confirm
-      setApprovalTxStatus("confirmed");
+      setIsLoading(false);
     } catch (err) {
       // set error
-      setApprovalTxStatus("error");
+      console.log(err);
+      setIsLoading(false);
     }
-  }, [spender, library, instance, account, amount]);
+  }, [spender, provider, instance, account, amount]);
 
   return {
-    approvalTxStatus,
+    isApprovalRequired,
+    isLoding,
     triggeredApproval,
     tx,
   };

@@ -1,5 +1,6 @@
 import React from "react";
-import { getIDOMulticall, unitParser } from "../utils";
+import { IDO_INFO } from "../constants/idoInfo";
+import { getIDOMulticall, unitFormatter, ZERO_ADDRESS } from "../utils";
 
 export const useMultiCall = (account) => {
   const [totalRaised, setTotalRaised] = React.useState(0);
@@ -7,22 +8,38 @@ export const useMultiCall = (account) => {
   const [maxAllocation, setMaxAllocation] = React.useState(0);
   const [purchaseCap, setPurchaseCap] = React.useState(0);
   const [userPurchases, setUserPurchases] = React.useState(0);
+  const [raisedPercentage, setRaisedPercentage] = React.useState(0);
+  const [isSaleStarted, setSaleStarted] = React.useState(false);
+  const [isSaleEnd, setSaleEnd] = React.useState(false);
+  const [isClaimable, setClaimable] = React.useState(false);
+
   React.useEffect(() => {
-    const fetchIdoData = async () => {
+    async function fetchIdoData() {
       const ido = await getIDOMulticall(
-        "0x9988a784bdaea25ae2bFD5e3FC29D243F8D83b04",
-        account,
+        IDO_INFO.contractAddress,
+        account ? account : ZERO_ADDRESS,
         97
       );
-      setTotalRaised(unitParser(ido.TOTAL_RAISED));
-      setMinAllocation(unitParser(ido.minAllocation));
-      setMaxAllocation(unitParser(ido.maxAllocation));
-      setPurchaseCap(unitParser(ido.purchaseCap));
-      setUserPurchases(unitParser(ido.PURCHASED));
-    };
+
+      const raisedPercentaged =
+        (unitFormatter(ido.TOTAL_RAISED) / unitFormatter(ido.purchaseCap)) *
+        100;
+
+      console.log();
+
+      setTotalRaised(unitFormatter(ido.TOTAL_RAISED));
+      setMinAllocation(unitFormatter(ido.minAllocation));
+      setMaxAllocation(unitFormatter(ido.maxAllocation));
+      setPurchaseCap(unitFormatter(ido.purchaseCap));
+      setUserPurchases(unitFormatter(ido.PURCHASED));
+      setRaisedPercentage(raisedPercentaged);
+      setSaleStarted(ido.isSaleStarted);
+      setSaleEnd(ido.isSaleStarted);
+      setClaimable(ido.isClaimable);
+    }
 
     fetchIdoData();
-  }, []);
+  }, [account]);
 
   return {
     totalRaised,
@@ -30,5 +47,9 @@ export const useMultiCall = (account) => {
     maxAllocation,
     purchaseCap,
     userPurchases,
+    raisedPercentage,
+    isSaleStarted,
+    isSaleEnd,
+    isClaimable,
   };
 };
