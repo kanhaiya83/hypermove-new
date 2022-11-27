@@ -2,7 +2,7 @@
   --color-dark-sec: #1f1f1f;
   --primary-color: #6c02d7;
 }
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -622,7 +622,8 @@ img {
 }
 
 .tournament-page-wrapper {
-  position: relative;  min-height: 80vh;
+  position: relative;
+  min-height: 80vh;
 
   .content-wrapper {
     width: 82%;
@@ -636,50 +637,47 @@ img {
       padding: 1rem 3%;
       height: 100%;
       background-color: #1f1f1f;
-  
-        }
+    }
     .main-content {
       width: 100%;
       padding: 0 5px;
-     
-      .main-content-header{
+
+      .main-content-header {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        h1{
-          font-size:2rem ;
+        h1 {
+          font-size: 2rem;
           font-size: 500;
           margin-bottom: 1.5rem;
         }
-        .filter-wrapper{
+        .filter-wrapper {
           display: flex;
           align-items: flex-start;
           flex-direction: column;
         }
-        label{
+        label {
           font-size: 0.85rem;
           font-weight: 400;
           margin-bottom: 2px;
           color: #aeaeae;
-
         }
-        select{
+        select {
           display: flex;
           margin-bottom: 1rem;
           justify-content: center;
           align-items: center;
           background-color: transparent;
-            border: 2px solid white;
-            border-radius: 5px;
-            padding: 5px 10px;
-            color: white;
-            font-size: 1rem;
-            font-weight: 500;
-            option{
-              color: black  ;
-            }
-            
+          border: 2px solid white;
+          border-radius: 5px;
+          padding: 5px 10px;
+          color: white;
+          font-size: 1rem;
+          font-weight: 500;
+          option {
+            color: black;
+          }
         }
       }
     }
@@ -688,129 +686,128 @@ img {
 
       padding: 0 5px;
       margin-left: auto;
-     
     }
   }
 }
-.display-message-container{
+.display-message-container {
   width: 100%;
   text-align: center;
   margin-top: 1.5rem;
 }
-.tournaments-list-container{
+.tournaments-list-container {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(3,1fr);
-  gap:2rem 1%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 1%;
 }
-.tournament-card{
+.tournament-card {
   padding: 5px;
   border-radius: 5px;
   background-color: #141414;
-    .img-container{
-      width: 100%;
-      padding-top: 66%;
-      background-color: #2d2d2d;
-  border-radius: 5px;
-
-    }
-    .card-info-container{
-      width: 100%;
+  .img-container {
+    width: 100%;
+    padding-top: 66%;
+    background-color: #2d2d2d;
+    border-radius: 5px;
+  }
+  .card-info-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 8px 4px;
+    .card-info-wrapper {
       display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      padding: 8px 4px;
-      .card-info-wrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+    .card-prize {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+    button {
+      display: flex;
+      background-color: #6c02d7;
+      color: white;
+      border: none;
+      text-decoration: none;
+      border-radius: 5px;
+      align-items: center;
+      font-size: 1rem;
+      padding: 3px 8px;
+      a {
+        color: white;
+        text-decoration: none;
       }
-      .card-title{
-        font-size: 1.3rem;
-                font-weight: 400;
-
-            }
-            .card-prize{
-                display: flex;
-                align-items: center;
-                font-size: 0.9rem;
-                font-weight: 400;
-            }
-      button{
-          display: flex;
-          background-color: #6c02d7;
-          color: white;
-          border: none;
-          text-decoration: none;
-          border-radius: 5px;
-          align-items: center;
-          font-size: 1rem;
-          padding: 3px 8px;
-          a{
-            color: white;
-            text-decoration: none;
-          }
-          span:first-child{
-            margin-right: 3px;
-          }
-          img{
-            width: 14px;
-            height: auto;
-            margin-left: 4px;
-          }
-        }
+      span:first-child {
+        margin-right: 3px;
+      }
+      img {
+        width: 14px;
+        height: auto;
+        margin-left: 4px;
       }
     }
+  }
+}
 
-.create-tournament-section{
+.create-tournament-section {
   width: 100%;
-  header{
-    span{
-      font-size:2rem ;
+  header {
+    span {
+      font-size: 2rem;
       font-size: 500;
       margin-bottom: 1.5rem;
     }
   }
-  form{
+  form {
     display: flex;
     flex-direction: column;
     align-items: start;
     width: 100%;
     max-width: 450px;
   }
-  label{
+  label {
     font-size: 0.9rem;
     color: white;
     margin-bottom: 3px;
   }
-  .entry-fee{
+  .entry-fee {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: stretch;
-    input{
+    input {
       width: 45%;
     }
   }
-  input,select{
+  input,
+  select {
     width: 100%;
-    padding:8px 1rem;
+    padding: 8px 1rem;
     border: 1px solid white;
     border-radius: 4px;
     margin-bottom: 1rem;
     color: white;
     font-size: 1rem;
     background-color: transparent;
-    &:focus{
+    &:focus {
       outline: none;
     }
   }
-  .submit-btn,a{
+  .submit-btn,
+  a {
     text-decoration: none;
     text-align: center;
     width: 100%;
-    padding:8px 1rem;
+    padding: 8px 1rem;
     border-radius: 4px;
     background-color: #6c02d7;
     color: white;
@@ -818,60 +815,71 @@ img {
     margin-top: 1rem;
   }
 }
-.my-tournaments-section{
+.my-tournaments-section {
   width: 100%;
-  
 }
-
 
 @keyframes blink {
-  0% {background-color: transparent;border-color: white;}
-
-  0.01% {background-color: red;border-color: red;}
-  49.99% {background-color: red;border-color: red;}
-
-  50% {background-color: transparent;border-color: white;}
-  100% {background-color: transparent;border-color: white;}
-}
-.launchpad-page-wrapper{
-  padding: 1rem 5% 3rem;
-.launchpad-partner-section-wrapper{
-  margin-top: 2rem;
-}
-.game-slider-section{
-  margin: 3rem 0;
-  h1{
-    font-size: 2rem;
-    font-weight: 400;
-margin-bottom: 1rem;
+  0% {
+    background-color: transparent;
+    border-color: white;
   }
 
-.slide-image-container{
-  width: 95%;
-  .img-wrapper{
-    
-    width: 100%;
-    padding-top:55% ;
-    background-color: white;
-    position: relative;
-    overflow: hidden;
-    img{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      width: 100%;
+  0.01% {
+    background-color: red;
+    border-color: red;
+  }
+  49.99% {
+    background-color: red;
+    border-color: red;
+  }
+
+  50% {
+    background-color: transparent;
+    border-color: white;
+  }
+  100% {
+    background-color: transparent;
+    border-color: white;
+  }
+}
+.launchpad-page-wrapper {
+  padding: 1rem 5% 3rem;
+  .launchpad-partner-section-wrapper {
+    margin-top: 2rem;
+  }
+  .game-slider-section {
+    margin: 3rem 0;
+    h1 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .slide-image-container {
+      width: 95%;
+      .img-wrapper {
+        width: 100%;
+        padding-top: 55%;
+        background-color: white;
+        position: relative;
+        overflow: hidden;
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+        }
+      }
     }
   }
-}
-}
 }
 .launchpad-container {
   background-color: #141415;
   color: white;
   .rounded-corner {
     border-radius: 8px;
-
   }
   button {
     color: white;
@@ -882,16 +890,13 @@ margin-bottom: 1rem;
     border-radius: 5px;
     background: #141414;
   }
-  .neo-container{
-    
-background: #141415;
-box-shadow:  5px 5px 0px #121213,
-             -5px -5px 0px #161617;
+  .neo-container {
+    background: #141415;
+    box-shadow: 5px 5px 0px #121213, -5px -5px 0px #161617;
   }
   .shadow-box {
-background: #141415;
-box-shadow:  5px 5px 3px #1d1d1e,
-             -5px -5px 3px #0b0b0c;
+    background: #141415;
+    box-shadow: 5px 5px 3px #1d1d1e, -5px -5px 3px #0b0b0c;
   }
   .info-stack {
     display: flex;
@@ -960,21 +965,19 @@ box-shadow:  5px 5px 3px #1d1d1e,
       margin: 1.5rem 0;
       display: flex;
       align-items: center;
-      a{
+      a {
         border-radius: 7px;
-background: #141415;
-box-shadow:  5px 5px 0px #121213,
-             -5px -5px 0px #161617;
-             text-decoration: none;
-             padding: 8px;
-             width: 3rem;
-             height: 3rem;
-             display: block;
-             margin-right: 1rem;
-             img{
-              width: 100%;
-              
-             }
+        background: #141415;
+        box-shadow: 5px 5px 0px #121213, -5px -5px 0px #161617;
+        text-decoration: none;
+        padding: 8px;
+        width: 3rem;
+        height: 3rem;
+        display: block;
+        margin-right: 1rem;
+        img {
+          width: 100%;
+        }
       }
     }
     .io-info {
@@ -983,7 +986,6 @@ box-shadow:  5px 5px 0px #121213,
       align-items: center;
       justify-content: space-between;
       padding: 0 5%;
-
     }
     // second section
     .live-tag-container {
@@ -991,14 +993,14 @@ box-shadow:  5px 5px 0px #121213,
       width: 100%;
       justify-content: flex-end;
       margin-bottom: 1rem;
-      .tag{
+      .tag {
         animation-name: blink;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
       }
     }
     .raised-amount-wrapper {
@@ -1007,7 +1009,6 @@ box-shadow:  5px 5px 0px #121213,
       justify-content: space-between;
       width: 100%;
       margin-bottom: 1.5rem;
-
     }
     .start-info {
       display: flex;
@@ -1020,17 +1021,17 @@ box-shadow:  5px 5px 0px #121213,
 
     .progress-bar-wrapper {
       width: 100%;
-      padding : 2rem 0;
+      padding: 2rem 0;
       text-align: center;
       position: relative;
-      &::after{
+      &::after {
         content: "";
         width: 70%;
         height: 1px;
         background-color: #383535;
         left: 50%;
         transform: translateX(-50%);
-        bottom: .5rem;
+        bottom: 0.5rem;
         position: absolute;
       }
       h4 {
@@ -1051,17 +1052,17 @@ box-shadow:  5px 5px 0px #121213,
         overflow: hidden;
 
         .completed-bar {
-          &.hidden{
-            width: 0%!important;
+          &.hidden {
+            width: 0% !important;
           }
           transition: all 500ms;
-transition-delay: 400ms;
+          transition-delay: 400ms;
           position: absolute;
           top: 0;
           left: 0;
           width: 0%;
           height: 100%;
-          background-color: #6C02D7;
+          background-color: #6c02d7;
         }
       }
     }
@@ -1084,80 +1085,78 @@ transition-delay: 400ms;
       text-align: center;
       width: 100%;
     }
-    .info-cards-wrapper{
+    .info-cards-wrapper {
       display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem 5%;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem 5%;
     }
-   .info-card{
-    padding: 1.5rem;
-    border-radius: 4px;
-   } 
+    .info-card {
+      padding: 1.5rem;
+      border-radius: 4px;
+    }
   }
-  .form-container{
+  .form-container {
     margin-top: 1rem;
     padding: 1rem 5%;
-    .deposit-details{
+    .deposit-details {
       display: flex;
       justify-content: space-between;
       margin-bottom: 1rem;
-      h3{
+      h3 {
         font-weight: 400;
         font-size: 1.2rem;
       }
-      h1{
+      h1 {
         font-size: 1.4rem;
         font-weight: 500;
-        color: #6C02D7;
+        color: #6c02d7;
       }
     }
-    .wallet-balance{
+    .wallet-balance {
       width: 100%;
       display: flex;
       justify-content: flex-end;
       margin-bottom: 2rem;
-      span:nth-child(2){
-        color: #6C02D7;
+      span:nth-child(2) {
+        color: #6c02d7;
         margin-left: 8px;
       }
     }
-    input{
+    input {
       border: none;
-      padding:12px 1rem;
+      padding: 12px 1rem;
       width: 100%;
       color: white;
       font-size: 1.2rem;
       border-radius: 10px;
-      &:focus{
+      &:focus {
         outline: none;
       }
     }
-    .approve-btn{
+    .approve-btn {
       width: 100%;
       display: flex;
       justify-content: flex-end;
       margin-top: 1rem;
-  
     }
-    .wallet-btn{
+    .wallet-btn {
       width: 100%;
     }
-    button{
+    button {
       border-radius: 2px;
-      background: #6C02D7;
-      box-shadow:  5px 5px 8px #121212,
-                   -5px -5px 8px #161618;        
-           text-transform: uppercase;
-           margin-left: 1.5rem;
-           &.approved{
-            opacity: 0.5;
-           }
-&:hover{
-cursor: pointer;
-}
+      background: #6c02d7;
+      box-shadow: 5px 5px 8px #121212, -5px -5px 8px #161618;
+      text-transform: uppercase;
+      margin-left: 1.5rem;
+      &.approved {
+        opacity: 0.3;
+        background-color: #8f8f8f;
+      }
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
-
 }
 
 @media only screen and (max-width: 1200px) {
@@ -1169,8 +1168,8 @@ cursor: pointer;
       width: 78%;
     }
   }
-  .launchpad-container{
-    .top-info-wrapper{
+  .launchpad-container {
+    .top-info-wrapper {
       flex-direction: column;
     }
   }
@@ -1211,17 +1210,17 @@ cursor: pointer;
       width: 100%;
     }
   }
-  .launchpad-container{
-      h1{
-        font-size: 1.4rem;
+  .launchpad-container {
+    h1 {
+      font-size: 1.4rem;
+    }
+    .bottom-info-wrapper {
+      flex-direction: column;
+      & > section {
+        width: 100%;
+        margin-bottom: 2rem;
       }
-      .bottom-info-wrapper{
-        flex-direction: column;
-        &>section{
-          width: 100%;
-          margin-bottom: 2rem;
-        }
-      }
+    }
   }
 }
 @media only screen and (max-width: 768px) {
@@ -1233,28 +1232,26 @@ cursor: pointer;
   .games-row {
     grid-template-columns: repeat(2, 1fr);
   }
-  .launchpad-container{
+  .launchpad-container {
     padding: 1rem 3% 0;
-    .top-info-wrapper{
-      .raised-amount-wrapper{
+    .top-info-wrapper {
+      .raised-amount-wrapper {
         flex-direction: column;
         align-items: center;
-        &>div{
+        & > div {
           margin-bottom: 1rem;
           width: 100%;
-          button{
+          button {
             width: 100%;
           }
         }
       }
     }
-    .bottom-info-wrapper{
-      .info-cards-wrapper{
-        grid-template-columns: repeat(2,1fr);
+    .bottom-info-wrapper {
+      .info-cards-wrapper {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
-    
-    
   }
 }
 @media only screen and (max-width: 600px) {
@@ -1275,22 +1272,22 @@ cursor: pointer;
   .games-row {
     grid-template-columns: repeat(1, 1fr);
   }
-  .launchpad-container{
-    .top-info-wrapper{
-      .section-header{
-        img{
+  .launchpad-container {
+    .top-info-wrapper {
+      .section-header {
+        img {
           max-width: 150px;
         }
-        .tags-wrapper{
-          h1{
+        .tags-wrapper {
+          h1 {
             font-size: 2rem;
           }
         }
       }
     }
-    .bottom-info-wrapper{
-      .info-cards-wrapper{
-        grid-template-columns: repeat(1,1fr);
+    .bottom-info-wrapper {
+      .info-cards-wrapper {
+        grid-template-columns: repeat(1, 1fr);
       }
     }
   }
