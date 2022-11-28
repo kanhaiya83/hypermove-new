@@ -17,7 +17,7 @@ export const useBuy = (IDO) => {
   const [transactionStatus, setTransactionStatus] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  const { invalidateQueries } = useQueryClient();
+  const queryClient = useQueryClient();
 
   const ido = useIdoContract(IDO);
 
@@ -53,7 +53,7 @@ export const useBuy = (IDO) => {
           });
 
         await transaction.wait(2);
-        invalidateQueries({ queryKey: ["idoData"] });
+        queryClient.invalidateQueries({ queryKey: ["idoData"] });
         setTransactionStatus(transaction.hash);
         setIsLoading(false);
         successToast("Payment successful!!");

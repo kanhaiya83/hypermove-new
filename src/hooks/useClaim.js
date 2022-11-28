@@ -1,17 +1,24 @@
 import { useCallback, useEffect, useState } from "react";
 import { useIdoContract, useTokenContract } from "./useContract";
-import { estimatedGas, gasPrice, unitParser, unitFormatter, roundValue } from "../utils";
+import {
+  estimatedGas,
+  gasPrice,
+  unitParser,
+  unitFormatter,
+  roundValue,
+} from "../utils";
 import { useWeb3React } from "@web3-react/core";
 import _, { isEmpty } from "lodash";
 import { BigNumber } from "ethers";
 import { BSC_TESTNET_CHAIN } from "../constants";
+import { IDO_INFO } from "../constants/idoInfo";
 
-export const useClaim = (IDO) => {
+export const useClaim = () => {
   const { account, library, chainId } = useWeb3React();
   const [transactionStatus, setTransactionStatus] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  const ido = useIdoContract(IDO);
+  const ido = useIdoContract(IDO_INFO.contractAddress);
 
   const claimToken = useCallback(async () => {
     if (chainId !== BSC_TESTNET_CHAIN || !ido) return null;
@@ -48,7 +55,7 @@ export const useClaim = (IDO) => {
       setIsLoading(false);
       console.log(err.message);
     }
-  }, [IDO, account, ido, transactionStatus]);
+  }, [account, ido, transactionStatus]);
 
   return { transactionStatus, claimToken, isLoading };
 };
