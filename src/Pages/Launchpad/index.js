@@ -269,7 +269,7 @@ const isFetching = idoData.isFetching;
                 </div>
               </div>
               <div className="info-card shadow-box rounded-corner">
-                <div className="info-stack">
+                <div className="info-stack small">
                   <h4>Distribution</h4>
                   <h1>
                   10% at TGE then 1 Month Cliff then  9 linear Month Vesting

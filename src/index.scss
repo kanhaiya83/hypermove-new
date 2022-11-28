@@ -826,12 +826,12 @@ img {
   }
 
   0.01% {
-    background-color: red;
-    border-color: red;
+    background-color: green;
+    border-color: green;
   }
   49.99% {
-    background-color: red;
-    border-color: red;
+    background-color: green;
+    border-color: green;
   }
 
   50% {
@@ -912,6 +912,11 @@ img {
     h1 {
       font-size: 1.8rem;
       font-weight: 500;
+    }
+    .small{
+      h1{
+        font-size: 1.4rem;
+      }
     }
   }
   .tag {
