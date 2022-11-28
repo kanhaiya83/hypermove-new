@@ -336,17 +336,17 @@ const isFetching = idoData.isFetching;
 };
 
 const CongratulationWrapper = ({ tokenValue, isClaimable, claimToken , purchases }) => {
-  // if(!purchases || purchases === 0){
-  //   return <></>;
-  // }
+  if(!purchases || purchases === 0){
+    return <></>;
+  }
   return (
     <>
       <div className="congratulations-wrapper">
         <span>You have successfully invested </span>
-        <span className="val">{purchases || 0}</span>
-        <span> BUSD equivalent to </span>
+        <span className="val">{purchases || 0} BUSD</span>
+        <span> equivalent to </span>
         <span className="val">{tokenValue || 0} HMOVE</span>
-        {"isClaimable" && (
+        {isClaimable && (
           <>
             <div className="claim-btn-wrapper">
               <span>
