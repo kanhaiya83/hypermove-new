@@ -1,19 +1,19 @@
 import React, { useCallback } from "react";
 import { useWeb3React } from "@web3-react/core";
-import { BSC_MAINNET_CHAIN, BSC_TESTNET_CHAIN } from "../constants";
+import { BSC_MAINNET_CHAIN } from "../constants";
 
 const chainConfig = {
-  97: [
+  56: [
     {
-      chainId: "0x61",
-      chainName: "Binance Smart Chain (Testnet)",
+      chainId: "0x38",
+      chainName: "Binance Smart Chain",
       nativeCurrency: {
         name: "BNB",
         symbol: "BNB",
         decimals: 18,
       },
-      rpcUrls: ["https://rpc.ankr.com/bsc_testnet_chapel"],
-      blockExplorerUrls: ["https://testnet.bscscan.com/"],
+      rpcUrls: ["https://rpc.ankr.com/bsc"],
+      blockExplorerUrls: ["https://bscscan.com/"],
       iconUrls: ["https://cryptologos.cc/logos/bnb-bnb-logo.png?v=023"],
     },
   ],
@@ -25,17 +25,11 @@ export const useSwitchNetwork = () => {
     const isMetaMask = window.ethereum && window.ethereum.isMetaMask;
     try {
       if (connector && isMetaMask) {
-        // if (newAppChainId === BSC_MAINNET_CHAIN) {
-        //   await library.provider.request({
-        //     method: "wallet_switchEthereumChain",
-        //     params: [{ chainId: "0x38" }],
-        //   });
-        // }
         await window?.ethereum.request({
           method: "wallet_switchEthereumChain",
           params: [
             {
-              chainId: "0x61",
+              chainId: "0x38",
             },
           ],
         });
@@ -46,7 +40,7 @@ export const useSwitchNetwork = () => {
         const ethereum = window?.ethereum;
         await ethereum.request({
           method: "wallet_addEthereumChain",
-          params: chainConfig[BSC_TESTNET_CHAIN],
+          params: chainConfig[BSC_MAINNET_CHAIN],
         });
       }
       console.log("Error in changeId(): ", err.message);

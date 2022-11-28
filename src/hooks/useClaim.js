@@ -10,7 +10,7 @@ import {
 import { useWeb3React } from "@web3-react/core";
 import _, { isEmpty } from "lodash";
 import { BigNumber } from "ethers";
-import { BSC_TESTNET_CHAIN } from "../constants";
+import { BSC_MAINNET_CHAIN } from "../constants";
 import { IDO_INFO } from "../constants/idoInfo";
 
 export const useClaim = () => {
@@ -21,7 +21,7 @@ export const useClaim = () => {
   const ido = useIdoContract(IDO_INFO.contractAddress);
 
   const claimToken = useCallback(async () => {
-    if (chainId !== BSC_TESTNET_CHAIN || !ido) return null;
+    if (chainId !== BSC_MAINNET_CHAIN || !ido) return null;
     try {
       setIsLoading(true);
       const gasLimitExpected = await estimatedGas(

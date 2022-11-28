@@ -1,11 +1,11 @@
 export const IDO_INFO = {
   startTime: 1669528521,
   endTime: 1670849721,
-  pricePerBusd: 200,
+  pricePerBusd: 84,
   network: "BSC",
   priceInUSD: 0.012,
-  contractAddress: "0x08d2968223821b3F900D3E584AFFdF23063A2e3b",
+  contractAddress: "0xcED76561a4Da5c3BbBDC2b219C37C33e6dD21F1C",
   distribution: 15,
-  BUSD: "0x098520F7bFc30E4FD91023a6a39e0F855320306A",
-  HyperMove: "0x6dFE12771A083A27fd4616fB622a04963fA79122",
+  BUSD: "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+  HyperMove: "0x10FFBEA9755b85feD6F4EE895cBA1882741509a9",
 };
