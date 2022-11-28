@@ -7,7 +7,7 @@ import { useWeb3React } from "@web3-react/core";
 
 export const useIdoInfo = () => {
   const { account } = useWeb3React();
-  const { isLoading, data, error } = useQuery({
+  const { isFetching, data, error } = useQuery({
     queryKey: ["idoData"],
     queryFn: async () => {
       const ido = await getIDOMulticall(
@@ -20,9 +20,8 @@ export const useIdoInfo = () => {
     enabled: true,
     initialData: {},
   });
-
   return {
-    isLoading,
+    isFetching,
     minAllocation: unitFormatter(data?.minAllocation),
     maxAllocation: unitFormatter(data?.maxAllocation),
     userPurchases: unitFormatter(data?.PURCHASED),

@@ -22,6 +22,7 @@ import {
   metaverseImages,
 } from "../../assets";
 import { useClaim } from "../../hooks/useClaim";
+import CSSLoader from "../../Components/CSSLoader";
 
 const settings = {
   dots: true,
@@ -76,7 +77,7 @@ const LaunchpadProjectPage = () => {
   const { account } = useWeb3React();
 
   const idoData = useIdoInfo();
-
+const isFetching = idoData.isFetching;
   const balance = useTokenBalance(
     account ? account : ZERO_ADDRESS,
     IDO_INFO.BUSD
@@ -178,7 +179,7 @@ const LaunchpadProjectPage = () => {
               </div>
               {/* <button className="view-btn">View BSC Scan</button> */}
             </section>
-            <section className="shadow-box rounded-corner">
+            <section className="shadow-box rounded-corner right-box">
               {idoData?.isSaleStarted && (
                 <div className="live-tag-container">
                   <span className="tag">LIVE</span>
@@ -242,6 +243,13 @@ const LaunchpadProjectPage = () => {
                 isClaimable={idoData?.isClaimable}
                 tokenValue={tokenValue}
               />
+              <div className={`loader-wrapper ${isFetching && "show"}`}>
+                <div className="loader-container">
+
+               <CSSLoader/>
+              </div>
+          
+              </div>
             </section>
           </div>
           <div className="bottom-info-wrapper">
