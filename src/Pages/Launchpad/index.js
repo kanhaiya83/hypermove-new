@@ -22,6 +22,7 @@ import {
   metaverseImages,
 } from "../../assets";
 import { useClaim } from "../../hooks/useClaim";
+import CSSLoader from "../../Components/CSSLoader";
 
 const settings = {
   dots: true,
@@ -76,7 +77,7 @@ const LaunchpadProjectPage = () => {
   const { account } = useWeb3React();
 
   const idoData = useIdoInfo();
-
+const isFetching = idoData.isFetching;
   const balance = useTokenBalance(
     account ? account : ZERO_ADDRESS,
     IDO_INFO.BUSD
@@ -178,7 +179,7 @@ const LaunchpadProjectPage = () => {
               </div>
               {/* <button className="view-btn">View BSC Scan</button> */}
             </section>
-            <section className="shadow-box rounded-corner">
+            <section className="shadow-box rounded-corner right-box">
               {idoData?.isSaleStarted && (
                 <div className="live-tag-container">
                   <span className="tag">LIVE</span>
@@ -228,7 +229,7 @@ const LaunchpadProjectPage = () => {
                   ></div>
                 </div>
               </div>
-              <InputContainer
+             {!idoData.isSaleEnd && <InputContainer
                 setProject={setProject}
                 amount={amount}
                 setHandleAmount={setHandleAmount}
@@ -236,12 +237,20 @@ const LaunchpadProjectPage = () => {
                 purchases={idoData?.userPurchases}
                 approval={approval}
                 buy={buy}
-              />
+              />}
               <CongratulationWrapper
                 claimToken={claimToken}
                 isClaimable={idoData?.isClaimable}
+                purchases={idoData?.userPurchases}
                 tokenValue={tokenValue}
               />
+              <div className={`loader-wrapper ${isFetching && "show"}`}>
+                <div className="loader-container">
+
+               <CSSLoader/>
+              </div>
+          
+              </div>
             </section>
           </div>
           <div className="bottom-info-wrapper">
@@ -262,7 +271,9 @@ const LaunchpadProjectPage = () => {
               <div className="info-card shadow-box rounded-corner">
                 <div className="info-stack">
                   <h4>Distribution</h4>
-                  <h1>{IDO_INFO.distribution}%</h1>
+                  <h1>
+                  10% at TGE then 1 Month Cliff then  9 linear Month Vesting
+                  </h1>
                 </div>
               </div>
               <div className="info-card shadow-box rounded-corner">
@@ -325,22 +336,25 @@ const LaunchpadProjectPage = () => {
     </>
   );
 };
-const CongratulationWrapper = ({ tokenValue, isClaimable, claimToken }) => {
+
+const CongratulationWrapper = ({ tokenValue, isClaimable, claimToken , purchases }) => {
+  if(!purchases || purchases === 0){
+    return <></>;
+  }
   return (
     <>
-      <div className="congratulation-wrapper">
-        <span>You have successfully invested</span>
-        <span className="token-val">{tokenValue}</span>
-        <span>HMOVE.</span>
+      <div className="congratulations-wrapper">
+        <span>You have successfully invested </span>
+        <span className="val">{purchases || 0} BUSD</span>
+        <span> equivalent to </span>
+        <span className="val">{tokenValue || 0} HMOVE</span>
         {isClaimable && (
           <>
             <div className="claim-btn-wrapper">
               <span>
-                {isClaimable
-                  ? "Claim your HMOVE here"
-                  : "You can claim your HMOVE at TGE"}
+                 Claim your HMOVE here
               </span>
-              <button className="claim-btn" onClick={() => claimToken()}>
+              <button className="claim-btn" onClick={() => claimToken()} disabled={!isClaimable}>
                 Claim
               </button>
             </div>
