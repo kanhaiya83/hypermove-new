@@ -65,11 +65,16 @@ export const multicall = async (calls) => {
 };
 
 export const getIDOMulticall = async (IDO, account) => {
-  const calls = createIDOMulticall(IDO, account);
-  const idoMulticall = await multicall(calls);
+  console.log("entered in multicall");
+  try {
+    const calls = createIDOMulticall(IDO, account);
+    const idoMulticall = await multicall(calls);
 
-  // return result results
-  return idoMulticall.results.original;
+    // return result results
+    return idoMulticall.results.original;
+  } catch (error) {
+    console.log({ error });
+  }
 };
 
 export const unitParser = (units, decimals = 18) => {

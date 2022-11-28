@@ -10,11 +10,14 @@ import {
 import { useWeb3React } from "@web3-react/core";
 import _ from "lodash";
 import { errorToast, successToast } from "../utils/toast";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useBuy = (IDO) => {
   const { account, library } = useWeb3React();
   const [transactionStatus, setTransactionStatus] = useState();
   const [isLoading, setIsLoading] = useState(false);
+
+  const { invalidateQueries } = useQueryClient();
 
   const ido = useIdoContract(IDO);
 
@@ -50,13 +53,13 @@ export const useBuy = (IDO) => {
           });
 
         await transaction.wait(2);
-
+        invalidateQueries({ queryKey: ["idoData"] });
         setTransactionStatus(transaction.hash);
         setIsLoading(false);
-        successToast("Payment successful!!")
+        successToast("Payment successful!!");
       } catch (err) {
         setIsLoading(false);
-        errorToast("Payment unsuccessful!!")
+        errorToast("Payment unsuccessful!!");
 
         console.log(err);
       }
