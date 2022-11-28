@@ -20,6 +20,7 @@ import {
   NFTGameImages,
   metaverseImages,
 } from "../../assets";
+import { useClaim } from "../../hooks/useClaim";
 
 const settings = {
   dots: true,
@@ -46,6 +47,7 @@ const settings = {
   ],
 };
 const LaunchpadProjectPage = () => {
+  const {claimToken} = useClaim()
   const [amount, setAmount] = useState(100);
   const [project, setProject] = useState({
     title: "Hypermove",
@@ -80,7 +82,7 @@ const LaunchpadProjectPage = () => {
   );
 
   const approval = useApproval(amount, IDO_INFO.contractAddress, IDO_INFO.BUSD);
-
+const tokenValue = (idoData?.userPurchases * idoData?.hyperMovePrice) || 0
   const buy = useBuy(IDO_INFO.contractAddress);
   useEffect(() => {
     (async () => {
@@ -118,6 +120,7 @@ const LaunchpadProjectPage = () => {
                 <a
                   className="social-btn"
                   href={socialMediaHandles.twitter}
+                  rel = "noreferer"
                   target="_blank"
                 >
                   <img src="/assets/images/icons/twitter.svg" alt="" />
@@ -126,6 +129,7 @@ const LaunchpadProjectPage = () => {
                   className="social-btn"
                   href={socialMediaHandles.discord}
                   target="_blank"
+                  rel = "noreferer"
                 >
                   <img src="/assets/images/icons/discord.svg" alt="" />
                 </a>
@@ -133,6 +137,7 @@ const LaunchpadProjectPage = () => {
                   className="social-btn"
                   href={socialMediaHandles.telegram}
                   target="_blank"
+                  rel = "noreferer"
                 >
                   <img src="/assets/images/icons/telegram.svg" alt="" />
                 </a>
@@ -140,6 +145,7 @@ const LaunchpadProjectPage = () => {
                   className="social-btn"
                   href={socialMediaHandles.medium}
                   target="_blank"
+                  rel = "noreferer"
                 >
                   <img src="/assets/images/icons/medium.svg" alt="" />
                 </a>
@@ -230,6 +236,7 @@ const LaunchpadProjectPage = () => {
                 approval={approval}
                 buy={buy}
               />
+              <CongratulationWrapper claimToken={claimToken} isClaimable={idoData?.isClaimable} tokenValue={tokenValue}/>
             </section>
           </div>
           <div className="bottom-info-wrapper">
@@ -313,7 +320,26 @@ const LaunchpadProjectPage = () => {
     </>
   );
 };
+const CongratulationWrapper =({tokenValue,isClaimable,claimToken})=>{
 
+  return(
+    <>
+    <div className="congratulation-wrapper">
+      <span>You have successfully invested</span>
+      <span className="token-val">{tokenValue}</span>
+      <span>HMOVE.</span>
+      {
+        isClaimable && <>
+      <div className="claim-btn-wrapper">
+      <span>{isClaimable ? "Claim your HMOVE here" : "You can claim your HMOVE at TGE"}</span>
+      <button className="claim-btn" onClick={claimToken}>Claim</button>
+      </div>
+        </>
+      }
+    </div>
+    </>
+  )
+}
 const InputContainer = ({
   buy,
   approval,
