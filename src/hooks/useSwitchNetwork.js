@@ -31,7 +31,7 @@ export const useSwitchNetwork = () => {
         //     params: [{ chainId: "0x38" }],
         //   });
         // }
-        await library.provider.request({
+        await window?.ethereum.request({
           method: "wallet_switchEthereumChain",
           params: [
             {
@@ -49,7 +49,7 @@ export const useSwitchNetwork = () => {
           params: chainConfig[BSC_TESTNET_CHAIN],
         });
       }
-      console.log("Error in useChangeAppChainId(): ", err.message);
+      console.log("Error in changeId(): ", err.message);
       return false;
     }
   }, [connector]);

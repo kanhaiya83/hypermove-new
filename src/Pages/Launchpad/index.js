@@ -4,6 +4,7 @@ import PartnersSection from "../Home/PartnersSection";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { UnsupportedChainIdError } from "@web3-react/core";
 
 import { useApproval } from "../../hooks/useApproval";
 import { useWeb3React } from "@web3-react/core";
@@ -357,7 +358,7 @@ const InputContainer = ({
   setHandleAmount,
   balance,
 }) => {
-  const { active, account, chainId, activate } = useWeb3React();
+  const { active, account, chainId, activate, error } = useWeb3React();
   const switchChain = useSwitchNetwork();
 
   const tryActivate = async () => {
@@ -384,7 +385,7 @@ const InputContainer = ({
     }
   };
 
-  if (!active) {
+  if (!active && !account && !(error instanceof UnsupportedChainIdError)) {
     return (
       <div className="form-container">
         <button className="wallet-btn" onClick={connectWallet}>
@@ -393,7 +394,7 @@ const InputContainer = ({
       </div>
     );
   }
-  if (Number(chainId) !== 97) {
+  if (error instanceof UnsupportedChainIdError) {
     return (
       <div className="form-container">
         <button
