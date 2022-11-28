@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { successToast, errorToast } from "../../utils/toast";
 import PartnersSection from "../Home/PartnersSection";
 import Slider from "react-slick";
@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { useApproval } from "../../hooks/useApproval";
 import { useWeb3React } from "@web3-react/core";
-import { useMultiCall } from "../../hooks/useMulticall";
+import { useMultiCall, useIdoInfo } from "../../hooks/useMulticall";
 import { ZERO_ADDRESS, currencyFormatter, timeConverter } from "../../utils";
 import { IDO_INFO } from "../../constants/idoInfo";
 import { useTokenBalance } from "../../hooks/useTokenBalance";
@@ -15,7 +15,11 @@ import { useBuy } from "../../hooks/useBuy";
 import { injected } from "../../connector";
 import { useSwitchNetwork } from "../../hooks/useSwitchNetwork";
 import { divide, round } from "lodash";
-import { socialMediaHandles,NFTGameImages ,metaverseImages } from "../../assets";
+import {
+  socialMediaHandles,
+  NFTGameImages,
+  metaverseImages,
+} from "../../assets";
 
 const settings = {
   dots: true,
@@ -68,7 +72,7 @@ const LaunchpadProjectPage = () => {
 
   const { account } = useWeb3React();
 
-  const idoData = useMultiCall(account ? account : ZERO_ADDRESS);
+  const idoData = useIdoInfo();
 
   const balance = useTokenBalance(
     account ? account : ZERO_ADDRESS,
@@ -116,40 +120,28 @@ const LaunchpadProjectPage = () => {
                   href={socialMediaHandles.twitter}
                   target="_blank"
                 >
-                  <img
-                    src="/assets/images/icons/twitter.svg"
-                    alt=""
-                  />
+                  <img src="/assets/images/icons/twitter.svg" alt="" />
                 </a>
                 <a
                   className="social-btn"
                   href={socialMediaHandles.discord}
                   target="_blank"
                 >
-                  <img
-                    src="/assets/images/icons/discord.svg"
-                    alt=""
-                  />
+                  <img src="/assets/images/icons/discord.svg" alt="" />
                 </a>
                 <a
                   className="social-btn"
                   href={socialMediaHandles.telegram}
                   target="_blank"
                 >
-                  <img
-                    src="/assets/images/icons/telegram.svg"
-                    alt=""
-                  />
+                  <img src="/assets/images/icons/telegram.svg" alt="" />
                 </a>
                 <a
                   className="social-btn"
                   href={socialMediaHandles.medium}
                   target="_blank"
                 >
-                  <img
-                    src="/assets/images/icons/medium.svg"
-                    alt=""
-                  />
+                  <img src="/assets/images/icons/medium.svg" alt="" />
                 </a>
               </div>
               <div className="io-info">
