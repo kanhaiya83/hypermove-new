@@ -921,6 +921,25 @@ img {
     font-size: 0.9rem;
     font-weight: 500;
   }
+  .congratulations-wrapper{
+    max-width: 80%;
+    font-size: 1rem;
+    margin: 2rem auto 0;
+    .val{
+      color: #6c02d7;
+      font-weight: 500;
+    }
+    .claim-btn-wrapper{
+      margin-top: 12px;
+    }
+    .claim-btn{
+      padding: 8px 1rem;
+      background-color: #6c02d7;
+      border-radius: 4px;
+      color: white;
+      margin-left: 8px;
+    }
+  }
   .top-info-wrapper {
     width: 100%;
     display: flex;

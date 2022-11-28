@@ -229,7 +229,7 @@ const isFetching = idoData.isFetching;
                   ></div>
                 </div>
               </div>
-              <InputContainer
+             {!idoData.isSaleEnd && <InputContainer
                 setProject={setProject}
                 amount={amount}
                 setHandleAmount={setHandleAmount}
@@ -237,10 +237,11 @@ const isFetching = idoData.isFetching;
                 purchases={idoData?.userPurchases}
                 approval={approval}
                 buy={buy}
-              />
+              />}
               <CongratulationWrapper
                 claimToken={claimToken}
                 isClaimable={idoData?.isClaimable}
+                purchases={idoData?.purchases}
                 tokenValue={tokenValue}
               />
               <div className={`loader-wrapper ${isFetching && "show"}`}>
@@ -333,22 +334,25 @@ const isFetching = idoData.isFetching;
     </>
   );
 };
-const CongratulationWrapper = ({ tokenValue, isClaimable, claimToken }) => {
+
+const CongratulationWrapper = ({ tokenValue, isClaimable, claimToken , purchases }) => {
+  // if(!purchases || purchases === 0){
+  //   return <></>;
+  // }
   return (
     <>
-      <div className="congratulation-wrapper">
-        <span>You have successfully invested</span>
-        <span className="token-val">{tokenValue}</span>
-        <span>HMOVE.</span>
-        {isClaimable && (
+      <div className="congratulations-wrapper">
+        <span>You have successfully invested </span>
+        <span className="val">{purchases || 0}</span>
+        <span> BUSD equivalent to </span>
+        <span className="val">{tokenValue || 0} HMOVE</span>
+        {"isClaimable" && (
           <>
             <div className="claim-btn-wrapper">
               <span>
-                {isClaimable
-                  ? "Claim your HMOVE here"
-                  : "You can claim your HMOVE at TGE"}
+                 Claim your HMOVE here
               </span>
-              <button className="claim-btn" onClick={() => claimToken()}>
+              <button className="claim-btn" onClick={() => claimToken()} disabled={!isClaimable}>
                 Claim
               </button>
             </div>
