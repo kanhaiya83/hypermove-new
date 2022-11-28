@@ -241,7 +241,7 @@ const isFetching = idoData.isFetching;
               <CongratulationWrapper
                 claimToken={claimToken}
                 isClaimable={idoData?.isClaimable}
-                purchases={idoData?.purchases}
+                purchases={idoData?.userPurchases}
                 tokenValue={tokenValue}
               />
               <div className={`loader-wrapper ${isFetching && "show"}`}>
@@ -271,7 +271,9 @@ const isFetching = idoData.isFetching;
               <div className="info-card shadow-box rounded-corner">
                 <div className="info-stack">
                   <h4>Distribution</h4>
-                  <h1>{IDO_INFO.distribution}%</h1>
+                  <h1>
+                  10% at TGE then 1 Month Cliff then  9 linear Month Vesting
+                  </h1>
                 </div>
               </div>
               <div className="info-card shadow-box rounded-corner">
