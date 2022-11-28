@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useIdoContract, useTokenContract } from "./useContract";
-import { estimatedGas, gasPrice, unitParser, unitFormatter } from "../utils";
+import { estimatedGas, gasPrice, unitParser, unitFormatter, roundValue } from "../utils";
 import { useWeb3React } from "@web3-react/core";
-import { isEmpty } from "lodash";
+import _, { isEmpty } from "lodash";
 import { BigNumber } from "ethers";
 import { BSC_TESTNET_CHAIN } from "../constants";
 
