@@ -1,6 +1,6 @@
 export const IDO_INFO = {
-  startTime: 1669528521,
-  endTime: 1670849721,
+  startTime: 1669680000,
+  endTime: 1670976000,
   pricePerBusd: 84,
   network: "BSC",
   priceInUSD: 0.012,
