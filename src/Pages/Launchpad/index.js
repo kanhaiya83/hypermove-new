@@ -272,7 +272,7 @@ const isFetching = idoData.isFetching;
                 <div className="info-stack small">
                   <h4>Distribution</h4>
                   <h1>
-                  25% at TGE and 3 month vesting only.
+                  40% at TGE and 3 month vesting only.
                   </h1>
                 </div>
               </div>
