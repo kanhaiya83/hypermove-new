@@ -165,7 +165,7 @@ const isFetching = idoData.isFetching;
 
                 <div className="info-stack">
                   <h4>ACCESS</h4>
-                  <h1>Private</h1>
+                  <h1>Public</h1>
                 </div>
               </div>
               <div className="address-wrapper">
@@ -272,7 +272,7 @@ const isFetching = idoData.isFetching;
                 <div className="info-stack small">
                   <h4>Distribution</h4>
                   <h1>
-                  10% at TGE then 1 Month Cliff then  9 linear Month Vesting
+                  25% at TGE and 3 month vesting only.
                   </h1>
                 </div>
               </div>
@@ -464,6 +464,7 @@ const InputContainer = ({
           </>
         )}
       </div>
+      <span className="offer-info">* Make a purchase of more than $200 and get free NFTs</span>
     </div>
   );
 };
