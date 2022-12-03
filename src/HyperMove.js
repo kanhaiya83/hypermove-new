@@ -43,7 +43,9 @@ const HyperMove = (props) => {
         />
         <Route path="/launchpad" element={<LaunchpadPage />} />
         {/* </Route> */}
-        <Route path="/tournaments/*" element={<TournamentPage />} />
+        <Route path="/tournaments/*" 
+          element={<ComingSoon pageAddress="Tournaments page" />}/>
+         {/* element={<TournamentPage />} /> */}
       </Routes>
       <Footer />
     </React.Fragment>
