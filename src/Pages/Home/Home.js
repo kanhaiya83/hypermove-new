@@ -37,6 +37,7 @@ import TeamSection from "./TeamSection";
 import PartnersSection from "./PartnersSection";
 import RoadmapSection from "./RoadmapSection";
 import CuberunGameContainer from "../../Components/CuberunGameContainer";
+import AdvisorSection from "./AdvisorSection";
 
 
 
@@ -625,6 +626,14 @@ useEffect(()=>{
 </Container>
 
 
+     
+<Container>
+<Row className="py-5 advisor-section text-center align-items-center">
+<AdvisorSection/>
+
+</Row>
+
+</Container>
 
 <Container>
 <Row className="py-5 team-section text-center align-items-center">

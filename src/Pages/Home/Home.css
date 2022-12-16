@@ -213,6 +213,7 @@ max-height: 80px !important;
     grid-template-columns: repeat(6,1fr);
     grid-gap: 3rem 1.5rem;
 }
+
 .team-member-card{
 
 }
@@ -230,6 +231,67 @@ max-height: 80px !important;
     color: #727272;
     text-transform: uppercase;
 }
+.advisor-list{
+    display: flex;
+    justify-content: center;
+}
+.advisor-list li{
+    list-style: none;
+    width: 100%;
+    max-width: 450px;
+    
+}
+.advisor-list img{
+    width: 100%;
+}
+.advisor-card{
+    margin: 1rem;border-radius: 5px;
+    background: #141415;
+    box-shadow:  7px 7px 14px #121212,
+                 -7px -7px 14px #161618;
+                 padding-bottom:1.5rem ;
+}
+.advisor-card .avatar-container{
+    width: 100%;
+    position: relative;
+    padding: 4rem 0 3rem;
+
+}
+.advisor-card .avatar-container .avatar-img{
+    width: 8rem;
+    border-radius: 100rem;
+    display: block;
+    margin: 0 auto;
+}
+.advisor-card .avatar-container .waves-img{
+display: none;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    transform: rotateZ(180deg);
+}
+.advisor-card .advisor-name{}
+.advisor-card .advisor-role{
+    font-size: 0.9rem;
+    color: #424246;
+}
+.advisor-card .advisor-description{
+    font-size: 0.85rem;
+    padding:0 10%;
+    font-weight: 400;
+    color: #acacbc;
+}
+.advisor-card .links-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.advisor-card .links-container img{
+    width: 2.5rem;
+    margin-top: 1rem;
+}
+
 .partners-filter-btns{
     display: flex;
     flex-wrap: wrap;
@@ -517,6 +579,9 @@ transform: translateX(-50%);
     }
     .overlay-1,.overlay-2,.overlay-3,.overlay-4{
         display: none;
+    }
+    .advisor-list{
+        flex-direction: column;
     }
 }
 @media only screen and (max-width: 600px){
