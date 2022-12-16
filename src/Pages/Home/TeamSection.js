@@ -19,16 +19,6 @@ const TeamSection= ()=>{
             role:"Co-Founder"
         },
         {
-            image:"https://user-images.githubusercontent.com/76777058/208067438-60e68c1f-05ef-44e6-aa10-d8153614fb2e.jpeg",
-            name:"Pedro",
-            role:"Advisor"
-        },
-        {
-            image:"https://user-images.githubusercontent.com/76777058/208068776-52ea9e6a-ec1c-41a9-ab51-f3a2e1c646c1.jpeg",
-            name:"Guilherme",
-            role:"Advisor"
-        },
-        {
             image:"./assets/images/team/Sonali_sharma.png",
             name:"Sonali Sharma",
             role:"3d Artist"
