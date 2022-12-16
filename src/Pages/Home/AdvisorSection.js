@@ -2,7 +2,6 @@ const AdvisorCard=({data})=>{
     return (<div className="d-flex flex-column align-items-center advisor-card">
         <div className="avatar-container">
             <img className="avatar-img" src={data.image} alt="Avatar" />
-            <img src="https://user-images.githubusercontent.com/76777058/208116700-c51bc64a-d1dd-4783-b7a1-24350bba3be2.svg" alt="" className="waves-img" />
         </div>
 
         <h4 className="advisor-name">{data.name}</h4>
