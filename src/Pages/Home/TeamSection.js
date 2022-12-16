@@ -24,7 +24,7 @@ const TeamSection= ()=>{
             role:"Advisor"
         },
         {
-            image:"https://user-images.githubusercontent.com/76777058/208067101-a491c9d3-5d9b-4aca-ad41-f2f353c91ac3.jpeg",
+            image:"https://user-images.githubusercontent.com/76777058/208068776-52ea9e6a-ec1c-41a9-ab51-f3a2e1c646c1.jpeg",
             name:"Guilherme",
             role:"Advisor"
         },
