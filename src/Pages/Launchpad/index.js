@@ -246,16 +246,14 @@ const isFetching = idoData.isFetching;
                 purchases={idoData?.userPurchases}
                 approval={approval}
                 buy={buy}
-              />}
+              />} */}
               <CongratulationWrapper
                 claimToken={claimToken}
                 isClaimable={idoData?.isClaimable}
                 purchases={idoData?.userPurchases}
                 tokenValue={tokenValue}
-              /> */}
-              <div style={{width:"100%",textAlign:"center",marginTop:"1.5rem",fontSize:"1.3rem"}}>
-                <span>The IDO has closed.</span>
-              </div>
+              /> 
+             
               <div className={`loader-wrapper ${isFetching && "show"}`}>
                 <div className="loader-container">
 
@@ -351,7 +349,11 @@ const isFetching = idoData.isFetching;
 
 const CongratulationWrapper = ({ tokenValue, isClaimable, claimToken , purchases }) => {
   if(!purchases || purchases === 0){
-    return <></>;
+    return <>
+     <div style={{width:"100%",textAlign:"center",marginTop:"1.5rem",fontSize:"1.3rem"}}>
+                <span>The IDO has closed.</span>
+              </div>
+    </>;
   }
   return (
     <>
