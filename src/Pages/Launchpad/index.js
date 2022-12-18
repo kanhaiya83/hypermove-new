@@ -108,9 +108,11 @@ const isFetching = idoData.isFetching;
                 <img src={project.image} alt="" />
                 <div className="tags-wrapper">
                   <div className="tags">
-                    {idoData?.isSaleStarted && (
+                    {/* {idoData?.isSaleStarted && (
                       <span className="tag">LIVE</span>
-                    )}
+                    )} */}
+                    
+                    <span className="tag">CLOSED</span>
                     <span className="tag">BSC</span>
                     <span className="tag">BUSD</span>
                   </div>
@@ -180,11 +182,12 @@ const isFetching = idoData.isFetching;
               {/* <button className="view-btn">View BSC Scan</button> */}
             </section>
             <section className="shadow-box rounded-corner right-box">
-              {idoData?.isSaleStarted && (
+              {/* {idoData?.isSaleStarted && (
                 <div className="live-tag-container">
                   <span className="tag">LIVE</span>
                 </div>
-              )}
+              )} */}
+              
               <div className="raised-amount-wrapper">
                 <div className="info-stack ">
                   <h4>Min Allocation</h4>
@@ -208,7 +211,8 @@ const isFetching = idoData.isFetching;
               </div>
               <div className="info-stack">
                 <h4>Total Raised Amount</h4>
-                <h1>{currencyFormatter(idoData?.totalRaised)}</h1>
+                {/* <h1>{currencyFormatter(idoData?.totalRaised)}</h1> */}
+                <h1>{currencyFormatter(10000)}</h1>
               </div>
               <h4 className="start-info">
                 <b>Starts:</b>
@@ -219,17 +223,22 @@ const isFetching = idoData.isFetching;
                 </pre>
               </h4>
               <div className="progress-bar-wrapper">
-                <h4>
+                {/* <h4>
                   PROGRESS <span>[{idoData?.raisedPercentage}%]</span>
+                </h4> */}
+                <h4>
+                  PROGRESS <span>[100%]</span>
                 </h4>
                 <div className="bar">
                   <div
                     className={`completed-bar ${hideBar && "hidden"}`}
-                    style={{ width: idoData?.raisedPercentage }}
+                    style={{ width: "100%" }}
+                    // style={{ width: idoData?.raisedPercentage }}
                   ></div>
                 </div>
               </div>
-             {!idoData.isSaleEnd && <InputContainer
+
+             {/* {!idoData.isSaleEnd && <InputContainer
                 setProject={setProject}
                 amount={amount}
                 setHandleAmount={setHandleAmount}
@@ -243,7 +252,10 @@ const isFetching = idoData.isFetching;
                 isClaimable={idoData?.isClaimable}
                 purchases={idoData?.userPurchases}
                 tokenValue={tokenValue}
-              />
+              /> */}
+              <div style={{width:"100%",textAlign:"center",marginTop:"1.5rem",fontSize:"1.3rem"}}>
+                <span>The IDO has closed.</span>
+              </div>
               <div className={`loader-wrapper ${isFetching && "show"}`}>
                 <div className="loader-container">
 
