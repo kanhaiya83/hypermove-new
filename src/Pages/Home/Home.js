@@ -91,8 +91,8 @@ useEffect(()=>{
   <h1>BLOCKCHAIN's FINEST GAMING PLATFORM!</h1>
   <h3>Onboard HyperMove, Convert your daily activities into real-world cash and Maintain a healthier life-style.</h3>
   <div className="d-grid d-sm-flex p-3 mt-5 gap-3 text-center justify-content-center">
-  <Link to="/move-to-earn" className="purple-btn nevan btn btn-dark">MOVE TO EARN</Link>
-  <Link to="/play-to-earn" className="purple-btn nevan btn btn-dark">PLAY TO EARN</Link>
+  {/* <Link to="/move-to-earn" className="purple-btn nevan btn btn-dark">MOVE TO EARN</Link> */}
+  {/* <Link to="/play-to-earn" className="purple-btn nevan btn btn-dark">PLAY TO EARN</Link> */}
   <Link to="/metaverse" className="purple-btn nevan btn btn-dark">METAVERSE</Link>
   </div>
 
@@ -111,20 +111,20 @@ useEffect(()=>{
   <Marquee className='brand-marquee nevan marquee-0' speed={300} gradient={false}>
       <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
       <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
-      <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div>
+      {/* <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div> */}
       <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
   </Marquee>
   <Marquee className='brand-marquee nevan marquee-1' speed={200} gradient={false}>
       <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
       <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
-      <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div>
+      {/* <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div> */}
       <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
   </Marquee>
 
     <Marquee className='brand-marquee nevan marquee-2' speed={400} gradient={false}>
       <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
       <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
-      <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div>
+      {/* <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div> */}
       <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
     </Marquee>
   </Row>
@@ -132,7 +132,7 @@ useEffect(()=>{
 
 <Container>
 
-<Row className="create-avatar-section py-5 align-items-center flex-column-reverse flex-lg-row">
+{/* <Row className="create-avatar-section py-5 align-items-center flex-column-reverse flex-lg-row">
 
 <Col xs={12} md={6}>
 <h2 className="nevan section-heading py-2 py-md-3">INTO THE METAVERSE</h2>
@@ -150,9 +150,6 @@ useEffect(()=>{
 </Col>
 
 <Col  className="text-center mobile-screen">
-{/*<div style={{ height: 600 }}>
-<GlitchedImage image={avatarImageString} />
-    </div>*/}
   <div className="ratio ratio-1x1">
 <video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
   
@@ -163,12 +160,11 @@ useEffect(()=>{
   Your browser does not support the video tag.
   </video>
   </div>
-{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
 <Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
 </Col>
 
 
-</Row>
+</Row> */}
 
 
 
@@ -194,7 +190,7 @@ useEffect(()=>{
 </Col>
 
 <Col xs={12} md={6}>
-<h2 className="nevan section-heading py-2 py-md-3">MOVE . PLAY . EARN</h2>
+<h2 className="nevan section-heading py-2 py-md-3">PLAY . EARN</h2>
 <p>HyperMove is the world's first blockchain M2E & P2E integrated app, that allows users to maintain a healthy & fit lifestyle and earn in a decentralized environment.</p>
 
 <p>HyperMove app provides you a sea of opportunities to convert your daily activities into real world cash as well as earn by playing blockchain powered games.</p>
@@ -205,7 +201,7 @@ useEffect(()=>{
 </Row>
 
 
-<Row className="create-avatar-section py-5 align-items-center">
+{/* <Row className="create-avatar-section py-5 align-items-center">
 
 
 <Col xs={12} md={6}>
@@ -216,9 +212,6 @@ useEffect(()=>{
 
 
 <Col  className="text-center mobile-screen">
-{/*<div style={{ height: 600 }}>
-<GlitchedImage image={avatarImageString} />
-    </div>*/}
   <div className="ratio ratio-1x1">
 <video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
   
@@ -229,22 +222,21 @@ useEffect(()=>{
   Your browser does not support the video tag.
   </video>
   </div>
-{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
 <Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
 </Col>
 
 
-</Row>
+</Row> */}
 
 
 
 <Row className="game-section py-5 text-center g-5">
-    <Col xs={12} md={4}>
+    {/* <Col xs={12} md={4}>
     <HyperButton variant="dark" className="dark-btn nevan mb-5" text="TRACK YOUR MOVES"/>
     <div ref={mapContainer} className="map-container rounded-3" />
-    </Col>
+    </Col> */}
 
-    <Col xs={12} md={4}>
+    <Col xs={12} md={6}>
     <HyperButton variant="dark" className="dark-btn nevan mb-5" text="SCORE & WIN"/>
    
 
@@ -252,7 +244,7 @@ useEffect(()=>{
     </Col>
 
 
-    <Col xs={12} md={4}>
+    <Col xs={12} md={6}>
     <HyperButton variant="dark" className="dark-btn nevan mb-5" text="LEADERBOARD"/>
         <LeaderBoard/>
     </Col>
@@ -290,7 +282,7 @@ useEffect(()=>{
 
 
 <Row className="hyperapp-slider py-5 text-center">
-<h2 className="nevan section-heading py-2 py-md-3">HYPERMOVE APP</h2>
+<h2 className="nevan section-heading py-2 py-md-3">AAA GAMES</h2>
 <Swiper
     modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay  ]}
     spaceBetween={250}
@@ -355,7 +347,8 @@ useEffect(()=>{
 <Row className="hypergame-bg">
 <div className="slides-wrapper text-center">
 <div className="slides-container">
-<h2 className="nevan section-heading py-2 py-md-3">HYPER GAMES</h2>
+<h2 className="nevan section-heading py-2 py-md-3">HYPER CASUAL GAMES</h2>
+<h2 style={{color:"#c7c7c7",fontSize:"1.3rem"}}>Coming soon</h2>
 <Swiper
     modules={[Navigation, Pagination, Scrollbar, A11y, EffectCards, Autoplay  ]}
     spaceBetween={250}
@@ -482,9 +475,9 @@ useEffect(()=>{
 
 </Container>
 
-<NFTSection/>
+{/* <NFTSection/> */}
 
-<Container fluid>
+{/* <Container fluid>
 <Row className="latest-nft text-center py-5">
 
 <h2 className="nevan section-heading py-2 py-md-5">LATEST NFTs</h2>
@@ -624,7 +617,7 @@ useEffect(()=>{
 
 </Row>
 </Container>
-
+ */}
 
      
 <Container>

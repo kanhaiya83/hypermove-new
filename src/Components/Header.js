@@ -92,7 +92,7 @@ const Header = (props) => {
                     </NavDropdown.Item>
                   </NavDropdown>
 
-                  <NavMenuLinks href="/launchpad" text="Launchpad" />
+                  {/* <NavMenuLinks href="/launchpad" text="Launchpad" /> */}
                   <NavMenuLinks href="/tournaments" text="Tournaments" />
                 </Nav>
                 {/* {isAuthenticated &&  <Link to="/profile"><img className="profile-button" src="./assets/images/profile.svg" alt="" /></Link>} */}
@@ -155,11 +155,11 @@ const Header = (props) => {
                   </NavDropdown.Item>
                 </NavDropdown>
 
-                <NavMenuLinks
+                {/* <NavMenuLinks
                   href="/launchpad"
                   text="Launchpad"
                   className="py-3"
-                />
+                /> */}
                 <NavMenuLinks
                   href="/tournaments"
                   text="Tournaments"
