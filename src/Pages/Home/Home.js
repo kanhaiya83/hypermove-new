@@ -56,22 +56,22 @@ const [lat, setLat] = useState(40.72);
 const [zoom, setZoom] = useState(15);
 const myImageString = '../assets/images/about.png';
 const avatarImageString = '../assets/images/3dTurnAround.png';
-useEffect(() => {
-    if (map.current) return; // initialize map only once
-    map.current = new mapboxgl.Map({
-    container: mapContainer.current,
-    // style: 'mapbox://styles/mapbox/streets-v11',
-    style: 'mapbox://styles/pankaj9695/cl7bkf91q001i15nsbznuyrz0?optimize=true',
-    center: [lng, lat],
-    zoom: zoom,
-    minzoom: 3,
-    maxzoom: 15,
-    pitch:80,
-    bearing: 80,
-    scrollZoom: false,
-    });
+// useEffect(() => {
+//     if (map.current) return; // initialize map only once
+//     map.current = new mapboxgl.Map({
+//     container: mapContainer.current,
+//     // style: 'mapbox://styles/mapbox/streets-v11',
+//     style: 'mapbox://styles/pankaj9695/cl7bkf91q001i15nsbznuyrz0?optimize=true',
+//     center: [lng, lat],
+//     zoom: zoom,
+//     minzoom: 3,
+//     maxzoom: 15,
+//     pitch:80,
+//     bearing: 80,
+//     scrollZoom: false,
+//     });
     
-    });
+//     });
 useEffect(()=>{
   const referralCode = searchParams.get("referral_code")
   console.log({receivedReferralCode:referralCode})
