@@ -15,29 +15,30 @@ export const useDisconnect = () => {
 };
 
 export function useWeb3EagerConnect() {
-  const { activate, active } = useWeb3React();
 
-  const [tried, setTried] = useState(false);
+  // const { activate, active } = useWeb3React();
 
-  useEffect(() => {
-    async function connectwallet() {
-      await activate(injected)
-        .then(() => {})
-        .catch(() => {
-          console.log("error in metamask");
-        });
-    }
-    connectwallet();
-  }, []);
+  // const [tried, setTried] = useState(false);
 
-  // if the connection worked, wait until we get confirmation of that to flip the flag
-  useEffect(() => {
-    if (!tried && active) {
-      setTried(true);
-    }
-  }, [tried, active]);
+  // useEffect(() => {
+  //   async function connectwallet() {
+  //     await activate(injected)
+  //       .then(() => {})
+  //       .catch(() => {
+  //         console.log("error in metamask");
+  //       });
+  //   }
+  //   connectwallet();
+  // }, []);
 
-  return tried;
+  // // if the connection worked, wait until we get confirmation of that to flip the flag
+  // useEffect(() => {
+  //   if (!tried && active) {
+  //     setTried(true);
+  //   }
+  // }, [tried, active]);
+
+  // return tried;
 }
 
 export function useInactiveListener(suppress = false) {

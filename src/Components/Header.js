@@ -71,7 +71,7 @@ const Header = (props) => {
                     <NavDropdown.Item href="#action/3.1">
                       <NavMenuLinks href="/play-to-earn" text="Play-to-Earn" />
                     </NavDropdown.Item>
-                    <NavDropdown.Item>
+                    {/* <NavDropdown.Item>
                       <NavMenuLinks href="/move-to-earn" text="Move-to-Earn" />
                     </NavDropdown.Item>
                     <NavDropdown.Item>
@@ -79,17 +79,17 @@ const Header = (props) => {
                         href="/nft-marketplace"
                         text="NFT Marketplace"
                       />
-                    </NavDropdown.Item>
+                    </NavDropdown.Item> */}
                     {active && (
                       <NavDropdown.Item>
                         <NavMenuLinks href="/profile" text="Profile" />
                       </NavDropdown.Item>
                     )}
-
+{/* 
                     <NavDropdown.Divider />
                     <NavDropdown.Item>
                       <NavMenuLinks href="/metaverse" text="Metaverse" />
-                    </NavDropdown.Item>
+                    </NavDropdown.Item> */}
                   </NavDropdown>
 
                   {/* <NavMenuLinks href="/launchpad" text="Launchpad" /> */}
@@ -140,7 +140,7 @@ const Header = (props) => {
                   <NavDropdown.Item>
                     <NavMenuLinks href="/play-to-earn" text="Play-to-Earn" />
                   </NavDropdown.Item>
-                  <NavDropdown.Item>
+                  {/* <NavDropdown.Item>
                     <NavMenuLinks href="/move-to-earn" text="Move-to-Earn" />
                   </NavDropdown.Item>
                   <NavDropdown.Item>
@@ -152,7 +152,7 @@ const Header = (props) => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item>
                     <NavMenuLinks href="/metaverse" text="Metaverse" />
-                  </NavDropdown.Item>
+                  </NavDropdown.Item> */}
                 </NavDropdown>
 
                 {/* <NavMenuLinks
