@@ -93,7 +93,7 @@ useEffect(()=>{
   <div className="d-grid d-sm-flex p-3 mt-5 gap-3 text-center justify-content-center">
   {/* <Link to="/move-to-earn" className="purple-btn nevan btn btn-dark">MOVE TO EARN</Link> */}
   {/* <Link to="/play-to-earn" className="purple-btn nevan btn btn-dark">PLAY TO EARN</Link> */}
-  <Link to="/metaverse" className="purple-btn nevan btn btn-dark">METAVERSE</Link>
+  {/* <Link to="/metaverse" className="purple-btn nevan btn btn-dark">METAVERSE</Link> */}
   </div>
 
   <div className="d-sm-flex p-3 gap-2 text-center justify-content-center">
@@ -112,20 +112,20 @@ useEffect(()=>{
       <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
       <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
       {/* <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div> */}
-      <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
+      {/* <div className='me-5'><span className='purple-text'>META</span>VERSE</div> */}
   </Marquee>
   <Marquee className='brand-marquee nevan marquee-1' speed={200} gradient={false}>
       <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
       <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
       {/* <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div> */}
-      <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
+      {/* <div className='me-5'><span className='purple-text'>META</span>VERSE</div> */}
   </Marquee>
 
     <Marquee className='brand-marquee nevan marquee-2' speed={400} gradient={false}>
       <div className='me-5'><span className='purple-text'>MOVE </span> TO EARN</div>
       <div className='me-5'><span className='purple-text'>PLAY </span> TO EARN</div>
       {/* <div className='me-5'><span className='purple-text'>NFT </span> MARKETPLACE</div> */}
-      <div className='me-5'><span className='purple-text'>META</span>VERSE</div>
+      {/* <div className='me-5'><span className='purple-text'>META</span>VERSE</div> */}
     </Marquee>
   </Row>
   </Container>
@@ -169,7 +169,50 @@ useEffect(()=>{
 
 
 
+
 <Row className="create-avatar-section py-5 align-items-center">
+
+<Col  className="text-center mobile-screen">
+  <div className="ratio ratio-1x1">
+<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
+  
+  <source src="../assets/movs/shoes-factory.webm" type="video/webm"/>
+  <source src="../assets/movs/shoes-factory.mov" type="video/mp4"/>
+  <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
+  
+  Your browser does not support the video tag.
+  </video>
+  </div>
+{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
+<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
+</Col>
+
+<Col xs={12} md={6}>
+<div style={{width:"100%",maxWidth:"300px"}}>
+  <img src="./assets/images/play-to-earn-heading.svg" alt=""/>
+</div>
+<p>The Play to Earn arena aims at providing users with best in class gaming experience. Hypermove comprises of a multigaming ecosystem with games of different genres including High-end as well as Hypercasual mini games.</p>
+
+<p>Hypermove AAA battle royale game is a high-end-graphics PvP as well as multiplayer game under multiple maps for better experience and high FPS for fair and smooth play.</p>
+
+
+</Col>
+</Row>
+
+<Row className="create-avatar-section py-5 align-items-center">
+
+
+<Col xs={12} md={6}>
+<div style={{width:"100%",maxWidth:"400px"}}>
+  <img src="./assets/images/hyper-casual-games-heading.svg" alt=""/>
+</div>
+<p>HyperMove will launch 3 hyper casual games in Q2 of 2023</p>
+
+<p>The games will be addictive and high rewarding.</p>
+
+<p>Users can play those games and earn rewards.</p>
+
+</Col>
 
 <Col  className="text-center mobile-screen">
 {/*<div style={{ height: 600 }}>
@@ -188,18 +231,36 @@ useEffect(()=>{
 {/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
 <Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
 </Col>
+</Row>
+<Row className="create-avatar-section py-5 align-items-center">
+
+<Col  className="text-center mobile-screen">
+  <div className="ratio ratio-1x1">
+<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
+  
+  <source src="../assets/movs/shoes-factory.webm" type="video/webm"/>
+  <source src="../assets/movs/shoes-factory.mov" type="video/mp4"/>
+  <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
+  
+  Your browser does not support the video tag.
+  </video>
+  </div>
+{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
+<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
+</Col>
 
 <Col xs={12} md={6}>
-<h2 className="nevan section-heading py-2 py-md-3">PLAY . EARN</h2>
-<p>HyperMove is the world's first blockchain M2E & P2E integrated app, that allows users to maintain a healthy & fit lifestyle and earn in a decentralized environment.</p>
 
-<p>HyperMove app provides you a sea of opportunities to convert your daily activities into real world cash as well as earn by playing blockchain powered games.</p>
+<div style={{width:"100%",maxWidth:"300px"}}>
+  <img src="./assets/images/move-to-earn-heading.svg" alt=""/>
+</div>
+<p>The Play to Earn arena aims at providing users with best in class gaming experience. Hypermove comprises of a multigaming ecosystem with games of different genres including High-end as well as Hypercasual mini games.</p>
 
-<p>Users would have the privilege to earn cryptocurrencies by carrying out their daily activities (Walking, running, swimming etc.) and by playing games online.</p>
+<p>Hypermove AAA battle royale game is a high-end-graphics PvP as well as multiplayer game under multiple maps for better experience and high FPS for fair and smooth play.</p>
+
 
 </Col>
 </Row>
-
 
 {/* <Row className="create-avatar-section py-5 align-items-center">
 
@@ -280,7 +341,7 @@ useEffect(()=>{
 
 </Row>
 
-
+{/* 
 <Row className="hyperapp-slider py-5 text-center">
 <h2 className="nevan section-heading py-2 py-md-3">AAA GAMES</h2>
 <Swiper
@@ -341,132 +402,15 @@ useEffect(()=>{
     <SwiperSlide><Image src='./assets/images/app-screens/app15.png' className='img-fluid'/></SwiperSlide>
     
   </Swiper>
-</Row>
+</Row> */}
 
 
 <Row className="hypergame-bg">
 <div className="slides-wrapper text-center">
 <div className="slides-container">
-<h2 className="nevan section-heading py-2 py-md-3">HYPER CASUAL GAMES</h2>
-<h2 style={{color:"#c7c7c7",fontSize:"1.3rem"}}>Coming soon</h2>
-<Swiper
-    modules={[Navigation, Pagination, Scrollbar, A11y, EffectCards, Autoplay  ]}
-    spaceBetween={250}
-    centeredSlides={true}
-    slidesPerView={2}
-    breakpoints={{
-        320: {
-        spaceBetween:10,
-        slidesPerView: 1
-        },
-        480:{
-            spaceBetween:20,
-            slidesPerView: 1 
-        },
-        640:{
-            spaceBetween:20,
-            slidesPerView: 6
-        },
+<h2 className="nevan section-heading py-2 py-md-3">3 HYPER CASUAL GAMES</h2>
+<h2 style={{color:"#c7c7c7",fontSize:"1.3rem"}}>Coming soon....</h2>
 
-}}
-    speed={400}
-    loop={true}
-    grabCursor={true}
-    touchRatio={1.5}    
-    navigation={true}    
-    
-    autoplay={true}
-      
-    className="hyperSwiper"
-  >
-  <SwiperSlide>
-    <Card className="p-1 p-md-2 game-card text-white text-start">
-        <Card.Img variant="top" src="./assets/images/games/game01.png" />
-        <Card.Body className="p-2">
-        <div className="d-flex align-items-center justify-content-between">
-        <Card.Title className="me-2 game-title">Candy Match</Card.Title>
-        <HyperButton className="like-btn" icon={<FaRegHeart />}/>
-        </div>
-        <div className="d-flex align-items-center justify-content-between py-2">
-        <span>Coming Soon...</span>
-        
-        </div>
-        </Card.Body>
-    </Card>  
-  </SwiperSlide>
-  <SwiperSlide>
-  <Card className="p-1 p-md-2 game-card text-white text-start">
-      <Card.Img variant="top" src="./assets/images/games/game02.png" />
-      <Card.Body className="p-2">
-      <div className="d-flex align-items-center justify-content-between">
-      <Card.Title className="me-2 game-title">Candy jam</Card.Title>
-      <HyperButton className="like-btn" icon={<FaRegHeart />}/>
-      </div>
-      <div className="d-flex align-items-center justify-content-between py-2">
-      <span>Coming Soon...</span>
-      </div>
-      </Card.Body>
-  </Card>  
-</SwiperSlide>
-<SwiperSlide>
-<Card className="p-1 p-md-2 game-card text-white text-start">
-    <Card.Img variant="top" src="./assets/images/games/game03.png" />
-    <Card.Body className="p-2">
-    <div className="d-flex align-items-center justify-content-between">
-    <Card.Title className="me-2 game-title">Bubble Invasion</Card.Title>
-    <HyperButton className="like-btn" icon={<FaRegHeart />}/>
-    </div>
-    <div className="d-flex align-items-center justify-content-between py-2">
-    <span>Coming Soon...</span>
-    </div>
-    </Card.Body>
-</Card>  
-</SwiperSlide>
-<SwiperSlide>
-<Card className="p-1 p-md-2 game-card text-white text-start">
-    <Card.Img variant="top" src="./assets/images/games/game04.png" />
-    <Card.Body className="p-2">
-    <div className="d-flex align-items-center justify-content-between">
-    <Card.Title className="me-2 game-title">9 Ball Pool</Card.Title>
-    <HyperButton className="like-btn" icon={<FaRegHeart />}/>
-    </div>
-    <div className="d-flex align-items-center justify-content-between py-2">
-    <span>Coming Soon...</span>
-    </div>
-    </Card.Body>
-</Card>  
-</SwiperSlide>
-<SwiperSlide>
-<Card className="p-1 p-md-2 game-card text-white text-start">
-    <Card.Img variant="top" src="./assets/images/games/game05.png" />
-    <Card.Body className="p-2">
-    <div className="d-flex align-items-center justify-content-between">
-    <Card.Title className="me-2 game-title">Fruit Connect</Card.Title>
-    <HyperButton className="like-btn" icon={<FaRegHeart />}/>
-    </div>
-    <div className="d-flex align-items-center justify-content-between py-2">
-    <span>Coming Soon...</span>
-    </div>
-    </Card.Body>
-</Card>  
-</SwiperSlide>
-<SwiperSlide>
-<Card className="p-1 p-md-2 game-card text-white text-start">
-    <Card.Img variant="top" src="./assets/images/games/game06.png" />
-    <Card.Body className="p-2">
-    <div className="d-flex align-items-center justify-content-between">
-    <Card.Title className="me-2 game-title">Arithmetic Game</Card.Title>
-    <HyperButton className="like-btn" icon={<FaRegHeart />}/>
-    </div>
-    <div className="d-flex align-items-center justify-content-between py-2">
-    <span>Coming Soon...</span>
-    </div>
-    </Card.Body>
-</Card>  
-</SwiperSlide>
- 
-    
-  </Swiper>
 </div>
 
 </div>
