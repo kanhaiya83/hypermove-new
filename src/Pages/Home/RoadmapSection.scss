@@ -169,7 +169,7 @@
     border-radius: 1rem 1rem 0 0!important;
     margin-top: 0!important;
     margin-bottom: 1rem!important;
-        &::after {
+        &::after,&::before {
           display: none;
         }
         span {
