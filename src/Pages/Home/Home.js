@@ -236,14 +236,9 @@ useEffect(()=>{
 
 <Col  className="text-center mobile-screen">
   <div className="ratio ratio-1x1">
-<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
+  <iframe src={"https://app.vectary.com/p/33UdpimCRuQZuQQL66B21p"} frameborder="0" width="100%" height="100%"></iframe>
+
   
-  <source src="../assets/movs/shoes-factory.webm" type="video/webm"/>
-  <source src="../assets/movs/shoes-factory.mov" type="video/mp4"/>
-  <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
-  
-  Your browser does not support the video tag.
-  </video>
   </div>
 {/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
 <Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
