@@ -1,37 +1,37 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React, { useRef, useEffect, useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 import HyperButton from "../../Components/HyperButton";
 
 import { BsTwitter, BsMedium } from 'react-icons/bs';
 import { FaDiscord, FaTelegramPlane, FaRegHeart } from 'react-icons/fa';
 import { RiFilePaper2Line, RiUserHeartLine } from "react-icons/ri";
 import { IoFitnessOutline, IoGameControllerOutline, IoLogoBitcoin } from "react-icons/io5";
-import { AiOutlineLike } from "react-icons/ai";
+// import { AiOutlineLike } from "react-icons/ai";
 
-import CubeWorld from "./../../Components/games/cuberun/components/CubeWorld" 
+// import CubeWorld from "./../../Components/games/cuberun/components/CubeWorld" 
 import LeaderBoard from "../../Components/LeaderBoard";
-import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, EffectCards, Autoplay   } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, EffectCards, Autoplay   } from 'swiper';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link, useSearchParams } from "react-router-dom";
-import { GlitchedImage } from 'react-image-glitch';
+// import { GlitchedImage } from 'react-image-glitch';
 
 
-import NFTSection from "../../Components/NFTSection";
+// import NFTSection from "../../Components/NFTSection";
 
 import Marquee from "react-fast-marquee";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import mapboxgl from '!mapbox-gl';
+// import mapboxgl from '!mapbox-gl';
 
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-  import 'swiper/css/pagination';
-  import 'swiper/css/autoplay';
-  import 'swiper/css/effect-coverflow';
-  import 'swiper/css/effect-cards';
-  import 'mapbox-gl/dist/mapbox-gl.css';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+//   import 'swiper/css/pagination';
+//   import 'swiper/css/autoplay';
+//   import 'swiper/css/effect-coverflow';
+//   import 'swiper/css/effect-cards';
+//   import 'mapbox-gl/dist/mapbox-gl.css';
 import './Home.css';
 import TeamSection from "./TeamSection";
 import PartnersSection from "./PartnersSection";
@@ -44,7 +44,7 @@ import AdvisorSection from "./AdvisorSection";
 // import 'https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css';
 
 // mapboxgl.accessToken = 'pk.eyJ1IjoicGFua2FqOTY5NSIsImEiOiJjbDZ5ZHU5OTIwb3JqM2lxbWZ2bTVvcjQ4In0.ZzvBsABWcugX1G8jbTT7sA';
-mapboxgl.accessToken = 'pk.eyJ1IjoicGFua2FqOTY5NSIsImEiOiJjbDZ5ZHU5OTIwb3JqM2lxbWZ2bTVvcjQ4In0.ZzvBsABWcugX1G8jbTT7sA';
+// mapboxgl.accessToken = 'pk.eyJ1IjoicGFua2FqOTY5NSIsImEiOiJjbDZ5ZHU5OTIwb3JqM2lxbWZ2bTVvcjQ4In0.ZzvBsABWcugX1G8jbTT7sA';
 
 const HomePage = (props) => {
 
