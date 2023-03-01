@@ -116,6 +116,29 @@
       left: auto;
       transform: translate(50%, -50%);
     }
+    h1::before{
+      content: "";
+      position: absolute;
+      left: 100%;
+      bottom:-4px;
+      background-color: #2B228A;
+      background: linear-gradient(90deg, #2B228A 6%, rgb(20, 20, 20,0.2) 98%);
+      width: 50%;
+      height: 4px;
+    }
+  }
+  &:first-child{
+    h1::before{
+      content: "";
+      position: absolute;
+      right: 100%;
+      top:-4px;
+      background-color: #f62372;
+      background: linear-gradient(90deg,rgb(20, 20, 20,0.2)  6%, #f62372 98%);
+
+      width: 50%;
+      height: 4px;
+    }
   }
 }
 @media only screen and (max-width: 1200px) {
