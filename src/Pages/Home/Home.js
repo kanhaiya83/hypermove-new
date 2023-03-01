@@ -405,17 +405,6 @@ useEffect(()=>{
 </Row> */}
 
 
-<Row className="hypergame-bg">
-<div className="slides-wrapper text-center">
-<div className="slides-container">
-<h2 className="nevan section-heading py-2 py-md-3">3 HYPER CASUAL GAMES</h2>
-<h2 style={{color:"#c7c7c7",fontSize:"1.3rem"}}>Coming soon....</h2>
-
-</div>
-
-</div>
-</Row>
-
 
 </Container>
 
