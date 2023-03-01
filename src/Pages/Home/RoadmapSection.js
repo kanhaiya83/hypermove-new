@@ -58,7 +58,7 @@ const RoadmapSection = () => {
   return (
     <>
      
-      <Container fluid={true}>
+      <Container fluid={true} style={{paddingRight:0,paddingLeft:0}}>
         <div class="rm-section">
         <div className="waves-image-wrapper">
         <img src="./assets/images/waves.svg" alt="" />
