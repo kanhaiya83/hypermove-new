@@ -566,7 +566,7 @@ useEffect(()=>{
 
 </Container>
 
-<div className="py-5 roadmap-section text-center align-items-center overflow-hidden position-relative">
+<div className="pt-5 roadmap-section text-center align-items-center overflow-hidden position-relative">
 <RoadmapSection/>
 
 </div>
