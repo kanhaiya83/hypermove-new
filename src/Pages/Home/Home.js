@@ -169,76 +169,75 @@ useEffect(()=>{
 
 
 
+ <Row className="create-avatar-section py-5 align-items-center">
+          <Col className="text-center mobile-screen">
+            <Image
+              src="../assets/images/play-to-earn.png"
+              fluid
+              style={{width:"100%"}}
+            />
 
-<Row className="create-avatar-section py-5 align-items-center">
+            <Image
+              src="../assets/images/hero-bg.png"
+              fluid
+              className="hero-bg"
+            />
+          </Col>
 
-<Col  className="text-center mobile-screen">
-  <div className="ratio ratio-1x1">
-<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
-  
-  <source src="../assets/movs/shoes-factory.webm" type="video/webm"/>
-  <source src="../assets/movs/shoes-factory.mov" type="video/mp4"/>
-  <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
-  
-  Your browser does not support the video tag.
-  </video>
-  </div>
-{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
-<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
-</Col>
+          <Col xs={12} md={6}>
+            <div style={{ width: "100%", maxWidth: "300px" }}>
+              <img src="./assets/images/play-to-earn-heading.svg" alt="" />
+            </div>
+            <p>
+              The Play to Earn arena aims at providing users with best in class
+              gaming experience. Hypermove comprises of a multigaming ecosystem
+              with games of different genres including High-end as well as
+              Hypercasual mini games.
+            </p>
 
-<Col xs={12} md={6}>
-<div style={{width:"100%",maxWidth:"300px"}}>
-  <img src="./assets/images/play-to-earn-heading.svg" alt=""/>
-</div>
-<p>The Play to Earn arena aims at providing users with best in class gaming experience. Hypermove comprises of a multigaming ecosystem with games of different genres including High-end as well as Hypercasual mini games.</p>
+            <p>
+              Hypermove AAA battle royale game is a high-end-graphics PvP as
+              well as multiplayer game under multiple maps for better experience
+              and high FPS for fair and smooth play.
+            </p>
+          </Col>
+        </Row>
 
-<p>Hypermove AAA battle royale game is a high-end-graphics PvP as well as multiplayer game under multiple maps for better experience and high FPS for fair and smooth play.</p>
+        <Row className="create-avatar-section py-5 align-items-center">
+          <Col xs={12} md={6}>
+            <div style={{ width: "100%", maxWidth: "400px" }}>
+              <img
+                src="./assets/images/hyper-casual-games-heading.svg"
+                alt=""
+              />
+            </div>
+            <p>HyperMove will launch 3 hyper casual games in Q2 of 2023</p>
 
+            <p>The games will be addictive and high rewarding.</p>
 
-</Col>
-</Row>
+            <p>Users can play those games and earn rewards.</p>
+          </Col>
 
-<Row className="create-avatar-section py-5 align-items-center">
+          <Col className="text-center mobile-screen">
+            <Image
+              src="../assets/images/hyper-casual-games.png"
+              fluid
+            />
 
-
-<Col xs={12} md={6}>
-<div style={{width:"100%",maxWidth:"400px"}}>
-  <img src="./assets/images/hyper-casual-games-heading.svg" alt=""/>
-</div>
-<p>HyperMove will launch 3 hyper casual games in Q2 of 2023</p>
-
-<p>The games will be addictive and high rewarding.</p>
-
-<p>Users can play those games and earn rewards.</p>
-
-</Col>
-
-<Col  className="text-center mobile-screen">
-{/*<div style={{ height: 600 }}>
-<GlitchedImage image={avatarImageString} />
-    </div>*/}
-  <div className="ratio ratio-1x1">
-<video playsInline="playnline" autoPlay="autoplay" muted="muted" loop="loop" className="char-video">
-  
-  <source src="../assets/movs/shoes-factory.webm" type="video/webm"/>
-  <source src="../assets/movs/shoes-factory.mov" type="video/mp4"/>
-  <source src="../assets/movs/shoes-factory.mp4" type="video/mp4"/>
-  
-  Your browser does not support the video tag.
-  </video>
-  </div>
-{/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
-<Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
-</Col>
-</Row>
+            {/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
+            <Image
+              src="../assets/images/hero-bg.png"
+              fluid
+              className="hero-bg"
+            />
+          </Col>
+        </Row>
 <Row className="create-avatar-section py-5 align-items-center">
 
 <Col  className="text-center mobile-screen">
   <div className="ratio ratio-1x1">
   <iframe src={"https://app.vectary.com/p/33UdpimCRuQZuQQL66B21p"} frameborder="0" width="100%" height="100%"></iframe>
 
-  
   </div>
 {/*<Image src="../assets/images/turning.webp" className="app-scree" style={{width:''}}/>*/}
 <Image src="../assets/images/hero-bg.png" fluid className="hero-bg"/>
