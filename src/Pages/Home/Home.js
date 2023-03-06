@@ -204,7 +204,7 @@ useEffect(()=>{
           </Col>
         </Row>
 
-        <Row className="create-avatar-section py-5 align-items-center">
+        <Row className="create-avatar-section py-5 align-items-center"  style={{flexWrap:"wrap-reverse"}}>
           <Col xs={12} md={6}>
             <div style={{ width: "100%", maxWidth: "400px" }}>
               <Image
