@@ -186,7 +186,8 @@ useEffect(()=>{
 
           <Col xs={12} md={6}>
             <div style={{ width: "100%", maxWidth: "300px" }}>
-              <img src="./assets/images/play-to-earn-heading.svg" alt="" />
+              <Image src="./assets/images/play-to-earn-heading.svg" alt=""  fluid
+              style={{width:"100%"}}/>
             </div>
             <p>
               The Play to Earn arena aims at providing users with best in class
@@ -206,9 +207,11 @@ useEffect(()=>{
         <Row className="create-avatar-section py-5 align-items-center">
           <Col xs={12} md={6}>
             <div style={{ width: "100%", maxWidth: "400px" }}>
-              <img
+              <Image
                 src="./assets/images/hyper-casual-games-heading.svg"
                 alt=""
+                style={{width:"100%"}}
+                fluid
               />
             </div>
             <p>HyperMove will launch 3 hyper casual games in Q2 of 2023</p>
