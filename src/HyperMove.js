@@ -15,6 +15,7 @@ import { RequireAuth } from "./context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LaunchpadPage from "./Pages/Launchpad";
+import PrivacyPolicyPage from "./Pages/PrivaryPolicy";
 const HyperMove = (props) => {
   return (
     <React.Fragment>
@@ -45,6 +46,8 @@ const HyperMove = (props) => {
         {/* </Route> */}
         <Route path="/tournaments/*" 
           element={<ComingSoon pageAddress="Tournaments page" />}/>
+          <Route path="/privacy-policy" 
+            element={<PrivacyPolicyPage/>}/>
          {/* element={<TournamentPage />} /> */}
       </Routes>
       <Footer />
